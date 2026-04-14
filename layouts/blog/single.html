@@ -1,0 +1,35 @@
+{{- define "main" }}
+<div class="list-page article-page">
+
+  <div class="section-label">// blog</div>
+
+  <article>
+
+    <header class="article-header">
+      <h1 class="article-title">{{ .Title }}</h1>
+      {{- if .Description }}
+      <p class="article-description">{{ .Description }}</p>
+      {{- end }}
+      <div class="article-meta">
+        <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+        {{- range .Params.tags }}
+        <span class="tag">{{ . }}</span>
+        {{- end }}
+      </div>
+    </header>
+
+    <div class="post-content article-body">
+      {{- partial "anchored_headings.html" .Content }}
+    </div>
+
+    <footer class="article-footer">
+      {{- if (.Param "ShowPostNavLinks") }}
+      {{- partial "post_nav_links.html" . }}
+      {{- end }}
+      <a class="writing-more" href="/blog/">← All posts</a>
+    </footer>
+
+  </article>
+
+</div>
+{{- end }}

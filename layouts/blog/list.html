@@ -1,0 +1,29 @@
+{{- define "main" }}
+<div class="list-page">
+
+  <div class="section-label">// blog</div>
+
+  {{- $pages := where .Site.RegularPages "Section" "blog" }}
+  {{- $pages = where $pages ".Params.draft" "ne" true }}
+
+  {{- range $pages }}
+  <div class="writing-entry">
+    <a class="writing-title" href="{{ .Permalink }}">{{ .Title }}</a>
+    {{- if .Description }}
+    <p class="writing-desc">{{ .Description }}</p>
+    {{- else if .Summary }}
+    <p class="writing-desc">{{ .Summary | truncate 200 }}</p>
+    {{- end }}
+    <div class="writing-meta">
+      <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+      {{- range first 4 .Params.tags }}
+      <span class="tag">{{ . }}</span>
+      {{- end }}
+    </div>
+  </div>
+  {{- else }}
+  <p style="color: var(--secondary); font-size: 0.9rem;">No posts yet.</p>
+  {{- end }}
+
+</div>
+{{- end }}

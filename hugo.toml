@@ -1,0 +1,45 @@
+baseURL = "https://alinbobolea.github.io/"
+title = "Nick Bobolea"
+languageCode = "en-us"
+theme = "PaperMod"
+enableRobotsTXT = true
+
+[pagination]
+  pagerSize = 5
+
+[params]
+  env = "production"
+  description = "Personal blog and project documentation for software development."
+  author = "Nick Bobolea"
+  defaultTheme = "auto"
+  mainSections = ["blog"]
+  disableSpecial1stPost = true
+
+  ShowReadingTime = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/alinbobolea"
+
+[[params.socialIcons]]
+  name = "linkedin"
+  url = "https://www.linkedin.com/in/nicolaebobolea/"
+
+[menu]
+
+  [[menu.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 10
+
+  [[menu.main]]
+    name = "Projects"
+    url = "/projects/"
+    weight = 20

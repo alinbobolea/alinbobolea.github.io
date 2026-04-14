@@ -1,0 +1,31 @@
+{{- define "main" }}
+<div class="list-page">
+
+  <div class="section-label">// projects</div>
+
+  {{- range .Params.projects }}
+  <div class="project-card">
+    <div class="project-header">
+      <span class="project-name">{{ .name }}</span>
+      {{- if eq .status "complete" }}
+      <span class="project-status status-complete">Complete</span>
+      {{- else if eq .status "dev" }}
+      <span class="project-status status-dev">In Development</span>
+      {{- end }}
+    </div>
+    <p class="project-desc">{{ .description }}</p>
+    {{- if .tags }}
+    <div class="project-tags">
+      {{- range .tags }}
+      <span class="tag">{{ . }}</span>
+      {{- end }}
+    </div>
+    {{- end }}
+    {{- if .url }}
+    <a class="project-link" href="{{ .url }}">View docs →</a>
+    {{- end }}
+  </div>
+  {{- end }}
+
+</div>
+{{- end }}
