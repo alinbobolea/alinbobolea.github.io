@@ -36,6 +36,8 @@ for project in "${!SOURCES[@]}"; do
     --exclude='.buildinfo' \
     --exclude='.buildinfo.bak' \
     --exclude='.cache' \
+    --exclude='.superpowers' \
+    --exclude='superpowers' \
     "$src/" "$dst/"
   echo "  -> $dst"
 done
