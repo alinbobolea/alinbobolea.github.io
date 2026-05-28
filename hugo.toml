@@ -43,8 +43,3 @@ enableRobotsTXT = true
     name = "Projects"
     url = "/projects/"
     weight = 20
-
-  [[menu.main]]
-    name = "Docs"
-    url = "/docs/"
-    weight = 30
