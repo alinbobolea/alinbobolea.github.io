@@ -6,6 +6,7 @@ public/
 
 # Local AI assistant scratch state
 .superpowers/
+.claude/
 
 # Private planning docs at repo root (NOT content/docs/)
 /docs/
