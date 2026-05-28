@@ -5,19 +5,26 @@
 ───────────────────────────────────────────── */
 
 /* ── Header nav alignment per page type ── */
-/* Home: full-width, shift logo/menu to align with split-main content */
-body:has(.split-layout) .header .nav {
-  max-width: none;
-  margin-inline: 0;
-  padding-left: calc(238px + 3.5rem - var(--gap));
-  padding-right: calc(3.5rem - var(--gap));
+/* PaperMod's nav element is .header-nav (not .nav). It defaults to
+   max-width: calc(--nav-width + 2*--gap) centered, which we override
+   so the logo and menu align with each page's content body. */
+
+/* Home: logo at split-main left edge (sidebar + inner pad), menu at
+   split-main right edge. Capped to match .split-main's max-width so
+   ultra-wide viewports don't push the menu past the content. */
+body:has(.split-layout) .header-nav {
+  max-width: calc(238px + 1967px);
+  margin-inline: 0 auto;
+  padding-left: calc(238px + 3.5rem);
+  padding-right: 3.5rem;
 }
 
-/* Blog list, Projects list, and single posts: match list-page width and centering */
-body:has(.list-page) .header .nav {
+/* Blog list, Projects list, and single posts: match .list-page exactly
+   (same 1710px max-width, same auto centering, same 3.5rem inner pad). */
+body:has(.list-page) .header-nav {
   max-width: 1710px;
   margin-inline: auto;
-  padding-inline: calc(3.5rem - var(--gap));
+  padding-inline: 3.5rem;
 }
 
 /* ── Break out of PaperMod's 720px container ── */
@@ -456,5 +463,13 @@ body.dark .status-dev {
 
   .list-page {
     padding: 2rem 1.5rem;
+  }
+
+  /* Header: reset desktop offsets, match mobile content padding */
+  body:has(.split-layout) .header-nav,
+  body:has(.list-page) .header-nav {
+    max-width: none;
+    margin-inline: 0;
+    padding-inline: 1.5rem;
   }
 }
