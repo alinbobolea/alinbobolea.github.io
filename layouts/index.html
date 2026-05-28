@@ -27,7 +27,7 @@
   {{/* ── RIGHT MAIN ── */}}
   <main class="split-main">
 
-    {{/* INTRO */}}
+    {{/* INTRO — full width */}}
     <section class="split-section" id="intro">
       <div class="section-label">// intro</div>
       <h1 class="intro-headline">{{ .Params.headline | markdownify }}</h1>
@@ -36,64 +36,77 @@
       </div>
     </section>
 
-    {{/* SELECTED WORK */}}
-    {{- if .Params.projects }}
-    <section class="split-section" id="selected-work">
-      <div class="section-label">// selected work</div>
-      {{- range .Params.projects }}
-      <div class="project-card">
-        <div class="project-header">
-          <span class="project-name">{{ .name }}</span>
-          {{- if eq .status "complete" }}
-          <span class="project-status status-complete">Complete</span>
-          {{- else if eq .status "dev" }}
-          <span class="project-status status-dev">In Development</span>
-          {{- end }}
-        </div>
-        <p class="project-desc">{{ .description }}</p>
-        {{- if .tags }}
-        <div class="project-tags">
-          {{- range .tags }}
-          <span class="tag">{{ . }}</span>
-          {{- end }}
-        </div>
-        {{- end }}
-        {{- if .url }}
-        <a class="project-link" href="{{ .url }}">View docs →</a>
-        {{- end }}
-      </div>
-      {{- end }}
-    </section>
-    {{- end }}
+    <div class="main-columns">
 
-    {{/* WRITING */}}
-    {{- $posts := where .Site.RegularPages "Section" "blog" }}
-    {{- $posts = where $posts ".Params.draft" "ne" true }}
-    {{- if $posts }}
-    <section class="split-section" id="writing">
-      <div class="section-label">// writing</div>
-      {{- range first 3 $posts }}
-      <div class="writing-entry">
-        <a class="writing-title" href="{{ .Permalink }}">{{ .Title }}</a>
-        {{- if .Description }}
-        <p class="writing-desc">{{ .Description }}</p>
-        {{- else if .Summary }}
-        <p class="writing-desc">{{ .Summary | truncate 160 }}</p>
-        {{- end }}
-        <div class="writing-meta">
-          <span>{{ .Date.Format "Jan 2, 2006" }}</span>
-          {{- if .Params.tags }}
-          {{- range first 3 .Params.tags }}
-          <span class="tag">{{ . }}</span>
-          {{- end }}
-          {{- end }}
-        </div>
-      </div>
-      {{- end }}
-      <a class="writing-more" href="/blog/">All posts →</a>
-    </section>
-    {{- end }}
+      {{/* ── LEFT COLUMN: work ── */}}
+      <div class="main-col main-col--work">
 
+        {{/* SELECTED WORK */}}
+        {{- if .Params.projects }}
+        <section class="split-section" id="selected-work">
+          <div class="section-label">// selected work</div>
+          {{- range .Params.projects }}
+          <div class="project-card">
+            <div class="project-header">
+              <span class="project-name">{{ .name }}</span>
+              {{- if eq .status "complete" }}
+              <span class="project-status status-complete">Complete</span>
+              {{- else if eq .status "dev" }}
+              <span class="project-status status-dev">In Development</span>
+              {{- end }}
+            </div>
+            <p class="project-desc">{{ .description }}</p>
+            {{- if .tags }}
+            <div class="project-tags">
+              {{- range .tags }}
+              <span class="tag">{{ . }}</span>
+              {{- end }}
+            </div>
+            {{- end }}
+            {{- if .url }}
+            <a class="project-link" href="{{ .url }}">View docs →</a>
+            {{- end }}
+          </div>
+          {{- end }}
+        </section>
+        {{- end }}
+
+      </div>{{/* end main-col--work */}}
+
+      {{/* ── RIGHT COLUMN: writing ── */}}
+      <div class="main-col main-col--writing">
+
+        {{/* WRITING */}}
+        {{- $posts := where .Site.RegularPages "Section" "blog" }}
+        {{- $posts = where $posts ".Params.draft" "ne" true }}
+        {{- if $posts }}
+        <section class="split-section" id="writing">
+          <div class="section-label">// writing</div>
+          {{- range first 3 $posts }}
+          <div class="writing-entry">
+            <a class="writing-title" href="{{ .Permalink }}">{{ .Title }}</a>
+            {{- if .Description }}
+            <p class="writing-desc">{{ .Description }}</p>
+            {{- else if .Summary }}
+            <p class="writing-desc">{{ .Summary | truncate 160 }}</p>
+            {{- end }}
+            <div class="writing-meta">
+              <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+              {{- if .Params.tags }}
+              {{- range first 3 .Params.tags }}
+              <span class="tag">{{ . }}</span>
+              {{- end }}
+              {{- end }}
+            </div>
+          </div>
+          {{- end }}
+          <a class="writing-more" href="/blog/">All posts →</a>
+        </section>
+        {{- end }}
+
+      </div>{{/* end main-col--writing */}}
+
+    </div>{{/* end main-columns */}}
   </main>
 
 </div>

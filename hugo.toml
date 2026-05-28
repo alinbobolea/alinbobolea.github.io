@@ -9,7 +9,7 @@ enableRobotsTXT = true
 
 [params]
   env = "production"
-  description = "Personal blog and project documentation for software development."
+  description = "Nick Bobolea — production Python tools for nuclear and environmental engineering. Reproducible simulation pipelines, deterministic engineering decision engines, and modern replacements for legacy Fortran codes."
   author = "Nick Bobolea"
   defaultTheme = "auto"
   mainSections = ["blog"]
@@ -43,3 +43,8 @@ enableRobotsTXT = true
     name = "Projects"
     url = "/projects/"
     weight = 20
+
+  [[menu.main]]
+    name = "Docs"
+    url = "/docs/"
+    weight = 30

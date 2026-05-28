@@ -1,0 +1,6 @@
+/* Center block-level images inside PaperMod's align-center figure */
+.post-content figure.align-center img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

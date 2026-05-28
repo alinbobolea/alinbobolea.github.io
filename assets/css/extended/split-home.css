@@ -194,6 +194,18 @@ body:has(.list-page) .header .nav {
   min-width: 0;
 }
 
+/* ── Two-column grid inside split-main ── */
+.main-columns {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.main-col {
+  min-width: 0;
+}
+
 /* ── Section blocks ── */
 .split-section {
   margin-bottom: 3.5rem;
@@ -336,11 +348,6 @@ body.dark .status-dev {
 }
 
 /* ── Writing entries ── */
-.split-section#writing {
-  border-top: 1px solid var(--border);
-  padding-top: 2rem;
-}
-
 .writing-entry {
   margin-bottom: 1.75rem;
 }
@@ -440,6 +447,11 @@ body.dark .status-dev {
   .split-main {
     padding: 2rem 1.5rem;
     max-width: 100%;
+  }
+
+  .main-columns {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 
   .list-page {
