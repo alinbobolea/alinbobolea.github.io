@@ -3,3 +3,17 @@ public/
 
 # Hugo build lock
 .hugo_build.lock
+
+# Local AI assistant scratch state
+.superpowers/
+
+# Private planning docs at repo root (NOT content/docs/)
+/docs/
+
+# Sphinx build artifacts that must never be served
+static/docs/**/.doctrees/
+static/docs/**/.buildinfo
+static/docs/**/.buildinfo.bak
+
+# Machine-local caches leaked from sphinx build environments
+static/docs/**/.cache/
