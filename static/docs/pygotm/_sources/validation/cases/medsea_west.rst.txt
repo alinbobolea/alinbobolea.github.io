@@ -1,0 +1,9 @@
+Medsea West Validation Report
+=============================
+
+.. raw:: html
+
+   <iframe src="../medsea_west-gotm.html"
+           style="width:100%;height:90vh;border:none;display:block;"
+           title="medsea_west validation report">
+   </iframe>

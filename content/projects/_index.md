@@ -9,27 +9,14 @@ projects:
     url: "/docs/htcie/"
 
   - name: "pyGOTM"
-    status: "dev"
-    description: "Python reimplementation of the General Ocean Turbulence Model (GOTM) using Taichi for GPU-accelerated physics. Runs on CPU or GPU (CUDA/Vulkan/Metal), reads native GOTM 6.x YAML configs, includes all 22 official validation cases. Accessible via browser UI and REST API — no Fortran compiler required."
-    tags: ["Python", "Taichi", "GPU", "ocean turbulence", "FastAPI", "NetCDF"]
-    url: ""
+    status: "complete"
+    description: "Python + Numba reimplementation of the General Ocean Turbulence Model (GOTM). Compiled single-column 1D ocean and lake physics — mean flow, turbulence closures (k-ε, k-ω, GLS, Mellor-Yamada), air-sea exchange, five ice thermodynamics models (including Winton three-layer sea ice and Holland-Jenkins ice-shelf basal melt), and FABM/pyfabm biogeochemistry coupling. Reads GOTM 6.x YAML configurations natively. Validates NetCDF output against Fortran GOTM 6.0.7 reference using a Fréchet-distance pipeline — all 22 official cases execute, default validation set (couette, channel, entrainment) passes. CLI, Python API, and warm JSON-RPC stdin/stdout daemon. No Fortran compiler required."
+    tags: ["Python", "Numba", "ocean turbulence", "NetCDF", "FABM", "validation", "scientific computing"]
+    url: "/docs/pygotm/"
 
-  - name: "NuForge"
+  - name: "pyGOTM Studio"
     status: "dev"
-    description: "Unified workflow orchestration for nuclear engineering simulations. YAML-driven pipelines for RETRAN, VIPRE-D, and RELAP5 — single-command execution with full SHA1 audit trails, HPC/SLURM batch support, and parametric study integration via Dakota."
-    tags: ["Python", "YAML", "HPC", "SLURM", "RETRAN", "RELAP5", "nuclear"]
+    description: "Local-first scientific workbench built around the pyGOTM kernel. Turns the simulation engine into a usable product: hash-pinned reproducibility manifests, a SQLite provenance DAG linking every artifact from raw data to published figure, a project bundle format (YAML + Parquet + NetCDF + Markdown) designed for Zenodo archival, and a NiceGUI browser UI with three vantage points (Operator / Modeler / Explorer). Includes a time-depth cinematic, scenario comparison, observation QC browser, YAML editor, report builder, and auto-collected citation graph. Runs entirely on-machine — no cloud account required. GPL/MIT process boundary: Studio calls the kernel via subprocess CLI and JSON-RPC, never as a linked import."
+    tags: ["Python", "NiceGUI", "FastAPI", "SQLite", "scientific computing", "provenance", "ocean modeling"]
     url: ""
-
-  - name: "DPRA"
-    status: "dev"
-    description: "Dynamic Probabilistic Risk Assessment for North Anna Units 1 & 2. Implements the full NUREG-800 Chapter 15 accident spectrum using Dynamic Event Trees (RAVEN + RELAP5-3D), time-dependent system reliability via SR2ML, and Core Damage Frequency with Birnbaum and Fussell-Vesely importance measures."
-    tags: ["Python", "RAVEN", "RELAP5-3D", "probabilistic risk", "nuclear safety"]
-    url: ""
-
-  - name: "GOTHICUI"
-    status: "dev"
-    description: "Browser-first GUI for GOTHIC containment simulation. NiceGUI-based web interface providing interactive case setup and results visualization — eliminating the command-line workflow for nuclear containment analysis."
-    tags: ["Python", "NiceGUI", "GOTHIC", "nuclear", "containment"]
-    url: ""
-
 ---

@@ -1,0 +1,9 @@
+Nns Annual Validation Report
+============================
+
+.. raw:: html
+
+   <iframe src="../nns_annual-gotm.html"
+           style="width:100%;height:90vh;border:none;display:block;"
+           title="nns_annual validation report">
+   </iframe>

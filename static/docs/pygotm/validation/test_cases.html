@@ -1,0 +1,715 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Asics Med Validation Report" href="cases/asics_med.html"><link rel="prev" title="Validation Overview" href="overview.html">
+
+    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+        <title>Test Cases - pyGOTM Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f28d94ff" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">pyGOTM Documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">pyGOTM Documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/interfaces.html">Command and Developer Surfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/stability.html">Kernel Stability Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/serve.html">Warm Daemon Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/citations.html">Citations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/configuration.html">Configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user_manual/index.html">User Manual</a><input aria-label="Toggle navigation of User Manual" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user_manual/global.html">Global Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_manual/location_time_grid.html">Location, Time, and Grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_manual/initial_conditions.html">Initial Conditions: Temperature and Salinity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_manual/surface_forcing.html">Surface Forcing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_manual/light_extinction.html">Light Extinction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_manual/turbulence.html">Turbulence Closure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_manual/dynamics.html">Dynamics: Pressure Gradients, Velocities, Waves, and Vertical Advection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_manual/equation_of_state.html">Equation of State and Bottom Boundary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_manual/output.html">Output and Restart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_manual/input_file_formats.html">Input Data File Formats</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Physics &amp; Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../physics/overview.html">Physics Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/meanflow.html">Mean Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/turbulence.html">Turbulence Closures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/airsea.html">Air–Sea Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/ice_thermodynamics.html">Ice Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/biogeochemistry.html">Biogeochemistry and FABM Coupling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/driver.html">Driver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/gotm.html">GOTM Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/meanflow.html">Mean Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/turbulence.html">Turbulence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/airsea.html">Air–Sea Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/observations.html">Observations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/util.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/input.html">Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/validation.html">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/execution.html">Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/stokes_drift.html">Stokes Drift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/fabm.html">FABM Coupling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/icethm.html">Ice Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/extras.html">Optional Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/cvmix.html">CVMix Interface</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Validation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Validation Overview</a></li>
+<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Test Cases</a><input aria-label="Toggle navigation of Test Cases" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="cases/asics_med.html">Asics Med Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/blacksea.html">Blacksea Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/channel.html">Channel Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/couette.html">Couette Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/entrainment.html">Entrainment Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/estuary.html">Estuary Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/flex.html">Flex Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/gotland.html">Gotland Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/lago_maggiore.html">Lago Maggiore Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/langmuir.html">Langmuir Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/liverpool_bay.html">Liverpool Bay Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/medsea_east.html">Medsea East Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/medsea_west.html">Medsea West Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/nns_annual.html">Nns Annual Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/nns_seasonal.html">Nns Seasonal Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/ows_papa.html">Ows Papa Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/plume.html">Plume Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/resolute.html">Resolute Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/reynolds.html">Reynolds Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/rouse.html">Rouse Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/seagrass.html">Seagrass Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/wave_breaking.html">Wave Breaking Validation Report</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/validation/test_cases.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="test-cases">
+<h1>Test Cases<a class="headerlink" href="#test-cases" title="Link to this heading">¶</a></h1>
+<p>pyGOTM is validated against the 22 official GOTM 6.0.7 test cases.  The table below summarizes the latest generated <code class="docutils literal notranslate"><span class="pre">validation/report/report.html</span></code> snapshot,
+generated at <code class="docutils literal notranslate"><span class="pre">2026-05-26T20:27:42Z</span></code>.</p>
+<p>Case status is aggregated from Frechet variable statuses:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PASS</span></code> means every compared numeric variable has status <code class="docutils literal notranslate"><span class="pre">PASS</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FAIL</span></code> means at least one compared variable is <code class="docutils literal notranslate"><span class="pre">MARGINAL</span></code>,
+<code class="docutils literal notranslate"><span class="pre">DISCREPANT</span></code>, or <code class="docutils literal notranslate"><span class="pre">BROKEN</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ERROR</span></code> means the case failed during setup, execution, or comparison
+before a complete variable table could be produced.</p></li>
+</ul>
+<p>The snapshot verdict is <code class="docutils literal notranslate"><span class="pre">PARTIAL</span> <span class="pre">PARITY</span></code>: 15 cases pass, 7 cases fail, and 0 cases error.
+Across all cases, the variable totals are 2316 <code class="docutils literal notranslate"><span class="pre">PASS</span></code>, 67 <code class="docutils literal notranslate"><span class="pre">MARGINAL</span></code>, 31 <code class="docutils literal notranslate"><span class="pre">DISCREPANT</span></code>, and 0 <code class="docutils literal notranslate"><span class="pre">BROKEN</span></code>.</p>
+<p>Each case name in the table below links to the committed full
+per-case report snapshot. If a link 404s, regenerate the reports with
+<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">run</span> <span class="pre">-n</span> <span class="pre">pygotm</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pygotm.validation.run_validation</span></code>
+and rebuild the documentation.</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17.4%" />
+<col style="width: 13.0%" />
+<col style="width: 13.0%" />
+<col style="width: 13.0%" />
+<col style="width: 13.0%" />
+<col style="width: 13.0%" />
+<col style="width: 17.4%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Case</p></th>
+<th class="head"><p>Case status</p></th>
+<th class="head"><p>PASS</p></th>
+<th class="head"><p>MARGINAL</p></th>
+<th class="head"><p>DISCREPANT</p></th>
+<th class="head"><p>BROKEN</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="cases/couette.html"><span class="doc">couette</span></a></p></td>
+<td><p>PASS</p></td>
+<td><p>100</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>Simple Couette flow.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cases/blacksea.html"><span class="doc">blacksea</span></a></p></td>
+<td><p>PASS</p></td>
+<td><p>121</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>Black Sea seasonal cycle.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cases/channel.html"><span class="doc">channel</span></a></p></td>
+<td><p>PASS</p></td>
+<td><p>100</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>Open-channel flow.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cases/entrainment.html"><span class="doc">entrainment</span></a></p></td>
+<td><p>PASS</p></td>
+<td><p>100</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>Convective entrainment.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cases/estuary.html"><span class="doc">estuary</span></a></p></td>
+<td><p>PASS</p></td>
+<td><p>100</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>Estuarine circulation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cases/flex.html"><span class="doc">flex</span></a></p></td>
+<td><p>PASS</p></td>
+<td><p>104</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>FLEX experiment.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cases/gotland.html"><span class="doc">gotland</span></a></p></td>
+<td><p>FAIL</p></td>
+<td><p>74</p></td>
+<td><p>14</p></td>
+<td><p>16</p></td>
+<td><p>0</p></td>
+<td><p>Baltic Sea Gotland Deep.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cases/lago_maggiore.html"><span class="doc">lago_maggiore</span></a></p></td>
+<td><p>PASS</p></td>
+<td><p>105</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>Alpine lake.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cases/langmuir.html"><span class="doc">langmuir</span></a></p></td>
+<td><p>FAIL</p></td>
+<td><p>111</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>Langmuir turbulence with Stokes drift.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cases/liverpool_bay.html"><span class="doc">liverpool_bay</span></a></p></td>
+<td><p>PASS</p></td>
+<td><p>105</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>Tidal mixing in Liverpool Bay.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cases/medsea_east.html"><span class="doc">medsea_east</span></a></p></td>
+<td><p>FAIL</p></td>
+<td><p>124</p></td>
+<td><p>16</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>Eastern Mediterranean.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cases/medsea_west.html"><span class="doc">medsea_west</span></a></p></td>
+<td><p>FAIL</p></td>
+<td><p>128</p></td>
+<td><p>11</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>Western Mediterranean.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cases/nns_annual.html"><span class="doc">nns_annual</span></a></p></td>
+<td><p>FAIL</p></td>
+<td><p>102</p></td>
+<td><p>7</p></td>
+<td><p>6</p></td>
+<td><p>0</p></td>
+<td><p>North Sea annual cycle.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cases/nns_seasonal.html"><span class="doc">nns_seasonal</span></a></p></td>
+<td><p>PASS</p></td>
+<td><p>105</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>North Sea seasonal cycle.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cases/ows_papa.html"><span class="doc">ows_papa</span></a></p></td>
+<td><p>FAIL</p></td>
+<td><p>111</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>Ocean Weather Station Papa.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cases/plume.html"><span class="doc">plume</span></a></p></td>
+<td><p>PASS</p></td>
+<td><p>113</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>Freshwater plume.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cases/resolute.html"><span class="doc">resolute</span></a></p></td>
+<td><p>FAIL</p></td>
+<td><p>92</p></td>
+<td><p>17</p></td>
+<td><p>6</p></td>
+<td><p>0</p></td>
+<td><p>Arctic mixing.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cases/reynolds.html"><span class="doc">reynolds</span></a></p></td>
+<td><p>PASS</p></td>
+<td><p>105</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>Reynolds number scaling.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cases/rouse.html"><span class="doc">rouse</span></a></p></td>
+<td><p>PASS</p></td>
+<td><p>108</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>Rouse sediment profile.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cases/seagrass.html"><span class="doc">seagrass</span></a></p></td>
+<td><p>PASS</p></td>
+<td><p>104</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>Seagrass canopy dynamics. See <a class="reference internal" href="#fortran-parity-deviations"><span class="std std-ref">Fortran Parity Deviations</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cases/wave_breaking.html"><span class="doc">wave_breaking</span></a></p></td>
+<td><p>PASS</p></td>
+<td><p>100</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>Wave-breaking enhanced mixing.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cases/asics_med.html"><span class="doc">asics_med</span></a></p></td>
+<td><p>PASS</p></td>
+<td><p>104</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>Mediterranean deep convection.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="indicator-summary">
+<h2>Indicator Summary<a class="headerlink" href="#indicator-summary" title="Link to this heading">¶</a></h2>
+<p>The current validation suite uses Frechet-distance indicators from
+<code class="docutils literal notranslate"><span class="pre">src/pygotm/validation</span></code>:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">d_raw</span></code></dt><dd><p>Discrete Frechet distance on aligned original values.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">d_norm</span></code></dt><dd><p>Discrete Frechet distance after section-aware dynamic linear/log
+normalization. Core PyGOTM variables use full finite ranges by default;
+non-PyGOTM variables use a wide robust range.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">d_rel</span></code></dt><dd><p><code class="docutils literal notranslate"><span class="pre">d_raw</span> <span class="pre">/</span> <span class="pre">signal_scale</span></code> for variables whose signal magnitude is below the
+configured variable floor.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">score</span></code></dt><dd><p>The status-driving value.  This is normally <code class="docutils literal notranslate"><span class="pre">d_norm</span></code> and switches to
+<code class="docutils literal notranslate"><span class="pre">d_rel</span></code> for below-floor signals.  The selected indicator is recorded in
+<code class="docutils literal notranslate"><span class="pre">metric_mode</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">peak_d_norm</span></code></dt><dd><p>Non-classifying diagnostic <code class="docutils literal notranslate"><span class="pre">d_norm</span></code> computed with full-range
+normalization and <code class="docutils literal notranslate"><span class="pre">frechet_k</span> <span class="pre">=</span> <span class="pre">400</span></code> to retain a peak-sensitive debugging
+signal.</p>
+</dd>
+</dl>
+<p>Variable status bands are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PASS</span></code> - <code class="docutils literal notranslate"><span class="pre">score</span> <span class="pre">&lt;</span> <span class="pre">0.01</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MARGINAL</span></code> - <code class="docutils literal notranslate"><span class="pre">0.01</span> <span class="pre">&lt;=</span> <span class="pre">score</span> <span class="pre">&lt;</span> <span class="pre">0.05</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DISCREPANT</span></code> - <code class="docutils literal notranslate"><span class="pre">0.05</span> <span class="pre">&lt;=</span> <span class="pre">score</span> <span class="pre">&lt;</span> <span class="pre">0.20</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BROKEN</span></code> - <code class="docutils literal notranslate"><span class="pre">score</span> <span class="pre">&gt;=</span> <span class="pre">0.20</span></code> or a structural comparison failure</p></li>
+</ul>
+<p>Variables listed in <code class="docutils literal notranslate"><span class="pre">PYGOTM_VARIABLES</span></code> are reported in the PyGOTM section.
+Other numeric variables are treated as FABM biogeochemical variables.</p>
+</section>
+<section id="fortran-parity-deviations">
+<span id="id1"></span><h2>Fortran Parity Deviations<a class="headerlink" href="#fortran-parity-deviations" title="Link to this heading">¶</a></h2>
+<p>Some pyGOTM behaviours intentionally preserve quirks in the GOTM 6.0.7
+reference path. These are validation-contract choices for the current reference
+NetCDF set; changing them changes the validation target and requires new
+reference outputs.</p>
+<section id="seagrass-init-seagrass-activation-bug">
+<h3>seagrass: <code class="docutils literal notranslate"><span class="pre">init_seagrass</span></code> activation bug<a class="headerlink" href="#seagrass-init-seagrass-activation-bug" title="Link to this heading">¶</a></h3>
+<p><strong>Affected case:</strong> <code class="docutils literal notranslate"><span class="pre">seagrass</span></code></p>
+<p><strong>Source file:</strong> <code class="docutils literal notranslate"><span class="pre">src/pygotm/extras/seagrass/seagrass.py</span></code> —
+<a class="reference internal" href="../api/extras.html#pygotm.extras.seagrass.seagrass.init_seagrass" title="pygotm.extras.seagrass.seagrass.init_seagrass"><code class="xref py py-func docutils literal notranslate"><span class="pre">init_seagrass()</span></code></a></p>
+<p>Fortran <code class="docutils literal notranslate"><span class="pre">seagrass.F90</span></code> declares module variable <code class="docutils literal notranslate"><span class="pre">method</span></code> and a separate
+local variable <code class="docutils literal notranslate"><span class="pre">i</span></code> inside <code class="docutils literal notranslate"><span class="pre">init_seagrass</span></code>. The YAML value is read into
+<code class="docutils literal notranslate"><span class="pre">method</span></code>, but the activation check uses local <code class="docutils literal notranslate"><span class="pre">i</span></code>. There is no assignment to
+<code class="docutils literal notranslate"><span class="pre">i</span></code> in the subroutine:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">call</span> <span class="n">branch</span><span class="o">%</span><span class="n">get</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="s1">&#39;method&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">.</span><span class="n">ne</span><span class="o">.</span> <span class="mi">0</span><span class="p">)</span> <span class="n">seagrass_calc</span> <span class="o">=</span> <span class="o">.</span><span class="n">true</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>pyGOTM mirrors the current reference behaviour by storing <code class="docutils literal notranslate"><span class="pre">method</span></code> but leaving
+<code class="docutils literal notranslate"><span class="pre">state.seagrass_calc</span></code> at its default <code class="docutils literal notranslate"><span class="pre">False</span></code> value in
+<a class="reference internal" href="../api/extras.html#pygotm.extras.seagrass.seagrass.init_seagrass" title="pygotm.extras.seagrass.seagrass.init_seagrass"><code class="xref py py-func docutils literal notranslate"><span class="pre">init_seagrass()</span></code></a>. Runtime construction
+then emits <code class="docutils literal notranslate"><span class="pre">seagrass_active</span> <span class="pre">=</span> <span class="pre">0</span></code> and the timestep loop does not run the
+seagrass drag path. In the current validation report, <code class="docutils literal notranslate"><span class="pre">seagrass</span></code> is <code class="docutils literal notranslate"><span class="pre">PASS</span></code>
+with 104 passing variables and no <code class="docutils literal notranslate"><span class="pre">MARGINAL</span></code>, <code class="docutils literal notranslate"><span class="pre">DISCREPANT</span></code>, or <code class="docutils literal notranslate"><span class="pre">BROKEN</span></code>
+variables.</p>
+</section>
+<section id="first-order-turbulence-step-0-cmue1-cmue2-initialisation">
+<h3>first_order turbulence: step-0 <code class="docutils literal notranslate"><span class="pre">cmue1</span></code>/<code class="docutils literal notranslate"><span class="pre">cmue2</span></code> initialisation<a class="headerlink" href="#first-order-turbulence-step-0-cmue1-cmue2-initialisation" title="Link to this heading">¶</a></h3>
+<p><strong>Affected reference cases:</strong> current <code class="docutils literal notranslate"><span class="pre">turb_method</span> <span class="pre">=</span> <span class="pre">first_order</span></code> cases:
+<code class="docutils literal notranslate"><span class="pre">seagrass</span></code> and <code class="docutils literal notranslate"><span class="pre">wave_breaking</span></code>.</p>
+<p><strong>Source files:</strong> <code class="docutils literal notranslate"><span class="pre">src/pygotm/gotm/time_loop.py</span></code> —
+<a class="reference internal" href="../api/gotm.html#pygotm.gotm.time_loop.time_loop_compiled" title="pygotm.gotm.time_loop.time_loop_compiled"><code class="xref py py-func docutils literal notranslate"><span class="pre">time_loop_compiled()</span></code></a>; and
+<code class="docutils literal notranslate"><span class="pre">src/pygotm/turbulence/compute_cpsi3.py</span></code>.</p>
+<p>Fortran <code class="docutils literal notranslate"><span class="pre">turbulence.F90</span></code> allocates <code class="docutils literal notranslate"><span class="pre">cmue1</span></code> and <code class="docutils literal notranslate"><span class="pre">cmue2</span></code> as zero-filled
+arrays. During model-parameter setup, <code class="docutils literal notranslate"><span class="pre">compute_cpsi3</span></code> can write
+stability-function probe values before the first output. In pyGOTM this
+initialisation side effect lives in <code class="docutils literal notranslate"><span class="pre">compute_cpsi3.py</span></code>: the <code class="docutils literal notranslate"><span class="pre">Constant</span></code>
+first-order stability path fills the full arrays, while the other first-order
+stability paths update only the probe level. <code class="docutils literal notranslate"><span class="pre">time_loop_compiled</span></code> therefore
+does not run the regular first-order stability-function update before the
+step-0 output.</p>
+</section>
+<section id="first-order-turbulence-kb-forwarded-to-alpha-mnb">
+<h3>first_order turbulence: <code class="docutils literal notranslate"><span class="pre">kb</span></code> forwarded to <code class="docutils literal notranslate"><span class="pre">alpha_mnb</span></code><a class="headerlink" href="#first-order-turbulence-kb-forwarded-to-alpha-mnb" title="Link to this heading">¶</a></h3>
+<p><strong>Affected reference cases:</strong> current <code class="docutils literal notranslate"><span class="pre">turb_method</span> <span class="pre">=</span> <span class="pre">first_order</span></code> cases:
+<code class="docutils literal notranslate"><span class="pre">seagrass</span></code> and <code class="docutils literal notranslate"><span class="pre">wave_breaking</span></code>.</p>
+<p><strong>Source file:</strong> <code class="docutils literal notranslate"><span class="pre">src/pygotm/gotm/time_loop.py</span></code> —
+<code class="xref py py-func docutils literal notranslate"><span class="pre">step_turbulence_first_order_single()</span></code></p>
+<p>Fortran <code class="docutils literal notranslate"><span class="pre">alpha_mnb.F90</span></code> computes <code class="docutils literal notranslate"><span class="pre">at</span></code> from <code class="docutils literal notranslate"><span class="pre">tke</span></code>, <code class="docutils literal notranslate"><span class="pre">eps</span></code>, and <code class="docutils literal notranslate"><span class="pre">kb</span></code>:
+<code class="docutils literal notranslate"><span class="pre">at(i)</span> <span class="pre">=</span> <span class="pre">tke(i)</span> <span class="pre">/</span> <span class="pre">eps(i)</span> <span class="pre">*</span> <span class="pre">kb(i)</span> <span class="pre">/</span> <span class="pre">eps(i)</span></code>. pyGOTM implements the same
+calculation in <code class="docutils literal notranslate"><span class="pre">src/pygotm/turbulence/alpha_mnb.py</span></code>. In the first-order
+compiled path, <code class="docutils literal notranslate"><span class="pre">kb</span></code> is initialised to <code class="docutils literal notranslate"><span class="pre">kb_min</span></code> and is not advanced by
+<code class="docutils literal notranslate"><span class="pre">step_turbulence_first_order_single</span></code>, but it is still passed to
+<code class="docutils literal notranslate"><span class="pre">step_alpha_mnb_single</span></code> so <code class="docutils literal notranslate"><span class="pre">at</span></code> is computed from the real <code class="docutils literal notranslate"><span class="pre">kb</span></code> array, not
+from a placeholder.</p>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="cases/asics_med.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Asics Med Validation Report</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="overview.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Validation Overview</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2026 pyGOTM contributors. Based on GOTM by Lars Umlauf, Hans Burchard, and Karsten Bolding.
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://gotm.net" aria-label="GOTM">Based on GOTM by Lars Umlauf, Hans Burchard & Karsten Bolding</a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Test Cases</a><ul>
+<li><a class="reference internal" href="#indicator-summary">Indicator Summary</a></li>
+<li><a class="reference internal" href="#fortran-parity-deviations">Fortran Parity Deviations</a><ul>
+<li><a class="reference internal" href="#seagrass-init-seagrass-activation-bug">seagrass: <code class="docutils literal notranslate"><span class="pre">init_seagrass</span></code> activation bug</a></li>
+<li><a class="reference internal" href="#first-order-turbulence-step-0-cmue1-cmue2-initialisation">first_order turbulence: step-0 <code class="docutils literal notranslate"><span class="pre">cmue1</span></code>/<code class="docutils literal notranslate"><span class="pre">cmue2</span></code> initialisation</a></li>
+<li><a class="reference internal" href="#first-order-turbulence-kb-forwarded-to-alpha-mnb">first_order turbulence: <code class="docutils literal notranslate"><span class="pre">kb</span></code> forwarded to <code class="docutils literal notranslate"><span class="pre">alpha_mnb</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    </body>
+</html>

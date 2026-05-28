@@ -1,0 +1,9 @@
+Rouse Validation Report
+=======================
+
+.. raw:: html
+
+   <iframe src="../rouse-gotm.html"
+           style="width:100%;height:90vh;border:none;display:block;"
+           title="rouse validation report">
+   </iframe>

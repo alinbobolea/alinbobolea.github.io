@@ -1,0 +1,9 @@
+Resolute Validation Report
+==========================
+
+.. raw:: html
+
+   <iframe src="../resolute-gotm.html"
+           style="width:100%;height:90vh;border:none;display:block;"
+           title="resolute validation report">
+   </iframe>

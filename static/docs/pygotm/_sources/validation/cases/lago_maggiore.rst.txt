@@ -1,0 +1,9 @@
+Lago Maggiore Validation Report
+===============================
+
+.. raw:: html
+
+   <iframe src="../lago_maggiore-gotm.html"
+           style="width:100%;height:90vh;border:none;display:block;"
+           title="lago_maggiore validation report">
+   </iframe>

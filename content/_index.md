@@ -2,7 +2,7 @@
 title: "Nick Bobolea"
 headline: "Replacing legacy simulation codes with *modern, reproducible Python* — from nuclear safety analysis to ocean turbulence modeling."
 
-bio: "I build production Python tools for nuclear and environmental engineering — replacing legacy simulation codes with reproducible, GPU-accelerated, and API-first engineering simulation pipelines."
+bio: "I build production Python tools for nuclear and environmental engineering — replacing legacy simulation codes with reproducible, accelerated runtime, and API-first engineering simulation pipelines."
 
 contactLinks:
   - label: "GitHub"
@@ -19,10 +19,15 @@ projects:
     tags: ["Python", "Pydantic", "heat transfer", "engineering", "traceability"]
     url: "/docs/htcie/"
   - name: "pyGOTM"
+    status: "complete"
+    description: "Python + Numba reimplementation of the General Ocean Turbulence Model (GOTM). Compiled single-column 1D ocean and lake physics — mean flow, turbulence closures (k-ε, k-ω, GLS, Mellor-Yamada), air-sea exchange, five ice thermodynamics models (including Winton three-layer sea ice and Holland-Jenkins ice-shelf basal melt), and FABM/pyfabm biogeochemistry coupling. Reads GOTM 6.x YAML configurations natively. Validates NetCDF output against Fortran GOTM 6.0.7 reference using a Fréchet-distance pipeline — all 22 official cases execute, default validation set (couette, channel, entrainment) passes. CLI, Python API, and warm JSON-RPC stdin/stdout daemon. No Fortran compiler required."
+    tags: ["Python", "Numba", "ocean turbulence", "NetCDF", "FABM", "validation", "scientific computing"]
+    url: "/docs/pygotm/"
+  - name: "pyGOTM Studio"
     status: "dev"
-    description: "Python reimplementation of the General Ocean Turbulence Model (GOTM) using Taichi for GPU-accelerated physics. Runs on CPU or GPU (CUDA/Vulkan/Metal), reads native GOTM 6.x YAML configs, includes all 22 official validation cases. Accessible via browser UI and REST API — no Fortran compiler required."
-    tags: ["Python", "Taichi", "GPU", "ocean turbulence", "FastAPI", "NetCDF"]
+    description: "Local-first scientific workbench built around the pyGOTM kernel. Turns the simulation engine into a usable product: hash-pinned reproducibility manifests, a SQLite provenance DAG linking every artifact from raw data to published figure, a project bundle format (YAML + Parquet + NetCDF + Markdown) designed for Zenodo archival, and a NiceGUI browser UI with three vantage points (Operator / Modeler / Explorer). Includes a time-depth cinematic, scenario comparison, observation QC browser, YAML editor, report builder, and auto-collected citation graph. Runs entirely on-machine — no cloud account required. GPL/MIT process boundary: Studio calls the kernel via subprocess CLI and JSON-RPC, never as a linked import."
+    tags: ["Python", "NiceGUI", "FastAPI", "SQLite", "scientific computing", "provenance", "ocean modeling"]
     url: ""
 ---
 
-My work focuses on nuclear and environmental engineering software: GPU-accelerated physics simulation, deterministic decision engines for engineering calculations, and engineering simulation pipelines. Everything is built for auditability, numerical fidelity, and reproducibility.
+My work focuses on nuclear and environmental engineering software: accelerated physics simulation, deterministic decision engines for engineering calculations, and engineering simulation pipelines. Everything is built for auditability, numerical fidelity, and reproducibility.

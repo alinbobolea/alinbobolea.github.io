@@ -1,0 +1,9 @@
+Plume Validation Report
+=======================
+
+.. raw:: html
+
+   <iframe src="../plume-gotm.html"
+           style="width:100%;height:90vh;border:none;display:block;"
+           title="plume validation report">
+   </iframe>

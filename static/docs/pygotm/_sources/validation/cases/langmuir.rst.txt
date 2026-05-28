@@ -1,0 +1,9 @@
+Langmuir Validation Report
+==========================
+
+.. raw:: html
+
+   <iframe src="../langmuir-gotm.html"
+           style="width:100%;height:90vh;border:none;display:block;"
+           title="langmuir validation report">
+   </iframe>

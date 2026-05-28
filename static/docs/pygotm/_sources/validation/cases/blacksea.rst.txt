@@ -1,0 +1,9 @@
+Blacksea Validation Report
+==========================
+
+.. raw:: html
+
+   <iframe src="../blacksea-gotm.html"
+           style="width:100%;height:90vh;border:none;display:block;"
+           title="blacksea validation report">
+   </iframe>

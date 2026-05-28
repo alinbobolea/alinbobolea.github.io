@@ -1,0 +1,9 @@
+Asics Med Validation Report
+===========================
+
+.. raw:: html
+
+   <iframe src="../asics_med-gotm.html"
+           style="width:100%;height:90vh;border:none;display:block;"
+           title="asics_med validation report">
+   </iframe>

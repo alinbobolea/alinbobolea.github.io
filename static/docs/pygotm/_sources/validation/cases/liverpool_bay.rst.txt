@@ -1,0 +1,9 @@
+Liverpool Bay Validation Report
+===============================
+
+.. raw:: html
+
+   <iframe src="../liverpool_bay-gotm.html"
+           style="width:100%;height:90vh;border:none;display:block;"
+           title="liverpool_bay validation report">
+   </iframe>

@@ -1,0 +1,9 @@
+Ows Papa Validation Report
+==========================
+
+.. raw:: html
+
+   <iframe src="../ows_papa-gotm.html"
+           style="width:100%;height:90vh;border:none;display:block;"
+           title="ows_papa validation report">
+   </iframe>

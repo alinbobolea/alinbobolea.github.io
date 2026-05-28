@@ -1,0 +1,9 @@
+Nns Seasonal Validation Report
+==============================
+
+.. raw:: html
+
+   <iframe src="../nns_seasonal-gotm.html"
+           style="width:100%;height:90vh;border:none;display:block;"
+           title="nns_seasonal validation report">
+   </iframe>
