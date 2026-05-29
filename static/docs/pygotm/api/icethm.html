@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Optional Extensions" href="extras.html"><link rel="prev" title="FABM Coupling" href="fabm.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
         <title>Ice Thermodynamics - pyGOTM Documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
@@ -432,44 +432,44 @@ of each model.</p>
 <p>Configuration parameters for ice thermodynamics models.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="pygotm.icethm.params.IceModelEnum">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pygotm.icethm.params.</span></span><span class="sig-name descname"><span class="pre">IceModelEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygotm/icethm/params.html#IceModelEnum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygotm.icethm.params.IceModelEnum" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygotm.icethm.params.</span></span><span class="sig-name descname"><span class="pre">IceModelEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygotm/icethm/params.html#IceModelEnum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygotm.icethm.params.IceModelEnum" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></a></p>
 <p>Stable integer identifiers for Numba dispatch.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.params.IceModelEnum.NO_ICE">
-<span class="sig-name descname"><span class="pre">NO_ICE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></span><a class="headerlink" href="#pygotm.icethm.params.IceModelEnum.NO_ICE" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">NO_ICE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pygotm.icethm.params.IceModelEnum.NO_ICE" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.params.IceModelEnum.SIMPLE">
-<span class="sig-name descname"><span class="pre">SIMPLE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></span><a class="headerlink" href="#pygotm.icethm.params.IceModelEnum.SIMPLE" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">SIMPLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pygotm.icethm.params.IceModelEnum.SIMPLE" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.params.IceModelEnum.BASAL_MELT">
-<span class="sig-name descname"><span class="pre">BASAL_MELT</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></span><a class="headerlink" href="#pygotm.icethm.params.IceModelEnum.BASAL_MELT" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BASAL_MELT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pygotm.icethm.params.IceModelEnum.BASAL_MELT" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.params.IceModelEnum.LEBEDEV">
-<span class="sig-name descname"><span class="pre">LEBEDEV</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></span><a class="headerlink" href="#pygotm.icethm.params.IceModelEnum.LEBEDEV" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">LEBEDEV</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#pygotm.icethm.params.IceModelEnum.LEBEDEV" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.params.IceModelEnum.MYLAKE">
-<span class="sig-name descname"><span class="pre">MYLAKE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></span><a class="headerlink" href="#pygotm.icethm.params.IceModelEnum.MYLAKE" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">MYLAKE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#pygotm.icethm.params.IceModelEnum.MYLAKE" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.params.IceModelEnum.WINTON">
-<span class="sig-name descname"><span class="pre">WINTON</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></span><a class="headerlink" href="#pygotm.icethm.params.IceModelEnum.WINTON" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">WINTON</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#pygotm.icethm.params.IceModelEnum.WINTON" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pygotm.icethm.params.IceParams">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pygotm.icethm.params.</span></span><span class="sig-name descname"><span class="pre">IceParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Hice_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Hsnow_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ocean_ice_flux_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygotm/icethm/params.html#IceParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygotm.icethm.params.IceParams" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygotm.icethm.params.</span></span><span class="sig-name descname"><span class="pre">IceParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Hice_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Hsnow_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ocean_ice_flux_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygotm/icethm/params.html#IceParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygotm.icethm.params.IceParams" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Immutable scalar parameters used to initialize and dispatch ice models.</p>
 <dl class="field-list simple">
@@ -484,22 +484,22 @@ of each model.</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.params.IceParams.model">
-<span class="sig-name descname"><span class="pre">model</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#pygotm.icethm.params.IceModelEnum" title="pygotm.icethm.params.IceModelEnum"><span class="pre">IceModelEnum</span></a></span><a class="headerlink" href="#pygotm.icethm.params.IceParams.model" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#pygotm.icethm.params.IceModelEnum" title="pygotm.icethm.params.IceModelEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">IceModelEnum</span></code></a></em><a class="headerlink" href="#pygotm.icethm.params.IceParams.model" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.params.IceParams.Hice_init">
-<span class="sig-name descname"><span class="pre">Hice_init</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></span><a class="headerlink" href="#pygotm.icethm.params.IceParams.Hice_init" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Hice_init</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#pygotm.icethm.params.IceParams.Hice_init" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.params.IceParams.Hsnow_init">
-<span class="sig-name descname"><span class="pre">Hsnow_init</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></span><a class="headerlink" href="#pygotm.icethm.params.IceParams.Hsnow_init" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Hsnow_init</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#pygotm.icethm.params.IceParams.Hsnow_init" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.params.IceParams.ocean_ice_flux_init">
-<span class="sig-name descname"><span class="pre">ocean_ice_flux_init</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></span><a class="headerlink" href="#pygotm.icethm.params.IceParams.ocean_ice_flux_init" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">ocean_ice_flux_init</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#pygotm.icethm.params.IceParams.ocean_ice_flux_init" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -565,7 +565,7 @@ state. This mirrors the rest of pyGOTM’s compiled runtime style while keeping
 all simulation state explicit and serializable from YAML-derived parameters.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="pygotm.icethm.state.IceState">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pygotm.icethm.state.</span></span><span class="sig-name descname"><span class="pre">IceState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Hice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Hsnow</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Hfrazil</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tice_surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fdd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ice_cover</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">albedo_ice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transmissivity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ocean_ice_flux</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ocean_ice_heat_flux</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ocean_ice_salt_flux</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface_ice_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom_ice_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">melt_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_melt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S_melt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygotm/icethm/state.html#IceState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygotm.icethm.state.IceState" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygotm.icethm.state.</span></span><span class="sig-name descname"><span class="pre">IceState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Hice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Hsnow</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Hfrazil</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tice_surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fdd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ice_cover</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">albedo_ice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transmissivity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ocean_ice_flux</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ocean_ice_heat_flux</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ocean_ice_salt_flux</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface_ice_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom_ice_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">melt_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T_melt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S_melt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygotm/icethm/state.html#IceState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygotm.icethm.state.IceState" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Container for mutable scalar ice state arrays.</p>
 <dl class="field-list simple">
@@ -595,97 +595,97 @@ all simulation state explicit and serializable from YAML-derived parameters.</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.state.IceState.Hice">
-<span class="sig-name descname"><span class="pre">Hice</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#pygotm.icethm.state.IceState.Hice" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Hice</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></em><a class="headerlink" href="#pygotm.icethm.state.IceState.Hice" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.state.IceState.Hsnow">
-<span class="sig-name descname"><span class="pre">Hsnow</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#pygotm.icethm.state.IceState.Hsnow" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Hsnow</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></em><a class="headerlink" href="#pygotm.icethm.state.IceState.Hsnow" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.state.IceState.Hfrazil">
-<span class="sig-name descname"><span class="pre">Hfrazil</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#pygotm.icethm.state.IceState.Hfrazil" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Hfrazil</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></em><a class="headerlink" href="#pygotm.icethm.state.IceState.Hfrazil" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.state.IceState.T1">
-<span class="sig-name descname"><span class="pre">T1</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#pygotm.icethm.state.IceState.T1" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">T1</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></em><a class="headerlink" href="#pygotm.icethm.state.IceState.T1" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.state.IceState.T2">
-<span class="sig-name descname"><span class="pre">T2</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#pygotm.icethm.state.IceState.T2" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">T2</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></em><a class="headerlink" href="#pygotm.icethm.state.IceState.T2" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.state.IceState.Tice_surface">
-<span class="sig-name descname"><span class="pre">Tice_surface</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#pygotm.icethm.state.IceState.Tice_surface" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Tice_surface</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></em><a class="headerlink" href="#pygotm.icethm.state.IceState.Tice_surface" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.state.IceState.fdd">
-<span class="sig-name descname"><span class="pre">fdd</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#pygotm.icethm.state.IceState.fdd" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">fdd</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></em><a class="headerlink" href="#pygotm.icethm.state.IceState.fdd" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.state.IceState.ice_cover">
-<span class="sig-name descname"><span class="pre">ice_cover</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#pygotm.icethm.state.IceState.ice_cover" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">ice_cover</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></em><a class="headerlink" href="#pygotm.icethm.state.IceState.ice_cover" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.state.IceState.Tf">
-<span class="sig-name descname"><span class="pre">Tf</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#pygotm.icethm.state.IceState.Tf" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Tf</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></em><a class="headerlink" href="#pygotm.icethm.state.IceState.Tf" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.state.IceState.albedo_ice">
-<span class="sig-name descname"><span class="pre">albedo_ice</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#pygotm.icethm.state.IceState.albedo_ice" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">albedo_ice</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></em><a class="headerlink" href="#pygotm.icethm.state.IceState.albedo_ice" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.state.IceState.transmissivity">
-<span class="sig-name descname"><span class="pre">transmissivity</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#pygotm.icethm.state.IceState.transmissivity" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">transmissivity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></em><a class="headerlink" href="#pygotm.icethm.state.IceState.transmissivity" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.state.IceState.ocean_ice_flux">
-<span class="sig-name descname"><span class="pre">ocean_ice_flux</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#pygotm.icethm.state.IceState.ocean_ice_flux" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">ocean_ice_flux</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></em><a class="headerlink" href="#pygotm.icethm.state.IceState.ocean_ice_flux" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.state.IceState.ocean_ice_heat_flux">
-<span class="sig-name descname"><span class="pre">ocean_ice_heat_flux</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#pygotm.icethm.state.IceState.ocean_ice_heat_flux" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">ocean_ice_heat_flux</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></em><a class="headerlink" href="#pygotm.icethm.state.IceState.ocean_ice_heat_flux" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.state.IceState.ocean_ice_salt_flux">
-<span class="sig-name descname"><span class="pre">ocean_ice_salt_flux</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#pygotm.icethm.state.IceState.ocean_ice_salt_flux" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">ocean_ice_salt_flux</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></em><a class="headerlink" href="#pygotm.icethm.state.IceState.ocean_ice_salt_flux" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.state.IceState.surface_ice_energy">
-<span class="sig-name descname"><span class="pre">surface_ice_energy</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#pygotm.icethm.state.IceState.surface_ice_energy" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">surface_ice_energy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></em><a class="headerlink" href="#pygotm.icethm.state.IceState.surface_ice_energy" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.state.IceState.bottom_ice_energy">
-<span class="sig-name descname"><span class="pre">bottom_ice_energy</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#pygotm.icethm.state.IceState.bottom_ice_energy" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">bottom_ice_energy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></em><a class="headerlink" href="#pygotm.icethm.state.IceState.bottom_ice_energy" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.state.IceState.melt_rate">
-<span class="sig-name descname"><span class="pre">melt_rate</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#pygotm.icethm.state.IceState.melt_rate" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">melt_rate</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></em><a class="headerlink" href="#pygotm.icethm.state.IceState.melt_rate" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.state.IceState.T_melt">
-<span class="sig-name descname"><span class="pre">T_melt</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#pygotm.icethm.state.IceState.T_melt" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">T_melt</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></em><a class="headerlink" href="#pygotm.icethm.state.IceState.T_melt" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pygotm.icethm.state.IceState.S_melt">
-<span class="sig-name descname"><span class="pre">S_melt</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#pygotm.icethm.state.IceState.S_melt" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">S_melt</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></em><a class="headerlink" href="#pygotm.icethm.state.IceState.S_melt" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1237,8 +1237,8 @@ term and the lower layer has fixed heat capacity.</p>
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=01f34227"></script>
-    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>

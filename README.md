@@ -8,16 +8,15 @@ Production site: **https://alinbobolea.github.io/**
 
 ## Site Structure
 
-The homepage is a consolidated split-identity layout combining what was previously three separate pages (Home, About, Contact) into one. Navigation has three items:
+The homepage is a consolidated split-identity layout combining what was previously three separate pages (Home, About, Contact) into one. Navigation has two items:
 
 | Section | Path | Description |
 |---|---|---|
 | **Homepage** | `/` | Identity (name, bio, contact) + selected projects + recent writing |
 | **Blog** | `/blog/` | Technical articles, essays, notes |
 | **Projects** | `/projects/` | Project index |
-| **Docs** | `/docs/` | Reference documentation (includes pre-built htcie docs at `/docs/htcie/`) |
 
-There are no standalone About or Contact pages — those are sections of the homepage.
+There are no standalone About or Contact pages — those are sections of the homepage. Project reference documentation is served directly from `static/docs/<project>/` (currently `/docs/htcie/` and `/docs/pygotm/`); there is no Hugo-rendered `/docs/` landing page.
 
 ---
 
@@ -129,8 +128,8 @@ Edit `projects:` in `content/_index.md`. Fields:
 - `tags` — list of tech/keyword tags
 - `url` — internal link (leave empty string if no docs yet)
 
-### Add a docs page
-Create under `content/docs/`. The pre-built htcie docs at `static/docs/htcie/` are served as static files and do not go through Hugo's content pipeline.
+### Add or refresh project documentation
+Project docs are pre-built Sphinx HTML trees served as static files (no Hugo content pipeline). To refresh them, run `scripts/sync-docs.sh` — it rsyncs each project's `docs/build/html` into `static/docs/<project>/`, excluding sphinx artifacts (`.doctrees`, `.buildinfo`, `.cache`) and any `superpowers` planning material.
 
 ---
 

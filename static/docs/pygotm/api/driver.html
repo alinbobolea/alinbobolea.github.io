@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Configuration" href="config.html"><link rel="prev" title="Biogeochemistry and FABM Coupling" href="../physics/biogeochemistry.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
         <title>Driver - pyGOTM Documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
@@ -322,12 +322,12 @@ returns the output as an <a class="reference external" href="https://docs.xarray
 <p id="module-pygotm.driver">Single-column driver facade for the translated pyGOTM stack.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="pygotm.driver.GotmDriver">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pygotm.driver.</span></span><span class="sig-name descname"><span class="pre">GotmDriver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygotm/driver.html#GotmDriver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygotm.driver.GotmDriver" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygotm.driver.</span></span><span class="sig-name descname"><span class="pre">GotmDriver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygotm/driver.html#GotmDriver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygotm.driver.GotmDriver" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Run the current single-column pyGOTM stack and emit xarray output.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>config</strong> (<a class="reference internal" href="config.html#pygotm.config.ConfigLike" title="pygotm.config.ConfigLike"><em>ConfigLike</em></a>)</p>
+<dd class="field-odd"><p><strong>config</strong> (<em>ConfigLike</em>)</p>
 </dd>
 </dl>
 <dl class="py method">
@@ -351,7 +351,7 @@ returns the output as an <a class="reference external" href="https://docs.xarray
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygotm.driver.GotmDriver.write_dataset">
-<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">write_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygotm/driver.html#GotmDriver.write_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygotm.driver.GotmDriver.write_dataset" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygotm/driver.html#GotmDriver.write_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygotm.driver.GotmDriver.write_dataset" title="Link to this definition">¶</a></dt>
 <dd><p>Write <em>dataset</em> to a NetCDF file.</p>
 <p>Floating-point data variables are written as <code class="docutils literal notranslate"><span class="pre">float32</span></code> to match the
 single-precision convention used by the Fortran GOTM NetCDF output.
@@ -452,8 +452,8 @@ produce spurious shape disagreements in the normalized comparison.</p>
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=01f34227"></script>
-    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>

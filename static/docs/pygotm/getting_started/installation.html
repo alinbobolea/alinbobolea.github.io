@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Quickstart" href="quickstart.html"><link rel="prev" title="Introduction" href="introduction.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
         <title>Installation - pyGOTM Documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
@@ -344,17 +344,23 @@ conda<span class="w"> </span>run<span class="w"> </span>-n<span class="w"> </spa
 <section id="environment-contents-and-boundaries">
 <h2>Environment Contents and Boundaries<a class="headerlink" href="#environment-contents-and-boundaries" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pygotm-conda-env.yml</span></code> is the authoritative conda environment definition for
-local development, validation, documentation, and integration work.  It
-currently includes:</p>
+local development, validation, documentation, and integration work.  It is a
+deliberate superset covering both pyGOTM kernel and pyGOTM Studio runtime
+dependencies. It currently includes:</p>
 <ul class="simple">
 <li><p>Python 3.12 and the core scientific stack: Numba, NumPy, SciPy, xarray,
 NetCDF4, PyYAML, pandas, Pydantic, Click, GSW, and pyfabm.</p></li>
 <li><p>Dask and distributed for multi-case validation orchestration.</p></li>
 <li><p>pybtex for citation parsing, Matplotlib for documentation figures, and
 Plotly for embedded Frechet validation report plots.</p></li>
+<li><p>pyGOTM Studio runtime: FastAPI, Uvicorn, WebSockets, python-dotenv,
+NiceGUI, Jinja2, markdown-it-py, httpx, rich, cmocean, and WeasyPrint.
+Studio deps are declared here so the single <code class="docutils literal notranslate"><span class="pre">pygotm</span></code> conda environment
+covers both the kernel and the studio application layer.</p></li>
 <li><p>Developer and documentation tools: pytest, anyio, Ruff, mypy, PyYAML type
-stubs, pre-commit, hatch, Sphinx, Furo, MyST, MyST-NB, copybutton, and
-Mermaid.</p></li>
+stubs, pre-commit, hatch, reuse (REUSE/SPDX licensing compliance),
+import-linter (kernel–studio boundary contract), Sphinx 8.x, Furo,
+MyST, MyST-NB, copybutton, and Mermaid.</p></li>
 </ul>
 <p>FABM support depends on <code class="docutils literal notranslate"><span class="pre">pyfabm</span></code> from conda-forge. pyGOTM does not publish a
 <code class="docutils literal notranslate"><span class="pre">pygotm[fabm]</span></code> pip extra because current FABM-capable <code class="docutils literal notranslate"><span class="pre">pyfabm</span></code> builds are
@@ -530,8 +536,8 @@ metadata.</p>
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=01f34227"></script>
-    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
