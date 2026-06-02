@@ -365,6 +365,28 @@ active.  If not supplied, the default <code class="docutils literal notranslate"
 <p>The coupling is completely optional.  If <code class="docutils literal notranslate"><span class="pre">fabm.use:</span> <span class="pre">false</span></code> (the default),
 the physics-only compiled Numba loop runs unchanged and pyfabm is never
 imported.</p>
+<section id="fabm-output-variables">
+<h3>FABM output variables<a class="headerlink" href="#fabm-output-variables" title="Link to this heading">¶</a></h3>
+<p>When FABM is active, pyGOTM discovers output variables directly from the
+instantiated <code class="docutils literal notranslate"><span class="pre">pyfabm.Model</span></code>.  Every FABM state variable is written to the
+NetCDF result, and every pyfabm diagnostic whose <code class="docutils literal notranslate"><span class="pre">output</span></code> flag is enabled is
+written as well.  Names use FABM’s <code class="docutils literal notranslate"><span class="pre">output_name</span></code> metadata, so slashes in model
+paths are normalized to underscores.  For example, <code class="docutils literal notranslate"><span class="pre">gotm/npzd</span></code> variables are
+reported as <code class="docutils literal notranslate"><span class="pre">npzd_phy</span></code> and <code class="docutils literal notranslate"><span class="pre">npzd_PAR</span></code>, and <code class="docutils literal notranslate"><span class="pre">bb/passive</span></code> configured as
+<code class="docutils literal notranslate"><span class="pre">sed/c</span></code> is reported as <code class="docutils literal notranslate"><span class="pre">sed_c</span></code>.</p>
+<p>Interior state variables and interior diagnostics are written as
+<code class="docutils literal notranslate"><span class="pre">(time,</span> <span class="pre">z,</span> <span class="pre">lat,</span> <span class="pre">lon)</span></code> profiles.  Surface state, bottom state, and horizontal
+diagnostics are written as <code class="docutils literal notranslate"><span class="pre">(time,</span> <span class="pre">lat,</span> <span class="pre">lon)</span></code> scalar fields.  pyGOTM attaches
+the FABM <code class="docutils literal notranslate"><span class="pre">units</span></code> and <code class="docutils literal notranslate"><span class="pre">long_name</span></code> metadata to each emitted NetCDF variable,
+which makes the output schema and downstream integrations model-agnostic.</p>
+<p>The host feedback placeholders <code class="docutils literal notranslate"><span class="pre">surface_albedo</span></code>,
+<code class="docutils literal notranslate"><span class="pre">surface_drag_coefficient_in_air</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">attenuation_coefficient_of_photosynthetic_radiative_flux</span></code> remain present for
+FABM-active runs for compatibility with existing validation reports.  They are
+separate from the model-discovered FABM namespace.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">pygotm</span> <span class="pre">schema</span> <span class="pre">output</span> <span class="pre">--config</span> <span class="pre">path/to/gotm.yaml</span> <span class="pre">--json</span></code> to inspect the
+exact dynamic output surface before running a FABM-active configuration.</p>
+</section>
 <section id="installation-boundary">
 <h3>Installation Boundary<a class="headerlink" href="#installation-boundary" title="Link to this heading">¶</a></h3>
 <p>FABM coupling requires <code class="docutils literal notranslate"><span class="pre">pyfabm</span></code> from conda-forge. The project conda
@@ -699,6 +721,12 @@ physics timestep.  The last column (index <code class="docutils literal notransl
 value.</p>
 <p>If the final chunk is smaller than the default chunk size, the buffers are
 reallocated to the smaller size so no stale data is used.</p>
+<p>FABM NetCDF output buffers are allocated after <code class="docutils literal notranslate"><span class="pre">pyfabm.Model</span></code> has been
+instantiated, because only the live model knows its state and diagnostic output
+names.  Memory for those buffers scales as
+<span class="math notranslate nohighlight">\(O(N_\mathrm{vars} N_\mathrm{out} N_\mathrm{lev})\)</span> for interior variables
+and <span class="math notranslate nohighlight">\(O(N_\mathrm{vars} N_\mathrm{out})\)</span> for horizontal variables.  Physics-
+only runs allocate no FABM output buffers.</p>
 </section>
 <section id="see-also">
 <h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h2>
@@ -771,6 +799,7 @@ reallocated to the smaller size so no stale data is used.</p>
 <li><a class="reference internal" href="#">Biogeochemistry and FABM Coupling</a><ul>
 <li><a class="reference internal" href="#what-is-fabm">What is FABM?</a></li>
 <li><a class="reference internal" href="#enabling-fabm-in-pygotm">Enabling FABM in pyGOTM</a><ul>
+<li><a class="reference internal" href="#fabm-output-variables">FABM output variables</a></li>
 <li><a class="reference internal" href="#installation-boundary">Installation Boundary</a></li>
 </ul>
 </li>

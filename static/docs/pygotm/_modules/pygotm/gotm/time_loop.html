@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
         <title>pygotm.gotm.time_loop - pyGOTM Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
@@ -197,6 +197,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/interfaces.html">Command and Developer Surfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/stability.html">Kernel Stability Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/serve.html">Warm Daemon Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/citations.html">Citations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/configuration.html">Configuration</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
@@ -3054,12 +3057,12 @@
     <span class="k">return</span> <span class="o">-</span><span class="mf">0.0575</span> <span class="o">*</span> <span class="n">salinity</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">_populate_simple_ice_reference_scalars</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_populate_simple_ice_extra_scalars</span><span class="p">(</span>
     <span class="n">params</span><span class="p">:</span> <span class="n">RuntimeParams</span><span class="p">,</span>
     <span class="n">output</span><span class="p">:</span> <span class="n">RuntimeOutput</span><span class="p">,</span>
     <span class="n">written</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">tf</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">reference_scalars</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Tf&quot;</span><span class="p">)</span>
+    <span class="n">tf</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">extra_scalars</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Tf&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">tf</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">written</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span>
 
@@ -3072,11 +3075,11 @@
         <span class="n">tf</span><span class="p">[</span><span class="n">slot</span><span class="p">]</span> <span class="o">=</span> <span class="n">tf_constant</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">_populate_observation_reference_profiles</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_populate_observation_extra_profiles</span><span class="p">(</span>
     <span class="n">forcing</span><span class="p">:</span> <span class="n">RuntimeForcing</span><span class="p">,</span>
     <span class="n">output</span><span class="p">:</span> <span class="n">RuntimeOutput</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">eps_obs</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">reference_z_profiles</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;eps_obs&quot;</span><span class="p">)</span>
+    <span class="n">eps_obs</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">extra_z_profiles</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;eps_obs&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">eps_obs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span>
 
@@ -3599,17 +3602,17 @@
             <span class="n">output</span><span class="o">.</span><span class="n">nucl</span><span class="p">,</span>
             <span class="n">output</span><span class="o">.</span><span class="n">z</span><span class="p">,</span>
             <span class="n">output</span><span class="o">.</span><span class="n">zi</span><span class="p">,</span>
-            <span class="n">output</span><span class="o">.</span><span class="n">reference_scalars</span><span class="p">[</span><span class="s2">&quot;Hfrazil&quot;</span><span class="p">],</span>
-            <span class="n">output</span><span class="o">.</span><span class="n">reference_scalars</span><span class="p">[</span><span class="s2">&quot;Hice&quot;</span><span class="p">],</span>
-            <span class="n">output</span><span class="o">.</span><span class="n">reference_scalars</span><span class="p">[</span><span class="s2">&quot;T1&quot;</span><span class="p">],</span>
-            <span class="n">output</span><span class="o">.</span><span class="n">reference_scalars</span><span class="p">[</span><span class="s2">&quot;T2&quot;</span><span class="p">],</span>
-            <span class="n">output</span><span class="o">.</span><span class="n">reference_scalars</span><span class="p">[</span><span class="s2">&quot;Tf&quot;</span><span class="p">],</span>
-            <span class="n">output</span><span class="o">.</span><span class="n">reference_scalars</span><span class="p">[</span><span class="s2">&quot;Tice_surface&quot;</span><span class="p">],</span>
-            <span class="n">output</span><span class="o">.</span><span class="n">reference_scalars</span><span class="p">[</span><span class="s2">&quot;bottom_ice_energy&quot;</span><span class="p">],</span>
-            <span class="n">output</span><span class="o">.</span><span class="n">reference_scalars</span><span class="p">[</span><span class="s2">&quot;ocean_ice_flux&quot;</span><span class="p">],</span>
-            <span class="n">output</span><span class="o">.</span><span class="n">reference_scalars</span><span class="p">[</span><span class="s2">&quot;ocean_ice_heat_flux&quot;</span><span class="p">],</span>
-            <span class="n">output</span><span class="o">.</span><span class="n">reference_scalars</span><span class="p">[</span><span class="s2">&quot;ocean_ice_salt_flux&quot;</span><span class="p">],</span>
-            <span class="n">output</span><span class="o">.</span><span class="n">reference_scalars</span><span class="p">[</span><span class="s2">&quot;surface_ice_energy&quot;</span><span class="p">],</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">extra_scalars</span><span class="p">[</span><span class="s2">&quot;Hfrazil&quot;</span><span class="p">],</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">extra_scalars</span><span class="p">[</span><span class="s2">&quot;Hice&quot;</span><span class="p">],</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">extra_scalars</span><span class="p">[</span><span class="s2">&quot;T1&quot;</span><span class="p">],</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">extra_scalars</span><span class="p">[</span><span class="s2">&quot;T2&quot;</span><span class="p">],</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">extra_scalars</span><span class="p">[</span><span class="s2">&quot;Tf&quot;</span><span class="p">],</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">extra_scalars</span><span class="p">[</span><span class="s2">&quot;Tice_surface&quot;</span><span class="p">],</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">extra_scalars</span><span class="p">[</span><span class="s2">&quot;bottom_ice_energy&quot;</span><span class="p">],</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">extra_scalars</span><span class="p">[</span><span class="s2">&quot;ocean_ice_flux&quot;</span><span class="p">],</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">extra_scalars</span><span class="p">[</span><span class="s2">&quot;ocean_ice_heat_flux&quot;</span><span class="p">],</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">extra_scalars</span><span class="p">[</span><span class="s2">&quot;ocean_ice_salt_flux&quot;</span><span class="p">],</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">extra_scalars</span><span class="p">[</span><span class="s2">&quot;surface_ice_energy&quot;</span><span class="p">],</span>
             <span class="n">step_offset</span><span class="p">,</span>
             <span class="n">out_slot_base</span><span class="p">,</span>
             <span class="n">write_ic</span><span class="p">,</span>
@@ -3629,9 +3632,9 @@
         <span class="p">)</span>
     <span class="p">)</span>
     <span class="k">if</span> <span class="n">written</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">params</span><span class="o">.</span><span class="n">ice_model</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">_populate_simple_ice_reference_scalars</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">written</span><span class="p">)</span>
+        <span class="n">_populate_simple_ice_extra_scalars</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">written</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">written</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">_populate_observation_reference_profiles</span><span class="p">(</span><span class="n">forcing</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+        <span class="n">_populate_observation_extra_profiles</span><span class="p">(</span><span class="n">forcing</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">written</span></div>
 
 
@@ -5997,8 +6000,8 @@
     </aside>
   </div>
 </div><script src="../../../_static/documentation_options.js?v=01f34227"></script>
-    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>

@@ -4,13 +4,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
         <title>pygotm.gotm.runtime_output - pyGOTM Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=23f90c4b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=f28d94ff" />
     
     
 
@@ -196,6 +196,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/interfaces.html">Command and Developer Surfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/stability.html">Kernel Stability Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/serve.html">Warm Daemon Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/citations.html">Citations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/configuration.html">Configuration</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
@@ -210,6 +214,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../user_manual/dynamics.html">Dynamics: Pressure Gradients, Velocities, Waves, and Vertical Advection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../user_manual/equation_of_state.html">Equation of State and Bottom Boundary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../user_manual/output.html">Output and Restart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../user_manual/input_file_formats.html">Input Data File Formats</a></li>
 </ul>
 </li>
 </ul>
@@ -219,6 +224,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../physics/meanflow.html">Mean Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../physics/turbulence.html">Turbulence Closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../physics/airsea.html">Air–Sea Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/ice_thermodynamics.html">Ice Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/biogeochemistry.html">Biogeochemistry and FABM Coupling</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -232,15 +239,41 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/input.html">Input</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/validation.html">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/execution.html">Execution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/stokes_drift.html">Stokes Drift</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/fabm.html">FABM Coupling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/icethm.html">Ice Thermodynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/extras.html">Optional Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/cvmix.html">CVMix Interface</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Validation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../validation/overview.html">Validation Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../validation/test_cases.html">Test Cases</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../validation/test_cases.html">Test Cases</a><input aria-label="Toggle navigation of Test Cases" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/asics_med.html">Asics Med Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/blacksea.html">Blacksea Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/channel.html">Channel Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/couette.html">Couette Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/entrainment.html">Entrainment Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/estuary.html">Estuary Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/flex.html">Flex Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/gotland.html">Gotland Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lago_maggiore.html">Lago Maggiore Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/langmuir.html">Langmuir Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/liverpool_bay.html">Liverpool Bay Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/medsea_east.html">Medsea East Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/medsea_west.html">Medsea West Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/nns_annual.html">Nns Annual Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/nns_seasonal.html">Nns Seasonal Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/ows_papa.html">Ows Papa Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/plume.html">Plume Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/resolute.html">Resolute Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/reynolds.html">Reynolds Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/rouse.html">Rouse Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/seagrass.html">Seagrass Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/wave_breaking.html">Wave Breaking Validation Report</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -288,15 +321,19 @@
 <span class="n">IntArray</span> <span class="o">=</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">]</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;EXTRA_SCALAR_OUTPUT_NAMES&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;EXTRA_Z_PROFILE_OUTPUT_NAMES&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FABM_PROMOTABLE_EXTRA_OUTPUT_NAMES&quot;</span><span class="p">,</span>
     <span class="s2">&quot;IntArray&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;REFERENCE_SCALAR_OUTPUT_NAMES&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;REFERENCE_Z_PROFILE_OUTPUT_NAMES&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;OutputAttrs&quot;</span><span class="p">,</span>
     <span class="s2">&quot;RuntimeOutput&quot;</span><span class="p">,</span>
     <span class="s2">&quot;allocate_runtime_output&quot;</span><span class="p">,</span>
 <span class="p">]</span>
 
 
-<span class="n">REFERENCE_SCALAR_OUTPUT_NAMES</span> <span class="o">=</span> <span class="p">(</span>
+<span class="n">OutputAttrs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+
+<span class="n">EXTRA_SCALAR_OUTPUT_NAMES</span> <span class="o">=</span> <span class="p">(</span>
     <span class="s2">&quot;Hfrazil&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Hice&quot;</span><span class="p">,</span>
     <span class="s2">&quot;T1&quot;</span><span class="p">,</span>
@@ -304,12 +341,6 @@
     <span class="s2">&quot;Tf&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Tice_surface&quot;</span><span class="p">,</span>
     <span class="s2">&quot;bottom_ice_energy&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_DNB&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_OFL&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_PBR&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_SBR&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_fl&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_pb&quot;</span><span class="p">,</span>
     <span class="s2">&quot;ocean_ice_flux&quot;</span><span class="p">,</span>
     <span class="s2">&quot;ocean_ice_heat_flux&quot;</span><span class="p">,</span>
     <span class="s2">&quot;ocean_ice_salt_flux&quot;</span><span class="p">,</span>
@@ -318,58 +349,15 @@
     <span class="s2">&quot;surface_ice_energy&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">REFERENCE_Z_PROFILE_OUTPUT_NAMES</span> <span class="o">=</span> <span class="p">(</span>
+<span class="n">EXTRA_Z_PROFILE_OUTPUT_NAMES</span> <span class="o">=</span> <span class="p">(</span>
     <span class="s2">&quot;attenuation_coefficient_of_photosynthetic_radiative_flux&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_PAR&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_PPR&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_am&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_dn&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_hs&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_ni&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_o2&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_pl&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_ps&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_zg&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_zl&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_zn&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_zs&quot;</span><span class="p">,</span>
     <span class="s2">&quot;eps_obs&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_Amm&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_DNP&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_DO_mg&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_GPP&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_NCP&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_NFX&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_NPR&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_Nit&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_PAR&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_PPR&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_Pho&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_TN&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_TP&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_aa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_bb&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_bb_chla&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_dd&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_ff&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_ff_chla&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_nn&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_o2&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_po&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_pp&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_pp_chla&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_pw&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_tot_chla&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_zz&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;npzd_NPR&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;npzd_PAR&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;npzd_PPR&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;npzd_det&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;npzd_nut&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;npzd_phy&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;npzd_zoo&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;sed_c&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;total_nitrogen&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">FABM_PROMOTABLE_EXTRA_OUTPUT_NAMES</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;attenuation_coefficient_of_photosynthetic_radiative_flux&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;surface_albedo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;surface_drag_coefficient_in_air&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 
 
@@ -394,6 +382,86 @@
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FloatArray</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_validate_output_name</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;output variable names must be non-empty&quot;</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;/&quot;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;output variable </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> must use normalized &#39;_&#39; separators&quot;</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_validate_scalar_outputs</span><span class="p">(</span>
+    <span class="n">mapping</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">FloatArray</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">nout</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">allowed_names</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">allowed</span> <span class="o">=</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">allowed_names</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">set</span><span class="p">(</span><span class="n">allowed_names</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">mapping</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">_validate_output_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">allowed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">allowed</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;unknown scalar output </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must have dtype float64, got </span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="p">(</span><span class="n">nout</span><span class="p">,):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must have shape (</span><span class="si">{</span><span class="n">nout</span><span class="si">}</span><span class="s2">,), got </span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">array</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">c_contiguous</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must be C-contiguous&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_validate_profile_outputs</span><span class="p">(</span>
+    <span class="n">mapping</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">FloatArray</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+    <span class="n">allowed_names</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">allowed</span> <span class="o">=</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">allowed_names</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">set</span><span class="p">(</span><span class="n">allowed_names</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">mapping</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">_validate_output_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">allowed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">allowed</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;unknown z-profile output </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must have dtype float64, got </span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">shape</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must have shape </span><span class="si">{</span><span class="n">shape</span><span class="si">}</span><span class="s2">, got </span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">array</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">c_contiguous</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must be C-contiguous&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_validate_output_disjointness</span><span class="p">(</span>
+    <span class="n">extra_scalars</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">FloatArray</span><span class="p">],</span>
+    <span class="n">extra_z_profiles</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">FloatArray</span><span class="p">],</span>
+    <span class="n">fabm_scalars</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">FloatArray</span><span class="p">],</span>
+    <span class="n">fabm_z_profiles</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">FloatArray</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">extra_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">extra_scalars</span><span class="p">)</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">extra_z_profiles</span><span class="p">)</span>
+    <span class="n">fabm_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">fabm_scalars</span><span class="p">)</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">fabm_z_profiles</span><span class="p">)</span>
+    <span class="n">duplicate_extra</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">extra_scalars</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span><span class="n">extra_z_profiles</span><span class="p">)</span>
+    <span class="n">duplicate_fabm</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">fabm_scalars</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span><span class="n">fabm_z_profiles</span><span class="p">)</span>
+    <span class="n">collisions</span> <span class="o">=</span> <span class="n">extra_names</span> <span class="o">&amp;</span> <span class="n">fabm_names</span>
+    <span class="k">if</span> <span class="n">duplicate_extra</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">duplicate_extra</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;extra output </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> declared as both scalar and z-profile&quot;</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">duplicate_fabm</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">duplicate_fabm</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;FABM output </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> declared as both scalar and z-profile&quot;</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">collisions</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">collisions</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;FABM output </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> collides with a core optional output&quot;</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="RuntimeOutput">
@@ -450,7 +518,8 @@
     <span class="n">Ekin</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">Epot</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">Eturb</span><span class="p">:</span> <span class="n">FloatArray</span>
-    <span class="n">reference_scalars</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">FloatArray</span><span class="p">]</span>
+    <span class="n">extra_scalars</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">FloatArray</span><span class="p">]</span>
+    <span class="n">fabm_scalars</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">FloatArray</span><span class="p">]</span>
 
     <span class="n">rho_p</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">rho</span><span class="p">:</span> <span class="n">FloatArray</span>
@@ -517,7 +586,59 @@
     <span class="n">nucl</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">z</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">zi</span><span class="p">:</span> <span class="n">FloatArray</span>
-    <span class="n">reference_z_profiles</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">FloatArray</span><span class="p">]</span>
+    <span class="n">extra_z_profiles</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">FloatArray</span><span class="p">]</span>
+    <span class="n">fabm_z_profiles</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">FloatArray</span><span class="p">]</span>
+    <span class="n">fabm_attrs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">OutputAttrs</span><span class="p">]</span>
+
+<div class="viewcode-block" id="RuntimeOutput.declare_fabm_output">
+<a class="viewcode-back" href="../../../api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.declare_fabm_output">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">declare_fabm_output</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">nlev</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">z_profile</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+        <span class="n">attrs</span><span class="p">:</span> <span class="n">OutputAttrs</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">replace_extra</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Allocate one dynamic FABM output buffer.&quot;&quot;&quot;</span>
+
+        <span class="n">_validate_output_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fabm_scalars</span> <span class="ow">or</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fabm_z_profiles</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;FABM output variable </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> is already declared&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra_scalars</span> <span class="ow">or</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra_z_profiles</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">replace_extra</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;FABM output </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> collides with a core optional output&quot;</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">FABM_PROMOTABLE_EXTRA_OUTPUT_NAMES</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;FABM output </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> cannot replace a core optional output&quot;</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">z_profile</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra_scalars</span><span class="p">:</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;FABM z-profile output </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> collides with a scalar &quot;</span>
+                        <span class="s2">&quot;core optional output&quot;</span>
+                    <span class="p">)</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra_z_profiles</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra_z_profiles</span><span class="p">:</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;FABM scalar output </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> collides with a z-profile &quot;</span>
+                        <span class="s2">&quot;core optional output&quot;</span>
+                    <span class="p">)</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra_scalars</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">z_profile</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fabm_z_profiles</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">_output_profile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fabm_scalars</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">_output_scalar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nout</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">attrs</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fabm_attrs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="n">key</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">attrs</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">value</span>
+            <span class="p">}</span></div>
+
 
 <div class="viewcode-block" id="RuntimeOutput.validate">
 <a class="viewcode-back" href="../../../api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.validate">[docs]</a>
@@ -586,22 +707,12 @@
             <span class="k">if</span> <span class="ow">not</span> <span class="n">array</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">c_contiguous</span><span class="p">:</span>
                 <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must be C-contiguous&quot;</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reference_scalars</span><span class="p">)</span> <span class="o">!=</span> <span class="n">REFERENCE_SCALAR_OUTPUT_NAMES</span><span class="p">:</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;reference scalar outputs do not match expected declaration order&quot;</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">array</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">reference_scalars</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">REFERENCE_SCALAR_OUTPUT_NAMES</span><span class="p">:</span>
-                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;unknown reference scalar output </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2">&quot;</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
-                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must have dtype float64, got </span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span>
-                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nout</span><span class="p">,):</span>
-                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must have shape (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nout</span><span class="si">}</span><span class="s2">,), got </span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">array</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">c_contiguous</span><span class="p">:</span>
-                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must be C-contiguous&quot;</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">_validate_scalar_outputs</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">extra_scalars</span><span class="p">,</span>
+            <span class="n">nout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nout</span><span class="p">,</span>
+            <span class="n">allowed_names</span><span class="o">=</span><span class="n">EXTRA_SCALAR_OUTPUT_NAMES</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">_validate_scalar_outputs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fabm_scalars</span><span class="p">,</span> <span class="n">nout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nout</span><span class="p">)</span>
         <span class="n">expected_profile_shape</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">(</span>
             <span class="s2">&quot;rho_p&quot;</span><span class="p">,</span>
@@ -683,25 +794,27 @@
             <span class="k">if</span> <span class="ow">not</span> <span class="n">array</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">c_contiguous</span><span class="p">:</span>
                 <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must be C-contiguous&quot;</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reference_z_profiles</span><span class="p">)</span> <span class="o">!=</span> <span class="n">REFERENCE_Z_PROFILE_OUTPUT_NAMES</span><span class="p">:</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;reference z-profile outputs do not match expected declaration order&quot;</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">array</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">reference_z_profiles</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">REFERENCE_Z_PROFILE_OUTPUT_NAMES</span><span class="p">:</span>
-                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;unknown reference z-profile output </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2">&quot;</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
-                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must have dtype float64, got </span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span>
-                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">expected_profile_shape</span><span class="p">:</span>
-                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
-                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must have shape </span><span class="si">{</span><span class="n">expected_profile_shape</span><span class="si">}</span><span class="s2">, &quot;</span>
-                    <span class="sa">f</span><span class="s2">&quot;got </span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span>
-                <span class="p">)</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">array</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">c_contiguous</span><span class="p">:</span>
-                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must be C-contiguous&quot;</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
+        <span class="n">_validate_profile_outputs</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">extra_z_profiles</span><span class="p">,</span>
+            <span class="n">shape</span><span class="o">=</span><span class="n">expected_profile_shape</span><span class="p">,</span>
+            <span class="n">allowed_names</span><span class="o">=</span><span class="n">EXTRA_Z_PROFILE_OUTPUT_NAMES</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">_validate_profile_outputs</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fabm_z_profiles</span><span class="p">,</span>
+            <span class="n">shape</span><span class="o">=</span><span class="n">expected_profile_shape</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">_validate_output_disjointness</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">extra_scalars</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">extra_z_profiles</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fabm_scalars</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fabm_z_profiles</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">declared_fabm_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fabm_scalars</span><span class="p">)</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fabm_z_profiles</span><span class="p">)</span>
+        <span class="n">unknown_attrs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fabm_attrs</span><span class="p">)</span> <span class="o">-</span> <span class="n">declared_fabm_names</span>
+        <span class="k">if</span> <span class="n">unknown_attrs</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">unknown_attrs</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;FABM output attributes declared for unknown output </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
 </div>
 
 
@@ -770,9 +883,10 @@
         <span class="n">Ekin</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
         <span class="n">Epot</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
         <span class="n">Eturb</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
-        <span class="n">reference_scalars</span><span class="o">=</span><span class="p">{</span>
-            <span class="n">name</span><span class="p">:</span> <span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">REFERENCE_SCALAR_OUTPUT_NAMES</span>
+        <span class="n">extra_scalars</span><span class="o">=</span><span class="p">{</span>
+            <span class="n">name</span><span class="p">:</span> <span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">EXTRA_SCALAR_OUTPUT_NAMES</span>
         <span class="p">},</span>
+        <span class="n">fabm_scalars</span><span class="o">=</span><span class="p">{},</span>
         <span class="n">rho_p</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
         <span class="n">rho</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
         <span class="n">u</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
@@ -838,10 +952,11 @@
         <span class="n">nucl</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
         <span class="n">z</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
         <span class="n">zi</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
-        <span class="n">reference_z_profiles</span><span class="o">=</span><span class="p">{</span>
-            <span class="n">name</span><span class="p">:</span> <span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">REFERENCE_Z_PROFILE_OUTPUT_NAMES</span>
+        <span class="n">extra_z_profiles</span><span class="o">=</span><span class="p">{</span>
+            <span class="n">name</span><span class="p">:</span> <span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">EXTRA_Z_PROFILE_OUTPUT_NAMES</span>
         <span class="p">},</span>
+        <span class="n">fabm_z_profiles</span><span class="o">=</span><span class="p">{},</span>
+        <span class="n">fabm_attrs</span><span class="o">=</span><span class="p">{},</span>
     <span class="p">)</span>
     <span class="n">output</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">nlev</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">output</span></div>
@@ -882,8 +997,8 @@
     </aside>
   </div>
 </div><script src="../../../_static/documentation_options.js?v=01f34227"></script>
-    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>

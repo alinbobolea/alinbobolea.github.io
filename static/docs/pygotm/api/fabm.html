@@ -427,9 +427,14 @@ coupling architecture.</p>
 </dd></dl>
 
 </section>
-<section id="module-pygotm.fabm.engine">
-<span id="engine"></span><h2>Engine<a class="headerlink" href="#module-pygotm.fabm.engine" title="Link to this heading">¶</a></h2>
-<p>Thin Python wrapper around <code class="docutils literal notranslate"><span class="pre">pyfabm.Model</span></code>.</p>
+<section id="engine">
+<h2>Engine<a class="headerlink" href="#engine" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">FABMEngine.output_variable_specs()</span></code> exposes the model-discovered NetCDF
+surface: interior state and output-enabled diagnostics are reported as
+z-profiles, while surface, bottom, and horizontal variables are reported as
+scalars.  Each spec carries the normalized output name, units, and long name
+from pyfabm.</p>
+<p id="module-pygotm.fabm.engine">Thin Python wrapper around <code class="docutils literal notranslate"><span class="pre">pyfabm.Model</span></code>.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="pygotm.fabm.engine.FABMEngine">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygotm.fabm.engine.</span></span><span class="sig-name descname"><span class="pre">FABMEngine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_path</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_factory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygotm/fabm/engine.html#FABMEngine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygotm.fabm.engine.FABMEngine" title="Link to this definition">¶</a></dt>
@@ -635,6 +640,54 @@ defer start until the caller has supplied initial dependency values.</p>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="pygotm.fabm.engine.FABMEngine.output_variable_specs">
+<span class="sig-name descname"><span class="pre">output_variable_specs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygotm/fabm/engine.html#FABMEngine.output_variable_specs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygotm.fabm.engine.FABMEngine.output_variable_specs" title="Link to this definition">¶</a></dt>
+<dd><p>Return state and enabled diagnostic variables for NetCDF output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference internal" href="#pygotm.fabm.engine.FABMOutputSpec" title="pygotm.fabm.engine.FABMOutputSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">FABMOutputSpec</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/constants.html#Ellipsis" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">...</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pygotm.fabm.engine.FABMOutputSpec">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygotm.fabm.engine.</span></span><span class="sig-name descname"><span class="pre">FABMOutputSpec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">long_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygotm/fabm/engine.html#FABMOutputSpec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygotm.fabm.engine.FABMOutputSpec" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Metadata for one FABM output variable exposed by pyfabm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>)</p></li>
+<li><p><strong>kind</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.14)"><em>Literal</em></a><em>[</em><em>'z'</em><em>, </em><em>'scalar'</em><em>]</em>)</p></li>
+<li><p><strong>units</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>)</p></li>
+<li><p><strong>long_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pygotm.fabm.engine.FABMOutputSpec.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></em><a class="headerlink" href="#pygotm.fabm.engine.FABMOutputSpec.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pygotm.fabm.engine.FABMOutputSpec.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Literal</span></code></a><span class="pre">[</span><code class="docutils literal notranslate"><span class="pre">'z'</span></code><span class="pre">,</span> <code class="docutils literal notranslate"><span class="pre">'scalar'</span></code><span class="pre">]</span></em><a class="headerlink" href="#pygotm.fabm.engine.FABMOutputSpec.kind" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pygotm.fabm.engine.FABMOutputSpec.units">
+<span class="sig-name descname"><span class="pre">units</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></em><a class="headerlink" href="#pygotm.fabm.engine.FABMOutputSpec.units" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pygotm.fabm.engine.FABMOutputSpec.long_name">
+<span class="sig-name descname"><span class="pre">long_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></em><a class="headerlink" href="#pygotm.fabm.engine.FABMOutputSpec.long_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </section>
@@ -793,9 +846,9 @@ diagnostic slot.</p>
 T, S, rho, h, nuh, rad at every step (shape <code class="docutils literal notranslate"><span class="pre">(nt+1,</span> <span class="pre">nlev+1)</span></code>). This
 function walks those steps in Python, coupling pyfabm to stored GOTM state
 without entering any Numba kernel.</p>
-<p>Reference profile and scalar outputs are written into
-<code class="docutils literal notranslate"><span class="pre">output.reference_z_profiles</span></code> and <code class="docutils literal notranslate"><span class="pre">output.reference_scalars</span></code> at the
-same output-slot indices as the physics outputs.</p>
+<p>FABM profile and scalar outputs are written into <code class="docutils literal notranslate"><span class="pre">output.fabm_z_profiles</span></code>
+and <code class="docutils literal notranslate"><span class="pre">output.fabm_scalars</span></code> at the same output-slot indices as the physics
+outputs.</p>
 <p>Optional <em>forcing_u10</em> / <em>forcing_v10</em> (shape <code class="docutils literal notranslate"><span class="pre">(nt+1,)</span></code>) provide surface
 wind components for FABM models that need <code class="docutils literal notranslate"><span class="pre">wind_speed</span></code>. <em>forcing_yearday</em>
 and <em>forcing_secondsofday</em> provide the fractional GOTM calendar day for
@@ -1913,7 +1966,7 @@ GOTM–FABM coupling layer for relaxation.</p>
 <li><a class="reference internal" href="#pygotm.fabm.config.resolve_fabm_config_path"><code class="docutils literal notranslate"><span class="pre">resolve_fabm_config_path()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-pygotm.fabm.engine">Engine</a><ul>
+<li><a class="reference internal" href="#engine">Engine</a><ul>
 <li><a class="reference internal" href="#pygotm.fabm.engine.FABMEngine"><code class="docutils literal notranslate"><span class="pre">FABMEngine</span></code></a><ul>
 <li><a class="reference internal" href="#pygotm.fabm.engine.FABMEngine.initialize"><code class="docutils literal notranslate"><span class="pre">FABMEngine.initialize()</span></code></a></li>
 <li><a class="reference internal" href="#pygotm.fabm.engine.FABMEngine.has_dependency"><code class="docutils literal notranslate"><span class="pre">FABMEngine.has_dependency()</span></code></a></li>
@@ -1928,6 +1981,14 @@ GOTM–FABM coupling layer for relaxation.</p>
 <li><a class="reference internal" href="#pygotm.fabm.engine.FABMEngine.unresolved_dependencies"><code class="docutils literal notranslate"><span class="pre">FABMEngine.unresolved_dependencies()</span></code></a></li>
 <li><a class="reference internal" href="#pygotm.fabm.engine.FABMEngine.start"><code class="docutils literal notranslate"><span class="pre">FABMEngine.start()</span></code></a></li>
 <li><a class="reference internal" href="#pygotm.fabm.engine.FABMEngine.state_variable_names"><code class="docutils literal notranslate"><span class="pre">FABMEngine.state_variable_names()</span></code></a></li>
+<li><a class="reference internal" href="#pygotm.fabm.engine.FABMEngine.output_variable_specs"><code class="docutils literal notranslate"><span class="pre">FABMEngine.output_variable_specs()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pygotm.fabm.engine.FABMOutputSpec"><code class="docutils literal notranslate"><span class="pre">FABMOutputSpec</span></code></a><ul>
+<li><a class="reference internal" href="#pygotm.fabm.engine.FABMOutputSpec.name"><code class="docutils literal notranslate"><span class="pre">FABMOutputSpec.name</span></code></a></li>
+<li><a class="reference internal" href="#pygotm.fabm.engine.FABMOutputSpec.kind"><code class="docutils literal notranslate"><span class="pre">FABMOutputSpec.kind</span></code></a></li>
+<li><a class="reference internal" href="#pygotm.fabm.engine.FABMOutputSpec.units"><code class="docutils literal notranslate"><span class="pre">FABMOutputSpec.units</span></code></a></li>
+<li><a class="reference internal" href="#pygotm.fabm.engine.FABMOutputSpec.long_name"><code class="docutils literal notranslate"><span class="pre">FABMOutputSpec.long_name</span></code></a></li>
 </ul>
 </li>
 </ul>

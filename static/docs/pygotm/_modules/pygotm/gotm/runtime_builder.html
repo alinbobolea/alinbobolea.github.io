@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
         <title>pygotm.gotm.runtime_builder - pyGOTM Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
@@ -314,7 +314,6 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Mapping</span><span class="p">,</span> <span class="n">Sequence</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Protocol</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">gsw</span>
@@ -1308,7 +1307,7 @@
 
 
 
-<span class="n">_ICE_REFERENCE_SCALARS</span> <span class="o">=</span> <span class="p">(</span>
+<span class="n">_ICE_EXTRA_SCALARS</span> <span class="o">=</span> <span class="p">(</span>
     <span class="s2">&quot;Hfrazil&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Hice&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Tf&quot;</span><span class="p">,</span>
@@ -1319,71 +1318,10 @@
     <span class="s2">&quot;ocean_ice_salt_flux&quot;</span><span class="p">,</span>
     <span class="s2">&quot;surface_ice_energy&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">_WINTON_REFERENCE_SCALARS</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;T1&quot;</span><span class="p">,</span> <span class="s2">&quot;T2&quot;</span><span class="p">)</span>
-<span class="n">_FABM_REFERENCE_SCALARS</span> <span class="o">=</span> <span class="p">(</span>
+<span class="n">_WINTON_EXTRA_SCALARS</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;T1&quot;</span><span class="p">,</span> <span class="s2">&quot;T2&quot;</span><span class="p">)</span>
+<span class="n">_FABM_FEEDBACK_EXTRA_SCALARS</span> <span class="o">=</span> <span class="p">(</span>
     <span class="s2">&quot;surface_albedo&quot;</span><span class="p">,</span>
     <span class="s2">&quot;surface_drag_coefficient_in_air&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">_JRC_MED_ERGOM_REFERENCE_SCALARS</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s2">&quot;jrc_med_ergom_DNB&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_OFL&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_PBR&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_SBR&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_fl&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_pb&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">_BSEM_REFERENCE_PROFILES</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s2">&quot;bsem_PAR&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_PPR&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_am&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_dn&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_hs&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_ni&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_o2&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_pl&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_ps&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_zg&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_zl&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_zn&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bsem_zs&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">_JRC_MED_ERGOM_REFERENCE_PROFILES</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s2">&quot;jrc_med_ergom_Amm&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_DNP&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_DO_mg&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_GPP&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_NCP&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_NFX&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_NPR&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_Nit&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_PAR&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_PPR&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_Pho&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_TN&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_TP&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_aa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_bb&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_bb_chla&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_dd&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_ff&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_ff_chla&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_nn&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_o2&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_po&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_pp&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_pp_chla&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_pw&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_tot_chla&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;jrc_med_ergom_zz&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">_NPZD_REFERENCE_PROFILES</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s2">&quot;npzd_NPR&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;npzd_PAR&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;npzd_PPR&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;npzd_det&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;npzd_nut&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;npzd_phy&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;npzd_zoo&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 
 
@@ -1399,36 +1337,26 @@
     <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">_fabm_yaml_text</span><span class="p">(</span><span class="n">run</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">fabm_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">run</span><span class="o">.</span><span class="n">yaml_path</span><span class="p">)</span><span class="o">.</span><span class="n">with_name</span><span class="p">(</span><span class="s2">&quot;fabm.yaml&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">fabm_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">fabm_path</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">_reference_scalar_output_names</span><span class="p">(</span><span class="n">run</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">output</span><span class="p">:</span> <span class="n">RuntimeOutput</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_extra_scalar_output_names</span><span class="p">(</span><span class="n">run</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">output</span><span class="p">:</span> <span class="n">RuntimeOutput</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
     <span class="n">names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">document</span> <span class="o">=</span> <span class="n">_document_mapping</span><span class="p">(</span><span class="n">run</span><span class="o">.</span><span class="n">document</span><span class="p">)</span>
     <span class="n">surface</span> <span class="o">=</span> <span class="n">_document_mapping</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;surface&quot;</span><span class="p">))</span>
     <span class="n">ice</span> <span class="o">=</span> <span class="n">_document_mapping</span><span class="p">(</span><span class="n">surface</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ice&quot;</span><span class="p">))</span>
     <span class="n">ice_model</span> <span class="o">=</span> <span class="n">_document_token</span><span class="p">(</span><span class="n">ice</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">),</span> <span class="s2">&quot;simple&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ice_model</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;simple&quot;</span><span class="p">,</span> <span class="s2">&quot;basal_melt&quot;</span><span class="p">,</span> <span class="s2">&quot;lebedev&quot;</span><span class="p">,</span> <span class="s2">&quot;mylake&quot;</span><span class="p">,</span> <span class="s2">&quot;winton&quot;</span><span class="p">}:</span>
-        <span class="n">names</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">_ICE_REFERENCE_SCALARS</span><span class="p">)</span>
+        <span class="n">names</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">_ICE_EXTRA_SCALARS</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">ice_model</span> <span class="o">==</span> <span class="s2">&quot;winton&quot;</span><span class="p">:</span>
-            <span class="n">names</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">_WINTON_REFERENCE_SCALARS</span><span class="p">)</span>
+            <span class="n">names</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">_WINTON_EXTRA_SCALARS</span><span class="p">)</span>
 
     <span class="n">fabm</span> <span class="o">=</span> <span class="n">_document_mapping</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;fabm&quot;</span><span class="p">))</span>
     <span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">fabm</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;use&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)):</span>
-        <span class="n">names</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">_FABM_REFERENCE_SCALARS</span><span class="p">)</span>
-        <span class="n">fabm_text</span> <span class="o">=</span> <span class="n">_fabm_yaml_text</span><span class="p">(</span><span class="n">run</span><span class="p">)</span>
-        <span class="k">if</span> <span class="s2">&quot;jrc_med_ergom&quot;</span> <span class="ow">in</span> <span class="n">fabm_text</span><span class="p">:</span>
-            <span class="n">names</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">_JRC_MED_ERGOM_REFERENCE_SCALARS</span><span class="p">)</span>
+        <span class="n">names</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">_FABM_FEEDBACK_EXTRA_SCALARS</span><span class="p">)</span>
 
-    <span class="n">available</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">reference_scalars</span>
+    <span class="n">available</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">extra_scalars</span>
     <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span> <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">available</span><span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">_reference_z_profile_output_names</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_extra_z_profile_output_names</span><span class="p">(</span>
     <span class="n">run</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
     <span class="n">output</span><span class="p">:</span> <span class="n">RuntimeOutput</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
@@ -1444,19 +1372,8 @@
     <span class="n">fabm</span> <span class="o">=</span> <span class="n">_document_mapping</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;fabm&quot;</span><span class="p">))</span>
     <span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">fabm</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;use&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)):</span>
         <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;attenuation_coefficient_of_photosynthetic_radiative_flux&quot;</span><span class="p">)</span>
-        <span class="n">fabm_text</span> <span class="o">=</span> <span class="n">_fabm_yaml_text</span><span class="p">(</span><span class="n">run</span><span class="p">)</span>
-        <span class="k">if</span> <span class="s2">&quot;bsem&quot;</span> <span class="ow">in</span> <span class="n">fabm_text</span><span class="p">:</span>
-            <span class="n">names</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">_BSEM_REFERENCE_PROFILES</span><span class="p">)</span>
-            <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;total_nitrogen&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="s2">&quot;jrc_med_ergom&quot;</span> <span class="ow">in</span> <span class="n">fabm_text</span><span class="p">:</span>
-            <span class="n">names</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">_JRC_MED_ERGOM_REFERENCE_PROFILES</span><span class="p">)</span>
-        <span class="k">if</span> <span class="s2">&quot;npzd&quot;</span> <span class="ow">in</span> <span class="n">fabm_text</span><span class="p">:</span>
-            <span class="n">names</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">_NPZD_REFERENCE_PROFILES</span><span class="p">)</span>
-            <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;total_nitrogen&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="s2">&quot;bb/passive&quot;</span> <span class="ow">in</span> <span class="n">fabm_text</span><span class="p">:</span>
-            <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;sed_c&quot;</span><span class="p">)</span>
 
-    <span class="n">available</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">reference_z_profiles</span>
+    <span class="n">available</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">extra_z_profiles</span>
     <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span> <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">available</span><span class="p">)</span>
 
 
@@ -1491,10 +1408,14 @@
     <span class="n">z_profiles</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">z</span><span class="p">[:,</span> <span class="n">z_start</span><span class="p">:]</span>
     <span class="n">zi_profiles</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">zi</span><span class="p">[:,</span> <span class="n">zi_start</span><span class="p">:]</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">z_profile</span><span class="p">(</span><span class="n">values</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">z_profile</span><span class="p">(</span>
+        <span class="n">values</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">var_attrs</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
         <span class="k">return</span> <span class="p">(</span>
             <span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">),</span>
             <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">values</span><span class="p">[:,</span> <span class="n">z_start</span><span class="p">:],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)[:,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+            <span class="nb">dict</span><span class="p">(</span><span class="n">var_attrs</span> <span class="ow">or</span> <span class="p">{}),</span>
         <span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">zi_profile</span><span class="p">(</span><span class="n">values</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
@@ -1503,10 +1424,14 @@
             <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">values</span><span class="p">[:,</span> <span class="n">zi_start</span><span class="p">:],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)[:,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
         <span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">scalar</span><span class="p">(</span><span class="n">values</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">scalar</span><span class="p">(</span>
+        <span class="n">values</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">var_attrs</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
         <span class="k">return</span> <span class="p">(</span>
             <span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">),</span>
             <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+            <span class="nb">dict</span><span class="p">(</span><span class="n">var_attrs</span> <span class="ow">or</span> <span class="p">{}),</span>
         <span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">diagnostic_z_profile</span><span class="p">(</span><span class="n">values</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
@@ -1625,10 +1550,20 @@
         <span class="s2">&quot;nus&quot;</span><span class="p">:</span> <span class="n">zi_profile</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">nus</span><span class="p">),</span>
         <span class="s2">&quot;nucl&quot;</span><span class="p">:</span> <span class="n">zi_profile</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">nucl</span><span class="p">),</span>
     <span class="p">}</span>
-    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">_reference_scalar_output_names</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
-        <span class="n">data_vars</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">scalar</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">reference_scalars</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
-    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">_reference_z_profile_output_names</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
-        <span class="n">data_vars</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">z_profile</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">reference_z_profiles</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">_extra_scalar_output_names</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
+        <span class="n">data_vars</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">scalar</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">extra_scalars</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">_extra_z_profile_output_names</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
+        <span class="n">data_vars</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">z_profile</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">extra_z_profiles</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">output</span><span class="o">.</span><span class="n">fabm_scalars</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">data_vars</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;FABM output </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> collides with an existing output variable&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">data_vars</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">scalar</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">output</span><span class="o">.</span><span class="n">fabm_attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">output</span><span class="o">.</span><span class="n">fabm_z_profiles</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">data_vars</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;FABM output </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> collides with an existing output variable&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">data_vars</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">z_profile</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">output</span><span class="o">.</span><span class="n">fabm_attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
 
     <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">bundle</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">density_method</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">conservative_temperature</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">T</span><span class="p">[:,</span> <span class="n">z_start</span><span class="p">:],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
@@ -1715,8 +1650,8 @@
     </aside>
   </div>
 </div><script src="../../../_static/documentation_options.js?v=01f34227"></script>
-    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>

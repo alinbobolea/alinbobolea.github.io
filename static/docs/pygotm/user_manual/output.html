@@ -690,6 +690,21 @@ for output:</p>
 </tbody>
 </table>
 </div>
+<p>When <code class="docutils literal notranslate"><span class="pre">fabm.use:</span> <span class="pre">true</span></code>, additional FABM variables are discovered from the
+resolved <code class="docutils literal notranslate"><span class="pre">fabm.yaml</span></code> through pyfabm and written automatically.  Interior state
+variables and output-enabled interior diagnostics are profiles with dimensions
+<code class="docutils literal notranslate"><span class="pre">(time,</span> <span class="pre">z,</span> <span class="pre">lat,</span> <span class="pre">lon)</span></code>; surface state, bottom state, and horizontal diagnostics
+are scalar fields with dimensions <code class="docutils literal notranslate"><span class="pre">(time,</span> <span class="pre">lat,</span> <span class="pre">lon)</span></code>.  Variable names use
+FABM <code class="docutils literal notranslate"><span class="pre">output_name</span></code> metadata, with <code class="docutils literal notranslate"><span class="pre">/</span></code> normalized to <code class="docutils literal notranslate"><span class="pre">_</span></code>.  For example,
+<code class="docutils literal notranslate"><span class="pre">gotm/npzd</span></code> configured under an instance named <code class="docutils literal notranslate"><span class="pre">npzd</span></code> writes
+<code class="docutils literal notranslate"><span class="pre">npzd_nut</span></code>, <code class="docutils literal notranslate"><span class="pre">npzd_phy</span></code>, <code class="docutils literal notranslate"><span class="pre">npzd_zoo</span></code>, <code class="docutils literal notranslate"><span class="pre">npzd_det</span></code>, <code class="docutils literal notranslate"><span class="pre">npzd_PAR</span></code>,
+<code class="docutils literal notranslate"><span class="pre">npzd_PPR</span></code>, <code class="docutils literal notranslate"><span class="pre">npzd_NPR</span></code>, and <code class="docutils literal notranslate"><span class="pre">total_nitrogen</span></code>.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">pygotm</span> <span class="pre">schema</span> <span class="pre">output</span> <span class="pre">--config</span> <span class="pre">gotm.yaml</span> <span class="pre">--json</span></code> to inspect the exact
+output variable list for a FABM-active configuration before running it.
+FABM-active runs also retain the host feedback placeholders
+<code class="docutils literal notranslate"><span class="pre">surface_albedo</span></code>, <code class="docutils literal notranslate"><span class="pre">surface_drag_coefficient_in_air</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">attenuation_coefficient_of_photosynthetic_radiative_flux</span></code> for compatibility
+with existing validation outputs.</p>
 </section>
 </section>
 <section id="restart">

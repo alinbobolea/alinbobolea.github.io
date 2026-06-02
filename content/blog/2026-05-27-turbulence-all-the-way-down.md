@@ -335,7 +335,7 @@ What I built:
 - **2316 PASS, 67 MARGINAL, 31 DISCREPANT, 0 BROKEN** variables in the full variable-level comparison
 - **Single-column wall times**: `couette` 3.0 s, `channel` 3.0 s, `entrainment` 2.5 s — comparable to compiled Fortran
 - **Five ice thermodynamics models** including the lake-relevant Lebedev FDD and MyLake slab ice
-- **pyfabm biogeochemistry coupling** with chunked interleaved architecture, bio-shading feedback, and full FABM dependency supply
+- **pyfabm biogeochemistry coupling** with chunked interleaved architecture, bio-shading feedback, full FABM dependency supply, and metadata-discovered FABM NetCDF outputs
 - **COARE/Fairall and Kondo bulk flux** implementations, solar/longwave radiation, Jerlov water types
 - **Click-based CLI**: `run`, `validate`, `version`, `schema`, `cite`, `serve`
 - **Sphinx documentation** with physics chapters on biogeochemistry, ice thermodynamics, and validation methodology
@@ -372,7 +372,7 @@ The FABM integration was supposed to be last. It became urgent because the probl
 
 None of that honest reckoning was wasted. Understanding what pyGOTM actually was — a bridge, not a product, a contribution rather than a company — made the technical goals sharper, not smaller.
 
-Ten weeks from zero to pre-release. Four coding in the fog, six wide awake and relentless at the keyboard. One full pivot. One invented validation methodology. Eighty-seven Fortran files in Python. Fifteen reference cases and 1321 pytest tests passing.
+Ten weeks from zero to pre-release. Four coding in the fog, six wide awake and relentless at the keyboard. One full pivot. One invented validation methodology. Eighty-seven Fortran files in Python. Fifteen reference cases and 1342 pytest tests passing.
 
 The ocean does not care about your implementation language. Turbulence is turbulence. The physics was always right. I just had to find the right way to compute it.
 
