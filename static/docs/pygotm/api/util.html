@@ -260,6 +260,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../validation/cases/flex.html">Flex Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../validation/cases/gotland.html">Gotland Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../validation/cases/lago_maggiore.html">Lago Maggiore Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../validation/cases/lake_erken.html">Lake Erken Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../validation/cases/langmuir.html">Langmuir Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../validation/cases/liverpool_bay.html">Liverpool Bay Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../validation/cases/medsea_east.html">Medsea East Validation Report</a></li>
@@ -275,6 +276,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../validation/cases/wave_breaking.html">Wave Breaking Validation Report</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../validation/lake_erken_parity.html">Lake Erken — Parity Status and Limitations</a></li>
 </ul>
 
 </div>
@@ -744,6 +746,38 @@ schemes selected by the <code class="docutils literal notranslate"><span class="
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="pygotm.util.adv_center.adv_center_lake">
+<span class="sig-prename descclassname"><span class="pre">pygotm.util.adv_center.</span></span><span class="sig-name descname"><span class="pre">adv_center_lake</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nlev</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vco</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">af</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ww</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bc_up</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bc_down</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_up</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_down</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l_sour</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_sour</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cu</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygotm/util/adv_center.html#adv_center_lake"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygotm.util.adv_center.adv_center_lake" title="Link to this definition">¶</a></dt>
+<dd><p>Advance a cell-centred tracer with lake volume/area geometry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>nlev</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>dt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
+<li><p><strong>h</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>vco</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>vc</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>af</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>ww</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>bc_up</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>bc_down</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>y_up</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
+<li><p><strong>y_down</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
+<li><p><strong>l_sour</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>q_sour</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>y</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>cu</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="pygotm.util.adv_center.adv_center_batch">
 <span class="sig-prename descclassname"><span class="pre">pygotm.util.adv_center.</span></span><span class="sig-name descname"><span class="pre">adv_center_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nlev</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ho</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ww</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bc_up</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bc_down</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_up</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_down</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cu</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygotm/util/adv_center.html#adv_center_batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygotm.util.adv_center.adv_center_batch" title="Link to this definition">¶</a></dt>
 <dd><p>Batch variant: process batch_size columns in parallel with numba.prange.</p>
@@ -862,6 +896,44 @@ boundary conditions.</p>
 <li><p><strong>cnpar</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
 <li><p><strong>posconc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
 <li><p><strong>h</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>bc_up</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>bc_down</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>y_up</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
+<li><p><strong>y_down</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
+<li><p><strong>nu_y</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>l_sour</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>q_sour</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>tau_r</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>y_obs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>y</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>au</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>bu</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>cu</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>du</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>ru</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>qu</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygotm.util.diff_center.diff_center_lake">
+<span class="sig-prename descclassname"><span class="pre">pygotm.util.diff_center.</span></span><span class="sig-name descname"><span class="pre">diff_center_lake</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nlev</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cnpar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">posconc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">af</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bc_up</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bc_down</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_up</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_down</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nu_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l_sour</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_sour</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">au</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">du</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ru</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qu</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygotm/util/diff_center.html#diff_center_lake"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygotm.util.diff_center.diff_center_lake" title="Link to this definition">¶</a></dt>
+<dd><p>Solve lake diffusion for a cell-centred variable using volume/area geometry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>nlev</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>dt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
+<li><p><strong>cnpar</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
+<li><p><strong>posconc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>h</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>vc</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
+<li><p><strong>af</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><em>ndarray</em></a>)</p></li>
 <li><p><strong>bc_up</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
 <li><p><strong>bc_down</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
 <li><p><strong>y_up</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
@@ -1373,6 +1445,48 @@ zero-initialised).</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygotm.util.density.jackett_density">
+<span class="sig-prename descclassname"><span class="pre">pygotm.util.density.</span></span><span class="sig-name descname"><span class="pre">jackett_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_pressure</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygotm/util/density.html#jackett_density"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygotm.util.density.jackett_density" title="Link to this definition">¶</a></dt>
+<dd><p>Compute GOTM-Lake’s Jackett/Feistel density polynomial.</p>
+<p>This translates <code class="docutils literal notranslate"><span class="pre">rho_feistel</span></code> from <code class="docutils literal notranslate"><span class="pre">gotm-lake/src/util/eqstate.F90</span></code>.
+Pressure <code class="docutils literal notranslate"><span class="pre">p</span></code> is in dbar, matching that routine.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>S</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
+<li><p><strong>T</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
+<li><p><strong>p</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
+<li><p><strong>use_pressure</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygotm.util.density.unesco_density">
+<span class="sig-prename descclassname"><span class="pre">pygotm.util.density.</span></span><span class="sig-name descname"><span class="pre">unesco_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_pressure</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygotm/util/density.html#unesco_density"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygotm.util.density.unesco_density" title="Link to this definition">¶</a></dt>
+<dd><p>Compute GOTM-Lake’s UNESCO density polynomial.</p>
+<p>This is a direct translation of <code class="docutils literal notranslate"><span class="pre">gotm-lake/src/util/eqstate.F90</span></code>’s
+<code class="docutils literal notranslate"><span class="pre">unesco</span></code> routine.  Pressure <code class="docutils literal notranslate"><span class="pre">p</span></code> is in bar, matching that Fortran path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>S</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
+<li><p><strong>T</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
+<li><p><strong>p</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
+<li><p><strong>use_pressure</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>)</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -3580,6 +3694,7 @@ meaning at runtime.</p>
 <li><a class="reference internal" href="#pygotm.util.adv_center.AdvectionBatchWorkspace"><code class="docutils literal notranslate"><span class="pre">AdvectionBatchWorkspace</span></code></a></li>
 <li><a class="reference internal" href="#pygotm.util.adv_center.AdvectionWorkspace"><code class="docutils literal notranslate"><span class="pre">AdvectionWorkspace</span></code></a></li>
 <li><a class="reference internal" href="#pygotm.util.adv_center.adv_center"><code class="docutils literal notranslate"><span class="pre">adv_center()</span></code></a></li>
+<li><a class="reference internal" href="#pygotm.util.adv_center.adv_center_lake"><code class="docutils literal notranslate"><span class="pre">adv_center_lake()</span></code></a></li>
 <li><a class="reference internal" href="#pygotm.util.adv_center.adv_center_batch"><code class="docutils literal notranslate"><span class="pre">adv_center_batch()</span></code></a></li>
 <li><a class="reference internal" href="#pygotm.util.adv_center.clean_adv_center"><code class="docutils literal notranslate"><span class="pre">clean_adv_center()</span></code></a></li>
 <li><a class="reference internal" href="#pygotm.util.adv_center.init_adv_center"><code class="docutils literal notranslate"><span class="pre">init_adv_center()</span></code></a></li>
@@ -3587,6 +3702,7 @@ meaning at runtime.</p>
 </li>
 <li><a class="reference internal" href="#vertical-diffusion-cell-centres">Vertical Diffusion (Cell Centres)</a><ul>
 <li><a class="reference internal" href="#pygotm.util.diff_center.diff_center"><code class="docutils literal notranslate"><span class="pre">diff_center()</span></code></a></li>
+<li><a class="reference internal" href="#pygotm.util.diff_center.diff_center_lake"><code class="docutils literal notranslate"><span class="pre">diff_center_lake()</span></code></a></li>
 <li><a class="reference internal" href="#pygotm.util.diff_center.diff_center_batch"><code class="docutils literal notranslate"><span class="pre">diff_center_batch()</span></code></a></li>
 </ul>
 </li>
@@ -3603,6 +3719,8 @@ meaning at runtime.</p>
 <li><a class="reference internal" href="#pygotm.util.density.get_beta"><code class="docutils literal notranslate"><span class="pre">get_beta()</span></code></a></li>
 <li><a class="reference internal" href="#pygotm.util.density.get_rho"><code class="docutils literal notranslate"><span class="pre">get_rho()</span></code></a></li>
 <li><a class="reference internal" href="#pygotm.util.density.init_density"><code class="docutils literal notranslate"><span class="pre">init_density()</span></code></a></li>
+<li><a class="reference internal" href="#pygotm.util.density.jackett_density"><code class="docutils literal notranslate"><span class="pre">jackett_density()</span></code></a></li>
+<li><a class="reference internal" href="#pygotm.util.density.unesco_density"><code class="docutils literal notranslate"><span class="pre">unesco_density()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#teos-10-gsw-library">TEOS-10 GSW Library</a><ul>

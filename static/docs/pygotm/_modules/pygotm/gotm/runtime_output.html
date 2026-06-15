@@ -259,6 +259,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/flex.html">Flex Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/gotland.html">Gotland Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lago_maggiore.html">Lago Maggiore Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lake_erken.html">Lake Erken Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/langmuir.html">Langmuir Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/liverpool_bay.html">Liverpool Bay Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/medsea_east.html">Medsea East Validation Report</a></li>
@@ -274,6 +275,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/wave_breaking.html">Wave Breaking Validation Report</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../validation/lake_erken_parity.html">Lake Erken — Parity Status and Limitations</a></li>
 </ul>
 
 </div>
@@ -502,6 +504,7 @@
     <span class="n">qh</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">qe</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">ql</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">qlobs</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">heat</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">tx</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">ty</span><span class="p">:</span> <span class="n">FloatArray</span>
@@ -518,6 +521,17 @@
     <span class="n">Ekin</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">Epot</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">Eturb</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">int_flow</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">int_water_balance</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">int_inflow</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">int_outflow</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Q_Stensta</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Q_Unguaged</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">T_Unguaged</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Q_Kristine</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">T_Kristine</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">dHis</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">dHib</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">extra_scalars</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">FloatArray</span><span class="p">]</span>
     <span class="n">fabm_scalars</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">FloatArray</span><span class="p">]</span>
 
@@ -541,6 +555,13 @@
     <span class="n">num</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">nuh</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">h</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Af</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Qlayer</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Qs</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Qt</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">wq</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">FQ</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Qres</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">xP</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">fric</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">drag</span><span class="p">:</span> <span class="n">FloatArray</span>
@@ -572,6 +593,7 @@
     <span class="n">gamh</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">gams</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">Rig</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">xRf</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">gamb</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">gam</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">r</span><span class="p">:</span> <span class="n">FloatArray</span>
@@ -680,6 +702,7 @@
             <span class="s2">&quot;qh&quot;</span><span class="p">,</span>
             <span class="s2">&quot;qe&quot;</span><span class="p">,</span>
             <span class="s2">&quot;ql&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;qlobs&quot;</span><span class="p">,</span>
             <span class="s2">&quot;heat&quot;</span><span class="p">,</span>
             <span class="s2">&quot;tx&quot;</span><span class="p">,</span>
             <span class="s2">&quot;ty&quot;</span><span class="p">,</span>
@@ -696,6 +719,17 @@
             <span class="s2">&quot;Ekin&quot;</span><span class="p">,</span>
             <span class="s2">&quot;Epot&quot;</span><span class="p">,</span>
             <span class="s2">&quot;Eturb&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;int_flow&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;int_water_balance&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;int_inflow&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;int_outflow&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Q_Stensta&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Q_Unguaged&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;T_Unguaged&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Q_Kristine&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;T_Kristine&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;dHis&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;dHib&quot;</span><span class="p">,</span>
         <span class="p">):</span>
             <span class="n">array</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
@@ -735,6 +769,13 @@
             <span class="s2">&quot;num&quot;</span><span class="p">,</span>
             <span class="s2">&quot;nuh&quot;</span><span class="p">,</span>
             <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Af&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Qlayer&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Qs&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Qt&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;wq&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;FQ&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Qres&quot;</span><span class="p">,</span>
             <span class="s2">&quot;xP&quot;</span><span class="p">,</span>
             <span class="s2">&quot;fric&quot;</span><span class="p">,</span>
             <span class="s2">&quot;drag&quot;</span><span class="p">,</span>
@@ -766,6 +807,7 @@
             <span class="s2">&quot;gamh&quot;</span><span class="p">,</span>
             <span class="s2">&quot;gams&quot;</span><span class="p">,</span>
             <span class="s2">&quot;Rig&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;xRf&quot;</span><span class="p">,</span>
             <span class="s2">&quot;gamb&quot;</span><span class="p">,</span>
             <span class="s2">&quot;gam&quot;</span><span class="p">,</span>
             <span class="s2">&quot;r&quot;</span><span class="p">,</span>
@@ -867,6 +909,7 @@
         <span class="n">qh</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
         <span class="n">qe</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
         <span class="n">ql</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
+        <span class="n">qlobs</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
         <span class="n">heat</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
         <span class="n">tx</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
         <span class="n">ty</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
@@ -883,6 +926,17 @@
         <span class="n">Ekin</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
         <span class="n">Epot</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
         <span class="n">Eturb</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
+        <span class="n">int_flow</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
+        <span class="n">int_water_balance</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
+        <span class="n">int_inflow</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
+        <span class="n">int_outflow</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
+        <span class="n">Q_Stensta</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
+        <span class="n">Q_Unguaged</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
+        <span class="n">T_Unguaged</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
+        <span class="n">Q_Kristine</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
+        <span class="n">T_Kristine</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
+        <span class="n">dHis</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
+        <span class="n">dHib</span><span class="o">=</span><span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">),</span>
         <span class="n">extra_scalars</span><span class="o">=</span><span class="p">{</span>
             <span class="n">name</span><span class="p">:</span> <span class="n">_output_scalar</span><span class="p">(</span><span class="n">nout</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">EXTRA_SCALAR_OUTPUT_NAMES</span>
         <span class="p">},</span>
@@ -907,6 +961,13 @@
         <span class="n">num</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
         <span class="n">nuh</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
         <span class="n">h</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
+        <span class="n">Af</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
+        <span class="n">Qlayer</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
+        <span class="n">Qs</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
+        <span class="n">Qt</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
+        <span class="n">wq</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
+        <span class="n">FQ</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
+        <span class="n">Qres</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
         <span class="n">xP</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
         <span class="n">fric</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
         <span class="n">drag</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
@@ -938,6 +999,7 @@
         <span class="n">gamh</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
         <span class="n">gams</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
         <span class="n">Rig</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
+        <span class="n">xRf</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
         <span class="n">gamb</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
         <span class="n">gam</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
         <span class="n">r</span><span class="o">=</span><span class="n">_output_profile</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>

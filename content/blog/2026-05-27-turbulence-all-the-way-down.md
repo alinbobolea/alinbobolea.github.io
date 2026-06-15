@@ -54,7 +54,7 @@ Four weeks in, I believed I understood enough to begin. That belief, as it turne
 
 ## The First Bet: Taichi
 
-Four weeks into the project, I landed the first commit: a Taichi-based implementation.
+Four weeks into the project, the first commit landed: a Taichi-based implementation.
 
 [Taichi](https://taichi-lang.org/) is a Python-embedded parallel programming language designed for physics simulation. It compiles Python-syntax kernels to GPU (and CPU) code, handles array allocation through its own field system, and offers a clean GPU-parallel pattern: an outer loop over spatial cells runs in parallel across GPU threads, while the inner serial computation handles the cell's local physics.
 
@@ -68,7 +68,7 @@ def step_uequation(n_cols: ti.i32, nlev: ti.i32, dt: ti.f64):
             ...
 ```
 
-I built the infrastructure: `TaichiFieldCollection` base classes, `ColumnLayout` field allocators, `TemplateArg` and `NdarrayArg` type wrappers for strict mypy compatibility, session-scoped `ti.init()` fixtures for the test suite. I drew up the translation map: 87 Fortran files, 87 Python files, same directory structure. I wrote the implementation plan in careful phases.
+The infrastructure came together: `TaichiFieldCollection` base classes, `ColumnLayout` field allocators, `TemplateArg` and `NdarrayArg` type wrappers for strict mypy compatibility, session-scoped `ti.init()` fixtures for the test suite. A translation map took shape: 87 Fortran files, 87 Python files, same directory structure. The implementation plan was written in careful phases.
 
 Phase 0 (infrastructure) passed. Phase 1 (utilities) started. Tests ran. The physics was translating.
 
@@ -84,15 +84,15 @@ The problems accumulated quietly at first, then all at once.
 
 **Problem two: kernel return types.** Taichi 1.7.4 on Python 3.13 does not accept `-> None` on `@ti.kernel` functions — void kernels must simply omit the return annotation. This is a stack-specific quirk that differs from standard Python convention and from every other Taichi documentation example written for an earlier Python version.
 
-**Problem three: test contamination.** I ran `ti.init()` in each test fixture and `ti.reset()` in teardown. Taichi has a single global runtime state per process. When one test initializes Taichi with one configuration and another test resets it, subsequent tests may run with a stale or mis-configured runtime — passing in isolation, failing under `pytest` full-suite. The fix (a session-scoped autouse fixture) worked, but I had to update every existing test, and the fragility was real.
+**Problem three: test contamination.** `ti.init()` ran in each test fixture and `ti.reset()` in teardown. Taichi has a single global runtime state per process. When one test initializes Taichi with one configuration and another test resets it, subsequent tests may run with a stale or mis-configured runtime — passing in isolation, failing under `pytest` full-suite. The fix (a session-scoped autouse fixture) worked, but every existing test had to be updated, and the fragility was real.
 
-**Problem four: typing.** Strict `mypy` — which I required — could not reconcile Taichi's `ti.template()` field arguments with standard Python annotations. I built a local typing bridge — `TemplateArg`, `NdarrayArg`, `ti_kernel` — to paper over the gap, but it was boilerplate that added noise to every kernel definition.
+**Problem four: typing.** Strict `mypy` — which the project required — could not reconcile Taichi's `ti.template()` field arguments with standard Python annotations. A local typing bridge — `TemplateArg`, `NdarrayArg`, `ti_kernel` — papered over the gap, but it was boilerplate that added noise to every kernel definition.
 
 **Problem five: two physics paths.** Early in the implementation, some modules ended up with both a plain-NumPy reference implementation and a Taichi kernel. This "dual-path" pattern was a maintenance trap: a bug shared by both would pass tests undetected, and the two paths inevitably drifted. I decided to remove the NumPy paths and commit to Taichi-only. But ripping them out required rewriting all the affected tests.
 
 **Problem six: the architecture mismatch.** The deeper issue was that Taichi's model — GPU threads over a flat field of work — does not map cleanly to GOTM's vertical solvers. The Thomas algorithm at the heart of GOTM's implicit diffusion and momentum equations is *inherently serial*: each level depends on the previous one. You can parallelize across columns (the outer loop), but not within a column. Taichi's GPU model excels at embarrassingly parallel workloads; I was asking it to accelerate a fundamentally serial inner loop parallelized across many independent instances.
 
-One day after the first commit, I wrote the Taichi-to-Numba migration plan.
+One day after the first commit, the Taichi-to-Numba migration plan was written.
 
 ---
 
@@ -141,7 +141,7 @@ def step_uequation_batch(batch_size, nlev, dt, u, nu_u, ...):
         step_uequation(nlev, dt, u[b], nu_u[b], ...)  # serial vertical physics
 ```
 
-That is the inner level: kernels that can process a batch of independent columns with `numba.prange` while keeping each vertical solve serial. The outer level is Dask, but in the current implementation I use it at the level where it is most robust: independent cases.
+That is the inner level: kernels that can process a batch of independent columns with `numba.prange` while keeping each vertical solve serial. The outer level is Dask, used in the current implementation at the level where it is most robust: independent cases.
 
 For validation, pyGOTM has built-in Dask orchestration. The serial command is:
 
@@ -196,7 +196,7 @@ with LocalCluster(n_workers=8, threads_per_worker=1, processes=True) as cluster:
 
 The important rule is that each task writes to its own output file. Dask is not sharing mutable model state between columns; it is launching many independent single-column simulations. On a laptop, that means local processes. On a workstation, it means more local workers. On a cluster, the same task graph can be sent to a distributed scheduler. The model code does not need to know whether it is running as one case in a validation sweep or one site in a thousand-member production ensemble.
 
-I applied the migration checklist file by file:
+The migration checklist was applied file by file:
 
 ```
 [ ] Remove: import taichi as ti
@@ -220,7 +220,7 @@ The problem is floating-point arithmetic.
 
 Modern compilers — both gfortran and LLVM, which backs Numba — perform floating-point reassociation: they rearrange the order of operations to vectorize or pipeline better, in ways that are mathematically equivalent but produce different rounding. For GOTM's turbulence models, this is not a minor concern. The mixing equations are nonlinear and coupled: temperature drives stratification, which drives turbulence, which drives mixing, which drives temperature. Small per-timestep differences compound. In short, strongly stratified simulations, **Fortran and Numba can agree to machine precision for the first twenty days of simulation and then diverge sharply** as floating-point differences in the turbulence closure cascade into chaotic trajectory separation.
 
-My initial validation approach — a range-aware combined tolerance `|a−b| ≤ max(1e-7 × ref_range, 1e-12) + 5e-6 × |b|` — immediately produced hundreds of "failures" that were not failures in any physically meaningful sense. The velocity profiles looked identical. The temperature structures matched. But `max_abs_err` for a turbulence dissipation variable would fail because two trajectories had diverged in phase after day 20.
+The initial validation approach — a range-aware combined tolerance `|a−b| ≤ max(1e-7 × ref_range, 1e-12) + 5e-6 × |b|` — immediately produced hundreds of "failures" that were not failures in any physically meaningful sense. The velocity profiles looked identical. The temperature structures matched. But `max_abs_err` for a turbulence dissipation variable would fail because two trajectories had diverged in phase after day 20.
 
 This was not wrong code. This was chaos.
 
@@ -234,9 +234,9 @@ The answer came from computational geometry.
 
 The discrete Fréchet distance is a measure of similarity between two curves or trajectories. Where pointwise metrics (RMSE, max absolute error) ask "how far apart are corresponding points?", Fréchet distance asks: "what is the minimum leash length needed to walk a dog along one curve while its owner walks along the other, neither allowed to backtrack?" It captures *shape* and *sequence*, not just values.
 
-I applied it to validation: normalize each time series onto [0, 1] using robust 1st-to-99th percentile range, then compute the discrete Fréchet distance between the normalized Fortran and Python trajectories. A distance near zero means the trajectories are shape-equivalent. A distance above 0.20 means something is structurally broken.
+Applied to validation, it works like this: normalize each time series onto [0, 1] using robust 1st-to-99th percentile range, then compute the discrete Fréchet distance between the normalized Fortran and Python trajectories. A distance near zero means the trajectories are shape-equivalent. A distance above 0.20 means something is structurally broken.
 
-The status bands I settled on were:
+The status bands settled on were:
 
 | Status | Normalized Fréchet distance | Meaning |
 |--------|----------------------------|---------|
@@ -259,11 +259,11 @@ I moved it to week seven.
 
 The reason was practical: several of the failing validation cases (`medsea_east`, `medsea_west`, `nns_annual`) involve biogeochemical tracers from FABM. Without FABM, I couldn't even compare those cases properly — the reference NetCDF contained variables that pyGOTM simply did not produce.
 
-The coupling architecture I chose was a chunked interleaved loop. Rather than coupling FABM at every timestep (which would require passing Python objects into Numba kernels), I advance the compiled hydrodynamics for a window of timesteps, store the resulting physical state snapshots, then hand the window to pyfabm. The biological variables advance through those snapshots; light feedback from FABM's attenuation diagnostics modifies PAR for the next physics window.
+The coupling architecture was a chunked interleaved loop. Rather than coupling FABM at every timestep (which would require passing Python objects into Numba kernels), pyGOTM advances the compiled hydrodynamics for a window of timesteps, stores the resulting physical state snapshots, then hands the window to pyfabm. The biological variables advance through those snapshots; light feedback from FABM's attenuation diagnostics modifies PAR for the next physics window.
 
 {{< figure src="/images/blog/fabm_coupling.png" alt="FABM chunked interleaved coupling loop diagram" width="60%" class="align-center" >}}
 
-This architecture reduced trajectory divergence between FABM state and physics. I documented it carefully — the chunked approach had implications for the order of feedback terms that had to match the Fortran coupling exactly.
+This architecture reduced trajectory divergence between FABM state and physics. It was documented carefully — the chunked approach had implications for the order of feedback terms that had to match the Fortran coupling exactly.
 
 FABM went in cleanly, two weeks ahead of my original plan. The cases that needed it could now be compared. Some passed. Some remained DISCREPANT for biogeochemical reasons that now can be identified.
 
@@ -275,7 +275,7 @@ When I paused at the eight-week mark to take stock of what I had actually built,
 
 > "Ice physics is far more comprehensive than the MVP idea suggested."
 
-I implemented five distinct ice thermodynamics models:
+pyGOTM ended up with five distinct ice thermodynamics models:
 
 - **No-ice limiter** — the simplest path
 - **Simple freezing-point limiter** — surface temperature clamped at freshwater or saltwater freeze point
@@ -298,13 +298,13 @@ Twenty-two official GOTM reference cases. I had to get all of them running. All 
 
 The failures came in several flavors:
 
-**Broken variables** — variables present in the Fortran reference but absent or structurally wrong in pyGOTM's output. These showed up as red BROKEN entries in my report. Each one required me to trace back through the NetCDF writer, the runtime buffer allocation, and the slot registration to find where a diagnostic was being omitted.
+**Broken variables** — variables present in the Fortran reference but absent or structurally wrong in pyGOTM's output. These showed up as red BROKEN entries in the report. Each one meant tracing back through the NetCDF writer, the runtime buffer allocation, and the slot registration to find where a diagnostic was being omitted.
 
-**Sign convention errors** — GOTM uses an "atmospheric sign convention" for surface heat flux: `hflux > 0` means the ocean is *losing* heat (upward flux). This is the opposite of the oceanographic convention. I had misapplied this convention in the Python translation, producing temperature profiles that cooled when they should have warmed and vice versa. The error was in my translation from Fortran comments to code: the Fortran comments said "negative for heat loss" in some contexts and "atmospheric convention" in others, and the two were inconsistent with each other.
+**Sign convention errors** — GOTM uses an "atmospheric sign convention" for surface heat flux: `hflux > 0` means the ocean is *losing* heat (upward flux). This is the opposite of the oceanographic convention. This convention had been misapplied in the Python translation, producing temperature profiles that cooled when they should have warmed and vice versa. The error was in the translation from Fortran comments to code: the Fortran comments said "negative for heat loss" in some contexts and "atmospheric convention" in others, and the two were inconsistent with each other.
 
-**Chaotic divergence documentation** — several cases (`gotland`, `ows_papa`, `resolute`) had deterministic divergence patterns that were reproducible but impossible to eliminate without changing the physics. My work was to characterize them accurately, document them in `docs/validation/test_cases.rst`, and distinguish "this is a known floating-point behavior" from "this is a bug."
+**Chaotic divergence documentation** — several cases (`gotland`, `ows_papa`, `resolute`) had deterministic divergence patterns that were reproducible but impossible to eliminate without changing the physics. The work here was to characterize them accurately, document them in `docs/validation/test_cases.rst`, and distinguish "this is a known floating-point behavior" from "this is a bug."
 
-Commit by commit, I drove the broken variable counts down. I generated HTML reports for each case — embedded Plotly charts showing reference and pyGOTM time series side by side for every MARGINAL and DISCREPANT variable. By the end of week nine, my suite stood at **15 PASS, 7 FAIL** across 22 cases, with **2316 PASS, 67 MARGINAL, 31 DISCREPANT, and 0 BROKEN** variables.
+Commit by commit, the broken variable counts came down. HTML reports were generated for each case — embedded Plotly charts showing reference and pyGOTM time series side by side for every MARGINAL and DISCREPANT variable. By the end of week nine, the suite stood at **15 PASS, 7 FAIL** across 22 cases, with **2316 PASS, 67 MARGINAL, 31 DISCREPANT, and 0 BROKEN** variables.
 
 Zero broken.
 
@@ -326,7 +326,7 @@ Writing that down — "this is what it is, and that is enough, and it is actuall
 
 ## Where It Stands
 
-Ten weeks after starting from zero — six weeks of coding after four weeks of groundwork — I pushed the pre-release cleanup. I added CI/CD workflows. I committed validation artifacts. I cleaned the package for a real release.
+Ten weeks after starting from zero — six weeks of coding after four weeks of groundwork — the pre-release cleanup went in: CI/CD workflows added, validation artifacts committed, the package cleaned for a real release.
 
 What I built:
 
@@ -340,7 +340,7 @@ What I built:
 - **Click-based CLI**: `run`, `validate`, `version`, `schema`, `cite`, `serve`
 - **Sphinx documentation** with physics chapters on biogeochemistry, ice thermodynamics, and validation methodology
 - **Fréchet validation reports** with embedded Plotly charts, per-variable scoring, and case-level HTML reports
-- **A `pygotm serve` integration surface** — a warm JSON-RPC daemon for integration with other tools (like pyGOTM Studio)
+- **A `pygotm serve` integration surface** — a warm JSON-RPC daemon for integration with other tools (like Aquirae)
 
 The `lago_maggiore` alpine lake case passes. Real physics, real lake, real parity.
 
@@ -379,3 +379,5 @@ The ocean does not care about your implementation language. Turbulence is turbul
 ---
 
 *[pyGOTM](https://github.com/alinbobolea/pygotm) is my open-source project. The Fortran source it translates — GOTM 6.0.7 — is maintained by Bolding & Bruggeman ApS and the GOTM community and is available at [gotm.net](https://gotm.net).*
+
+*A follow-up, [Turbulence Meets a Real Lake](/blog/pygotm-lake-erken-parity/), picks up where this leaves off: pointing pyGOTM at one real lake for twenty-two years, discovering it was only half lake-aware, and learning to live with an honest FAIL.*

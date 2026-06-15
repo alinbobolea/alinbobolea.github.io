@@ -4,13 +4,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
         <title>pygotm.meanflow.uequation - pyGOTM Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=23f90c4b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=f28d94ff" />
     
     
 
@@ -196,7 +196,27 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/interfaces.html">Command and Developer Surfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/stability.html">Kernel Stability Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/serve.html">Warm Daemon Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/citations.html">Citations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/configuration.html">Configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../user_manual/index.html">User Manual</a><input aria-label="Toggle navigation of User Manual" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../user_manual/global.html">Global Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../user_manual/location_time_grid.html">Location, Time, and Grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../user_manual/initial_conditions.html">Initial Conditions: Temperature and Salinity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../user_manual/surface_forcing.html">Surface Forcing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../user_manual/light_extinction.html">Light Extinction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../user_manual/turbulence.html">Turbulence Closure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../user_manual/dynamics.html">Dynamics: Pressure Gradients, Velocities, Waves, and Vertical Advection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../user_manual/equation_of_state.html">Equation of State and Bottom Boundary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../user_manual/output.html">Output and Restart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../user_manual/input_file_formats.html">Input Data File Formats</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Physics &amp; Methods</span></p>
 <ul>
@@ -204,6 +224,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../physics/meanflow.html">Mean Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../physics/turbulence.html">Turbulence Closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../physics/airsea.html">Air–Sea Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/ice_thermodynamics.html">Ice Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/biogeochemistry.html">Biogeochemistry and FABM Coupling</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -217,15 +239,43 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/input.html">Input</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/validation.html">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/execution.html">Execution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/stokes_drift.html">Stokes Drift</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/fabm.html">FABM Coupling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/icethm.html">Ice Thermodynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/extras.html">Optional Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/cvmix.html">CVMix Interface</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Validation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../validation/overview.html">Validation Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../validation/test_cases.html">Test Cases</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../validation/test_cases.html">Test Cases</a><input aria-label="Toggle navigation of Test Cases" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/asics_med.html">Asics Med Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/blacksea.html">Blacksea Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/channel.html">Channel Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/couette.html">Couette Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/entrainment.html">Entrainment Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/estuary.html">Estuary Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/flex.html">Flex Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/gotland.html">Gotland Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lago_maggiore.html">Lago Maggiore Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lake_erken.html">Lake Erken Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/langmuir.html">Langmuir Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/liverpool_bay.html">Liverpool Bay Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/medsea_east.html">Medsea East Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/medsea_west.html">Medsea West Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/nns_annual.html">Nns Annual Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/nns_seasonal.html">Nns Seasonal Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/ows_papa.html">Ows Papa Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/plume.html">Plume Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/resolute.html">Resolute Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/reynolds.html">Reynolds Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/rouse.html">Rouse Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/seagrass.html">Seagrass Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/wave_breaking.html">Wave Breaking Validation Report</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../validation/lake_erken_parity.html">Lake Erken — Parity Status and Limitations</a></li>
 </ul>
 
 </div>
@@ -317,14 +367,17 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">pygotm.meanflow.meanflow</span><span class="w"> </span><span class="kn">import</span> <span class="n">MeanflowState</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pygotm.util.adv_center</span><span class="w"> </span><span class="kn">import</span> <span class="n">adv_center</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pygotm.util.diff_center</span><span class="w"> </span><span class="kn">import</span> <span class="n">diff_center</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pygotm.util.adv_center</span><span class="w"> </span><span class="kn">import</span> <span class="n">adv_center</span><span class="p">,</span> <span class="n">adv_center_lake</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pygotm.util.diff_center</span><span class="w"> </span><span class="kn">import</span> <span class="n">diff_center</span><span class="p">,</span> <span class="n">diff_center_lake</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pygotm.util.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">Neumann</span> <span class="k">as</span> <span class="n">_NEUMANN</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pygotm.util.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">flux</span> <span class="k">as</span> <span class="n">_FLUX</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pygotm.util.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">oneSided</span> <span class="k">as</span> <span class="n">_ONE_SIDED</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">&quot;uequation&quot;</span><span class="p">,</span>
     <span class="s2">&quot;step_uequation&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;step_uequation_lake&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;step_uequation_lake_single&quot;</span><span class="p">,</span>
     <span class="s2">&quot;step_uequation_single&quot;</span><span class="p">,</span>
 <span class="p">]</span>
 
@@ -524,6 +577,236 @@
 <span class="n">step_uequation_single</span> <span class="o">=</span> <span class="n">_step_uequation</span>
 
 
+<span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_step_uequation_lake</span><span class="p">(</span>
+    <span class="n">nlev</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">cnpar</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">avmolu</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">gravity</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">ext_method</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">w_adv_active</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">w_adv_discr</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">tx_val</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">dzetadx_val</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">u</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">uo</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">v</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">h</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">vco</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">vc</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">af</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">afo</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">w</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">wq</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">drag</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">num</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">nucl</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">dusdz</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">idpdx</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">uprof</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">tau_r</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">avh</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">q_sour</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">l_sour</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">au</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">bu</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">cu</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">du</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">ru</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">qu</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">adv_cu</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Lake U-momentum equation with hypsographic (area/volume) geometry.</span>
+
+<span class="sd">    Mirrors GOTM-lake ``uequation.F90``: vertical advection by the</span>
+<span class="sd">    water-balance flux ``wq`` and by ``w`` use the area-weighted advection</span>
+<span class="sd">    operator, the bottom friction enters as a source term at **every** layer</span>
+<span class="sd">    (``Lsour(i) = -drag(i)/h(i)*|U|``), and the diffusion step is area-weighted.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">uo</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">avh</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">avmolu</span>
+
+    <span class="n">dzx</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">if</span> <span class="n">ext_method</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">dzx</span> <span class="o">=</span> <span class="n">dzetadx_val</span>
+
+    <span class="c1">#  vertical advection by the water-balance flux wq (no momentum source)</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">q_sour</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">l_sour</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">adv_center_lake</span><span class="p">(</span>
+        <span class="n">nlev</span><span class="p">,</span>
+        <span class="n">dt</span><span class="p">,</span>
+        <span class="n">h</span><span class="p">,</span>
+        <span class="n">vco</span><span class="p">,</span>
+        <span class="n">vc</span><span class="p">,</span>
+        <span class="n">afo</span><span class="p">,</span>
+        <span class="n">wq</span><span class="p">,</span>
+        <span class="n">_FLUX</span><span class="p">,</span>
+        <span class="n">_FLUX</span><span class="p">,</span>
+        <span class="mf">0.0</span><span class="p">,</span>
+        <span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">l_sour</span><span class="p">,</span>
+        <span class="n">q_sour</span><span class="p">,</span>
+        <span class="n">w_adv_discr</span><span class="p">,</span>
+        <span class="mi">1</span><span class="p">,</span>
+        <span class="n">u</span><span class="p">,</span>
+        <span class="n">adv_cu</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">w_adv_active</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">q_sour</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">l_sour</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">adv_center_lake</span><span class="p">(</span>
+            <span class="n">nlev</span><span class="p">,</span>
+            <span class="n">dt</span><span class="p">,</span>
+            <span class="n">h</span><span class="p">,</span>
+            <span class="n">vc</span><span class="p">,</span>
+            <span class="n">vc</span><span class="p">,</span>
+            <span class="n">af</span><span class="p">,</span>
+            <span class="n">w</span><span class="p">,</span>
+            <span class="n">_ONE_SIDED</span><span class="p">,</span>
+            <span class="n">_ONE_SIDED</span><span class="p">,</span>
+            <span class="mf">0.0</span><span class="p">,</span>
+            <span class="mf">0.0</span><span class="p">,</span>
+            <span class="n">l_sour</span><span class="p">,</span>
+            <span class="n">q_sour</span><span class="p">,</span>
+            <span class="n">w_adv_discr</span><span class="p">,</span>
+            <span class="n">_ADV_MODE</span><span class="p">,</span>
+            <span class="n">u</span><span class="p">,</span>
+            <span class="n">adv_cu</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">q_sour</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">l_sour</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">q_sour</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="o">-</span><span class="n">gravity</span> <span class="o">*</span> <span class="n">dzx</span> <span class="o">+</span> <span class="n">idpdx</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+        <span class="n">q_sour</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">nucl</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">dusdz</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">-</span> <span class="n">nucl</span><span class="p">[</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">dusdz</span><span class="p">[</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">h</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+        <span class="n">speed</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">u</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+        <span class="n">l_sour</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">drag</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">/</span> <span class="n">h</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">speed</span>
+
+    <span class="n">diff_center_lake</span><span class="p">(</span>
+        <span class="n">nlev</span><span class="p">,</span>
+        <span class="n">dt</span><span class="p">,</span>
+        <span class="n">cnpar</span><span class="p">,</span>
+        <span class="n">_POS_CONC</span><span class="p">,</span>
+        <span class="n">h</span><span class="p">,</span>
+        <span class="n">vc</span><span class="p">,</span>
+        <span class="n">af</span><span class="p">,</span>
+        <span class="n">_NEUMANN</span><span class="p">,</span>
+        <span class="n">_NEUMANN</span><span class="p">,</span>
+        <span class="n">tx_val</span><span class="p">,</span>
+        <span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">avh</span><span class="p">,</span>
+        <span class="n">l_sour</span><span class="p">,</span>
+        <span class="n">q_sour</span><span class="p">,</span>
+        <span class="n">tau_r</span><span class="p">,</span>
+        <span class="n">uprof</span><span class="p">,</span>
+        <span class="n">u</span><span class="p">,</span>
+        <span class="n">au</span><span class="p">,</span>
+        <span class="n">bu</span><span class="p">,</span>
+        <span class="n">cu</span><span class="p">,</span>
+        <span class="n">du</span><span class="p">,</span>
+        <span class="n">ru</span><span class="p">,</span>
+        <span class="n">qu</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<div class="viewcode-block" id="step_uequation_lake">
+<a class="viewcode-back" href="../../../api/meanflow.html#pygotm.meanflow.uequation.step_uequation_lake">[docs]</a>
+<span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">step_uequation_lake</span><span class="p">(</span>
+    <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">nlev</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">cnpar</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">avmolu</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">gravity</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">ext_method</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">w_adv_active</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">w_adv_discr</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">tx</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">dzetadx</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">u</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">uo</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">v</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">h</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">vco</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">vc</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">af</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">afo</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">w</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">wq</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">drag</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">num</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">nucl</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">dusdz</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">idpdx</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">uprof</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">tau_r</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">avh</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">q_sour</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">l_sour</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">au</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">bu</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">cu</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">du</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">ru</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">qu</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">adv_cu</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Batch variant: process batch_size lake columns in parallel.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">numba</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">batch_size</span><span class="p">):</span>
+        <span class="n">_step_uequation_lake</span><span class="p">(</span>
+            <span class="n">nlev</span><span class="p">,</span>
+            <span class="n">dt</span><span class="p">,</span>
+            <span class="n">cnpar</span><span class="p">,</span>
+            <span class="n">avmolu</span><span class="p">,</span>
+            <span class="n">gravity</span><span class="p">,</span>
+            <span class="n">ext_method</span><span class="p">,</span>
+            <span class="n">w_adv_active</span><span class="p">,</span>
+            <span class="n">w_adv_discr</span><span class="p">,</span>
+            <span class="n">tx</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">dzetadx</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">u</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">uo</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">v</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">h</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">vco</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">vc</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">af</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">afo</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">w</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">wq</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">drag</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">num</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">nucl</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">dusdz</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">idpdx</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">uprof</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">tau_r</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">avh</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">q_sour</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">l_sour</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">au</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">bu</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">cu</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">du</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">ru</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">qu</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+            <span class="n">adv_cu</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+        <span class="p">)</span></div>
+
+
+
+<span class="n">step_uequation_lake_single</span> <span class="o">=</span> <span class="n">_step_uequation_lake</span>
+
+
 <div class="viewcode-block" id="uequation">
 <a class="viewcode-back" href="../../../api/meanflow.html#pygotm.meanflow.uequation.uequation">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">uequation</span><span class="p">(</span>
@@ -687,8 +970,8 @@
     </aside>
   </div>
 </div><script src="../../../_static/documentation_options.js?v=01f34227"></script>
-    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>

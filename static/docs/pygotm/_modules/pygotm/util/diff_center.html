@@ -4,13 +4,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
         <title>pygotm.util.diff_center - pyGOTM Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=23f90c4b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=f28d94ff" />
     
     
 
@@ -196,6 +196,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/interfaces.html">Command and Developer Surfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/stability.html">Kernel Stability Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/serve.html">Warm Daemon Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/citations.html">Citations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/configuration.html">Configuration</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
@@ -210,6 +214,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../user_manual/dynamics.html">Dynamics: Pressure Gradients, Velocities, Waves, and Vertical Advection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../user_manual/equation_of_state.html">Equation of State and Bottom Boundary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../user_manual/output.html">Output and Restart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../user_manual/input_file_formats.html">Input Data File Formats</a></li>
 </ul>
 </li>
 </ul>
@@ -234,6 +239,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/input.html">Input</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/validation.html">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/execution.html">Execution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/stokes_drift.html">Stokes Drift</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/fabm.html">FABM Coupling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/icethm.html">Ice Thermodynamics</a></li>
@@ -243,7 +249,33 @@
 <p class="caption" role="heading"><span class="caption-text">Validation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../validation/overview.html">Validation Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../validation/test_cases.html">Test Cases</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../validation/test_cases.html">Test Cases</a><input aria-label="Toggle navigation of Test Cases" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/asics_med.html">Asics Med Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/blacksea.html">Blacksea Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/channel.html">Channel Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/couette.html">Couette Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/entrainment.html">Entrainment Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/estuary.html">Estuary Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/flex.html">Flex Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/gotland.html">Gotland Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lago_maggiore.html">Lago Maggiore Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lake_erken.html">Lake Erken Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/langmuir.html">Langmuir Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/liverpool_bay.html">Liverpool Bay Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/medsea_east.html">Medsea East Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/medsea_west.html">Medsea West Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/nns_annual.html">Nns Annual Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/nns_seasonal.html">Nns Seasonal Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/ows_papa.html">Ows Papa Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/plume.html">Plume Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/resolute.html">Resolute Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/reynolds.html">Reynolds Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/rouse.html">Rouse Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/seagrass.html">Seagrass Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/wave_breaking.html">Wave Breaking Validation Report</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../validation/lake_erken_parity.html">Lake Erken — Parity Status and Limitations</a></li>
 </ul>
 
 </div>
@@ -319,6 +351,7 @@
     <span class="s2">&quot;DIRICHLET&quot;</span><span class="p">,</span>
     <span class="s2">&quot;NEUMANN&quot;</span><span class="p">,</span>
     <span class="s2">&quot;diff_center&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;diff_center_lake&quot;</span><span class="p">,</span>
     <span class="s2">&quot;diff_center_batch&quot;</span><span class="p">,</span>
 <span class="p">]</span>
 
@@ -401,6 +434,105 @@
             <span class="c1"># Requires y[1] &gt; 0 — same assumption as Fortran diff_center.F90.</span>
             <span class="c1"># Division by zero if y goes exactly to zero.</span>
             <span class="c1"># Guard: callers must ensure y &gt; 0 when posconc=1 and y_down &lt; 0.</span>
+            <span class="n">bu</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">cu</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">linear_source</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">y_down</span> <span class="o">/</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">du</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">q_sour</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">du</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">cnpar</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">bu</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">cu</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">linear_source</span>
+            <span class="n">du</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="n">q_sour</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">y_down</span> <span class="o">/</span> <span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">du</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">cnpar</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">cu</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">bu</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="n">du</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_down</span>
+
+    <span class="n">apply_relaxation</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">tau_r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">1.0e10</span><span class="p">:</span>
+            <span class="n">apply_relaxation</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">apply_relaxation</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">bu</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">tau_r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">du</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">tau_r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">y_obs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+    <span class="n">tridiagonal</span><span class="p">(</span><span class="n">au</span><span class="p">,</span> <span class="n">bu</span><span class="p">,</span> <span class="n">cu</span><span class="p">,</span> <span class="n">du</span><span class="p">,</span> <span class="n">ru</span><span class="p">,</span> <span class="n">qu</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nlev</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="diff_center_lake">
+<a class="viewcode-back" href="../../../api/util.html#pygotm.util.diff_center.diff_center_lake">[docs]</a>
+<span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">diff_center_lake</span><span class="p">(</span>
+    <span class="n">nlev</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">cnpar</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">posconc</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">h</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">vc</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">af</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">bc_up</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">bc_down</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">y_up</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">y_down</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">nu_y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">l_sour</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">q_sour</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">tau_r</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">y_obs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">au</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">bu</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">cu</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">du</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">ru</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">qu</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Solve lake diffusion for a cell-centred variable using volume/area geometry.&quot;&quot;&quot;</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">nlev</span><span class="p">):</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">af</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">nu_y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">vc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">af</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">nu_y</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">vc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">linear_source</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">l_sour</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+        <span class="n">cu</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">cnpar</span> <span class="o">*</span> <span class="n">c</span>
+        <span class="n">au</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">cnpar</span> <span class="o">*</span> <span class="n">a</span>
+        <span class="n">bu</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="n">cnpar</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span> <span class="o">-</span> <span class="n">linear_source</span>
+        <span class="n">du</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">cnpar</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">c</span><span class="p">))</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">du</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">cnpar</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">c</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">du</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">q_sour</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">bc_up</span> <span class="o">==</span> <span class="n">NEUMANN</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="mf">2.0</span>
+            <span class="o">*</span> <span class="n">dt</span>
+            <span class="o">*</span> <span class="n">af</span><span class="p">[</span><span class="n">nlev</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="o">*</span> <span class="n">nu_y</span><span class="p">[</span><span class="n">nlev</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="o">/</span> <span class="p">(</span><span class="n">h</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">[</span><span class="n">nlev</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+            <span class="o">/</span> <span class="n">vc</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">linear_source</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">l_sour</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span>
+
+        <span class="n">au</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">cnpar</span> <span class="o">*</span> <span class="n">a</span>
+        <span class="k">if</span> <span class="n">posconc</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">y_up</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="n">bu</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">au</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span> <span class="o">-</span> <span class="n">linear_source</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">y_up</span> <span class="o">/</span> <span class="n">y</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span> <span class="o">/</span> <span class="n">h</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span>
+            <span class="n">du</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">q_sour</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span>
+            <span class="n">du</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">cnpar</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">nlev</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="n">nlev</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">bu</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">au</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span> <span class="o">-</span> <span class="n">linear_source</span>
+            <span class="n">du</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="n">q_sour</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span> <span class="o">+</span> <span class="n">y_up</span> <span class="o">/</span> <span class="n">h</span><span class="p">[</span><span class="n">nlev</span><span class="p">])</span>
+            <span class="n">du</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">cnpar</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">nlev</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="n">nlev</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">au</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">bu</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="n">du</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_up</span>
+
+    <span class="k">if</span> <span class="n">bc_down</span> <span class="o">==</span> <span class="n">NEUMANN</span><span class="p">:</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">af</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">nu_y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="n">vc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">linear_source</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">l_sour</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="n">cu</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">cnpar</span> <span class="o">*</span> <span class="n">c</span>
+        <span class="k">if</span> <span class="n">posconc</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">y_down</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
             <span class="n">bu</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">cu</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">linear_source</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">y_down</span> <span class="o">/</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
             <span class="n">du</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">q_sour</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
             <span class="n">du</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">cnpar</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -516,8 +648,8 @@
     </aside>
   </div>
 </div><script src="../../../_static/documentation_options.js?v=01f34227"></script>
-    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>

@@ -14,9 +14,9 @@ projects:
     tags: ["Python", "Numba", "ocean turbulence", "NetCDF", "FABM", "validation", "scientific computing"]
     url: "/docs/pygotm/"
 
-  - name: "pyGOTM Studio"
+  - name: "Aquirae"
     status: "dev"
-    description: "Local-first scientific workbench built around the pyGOTM kernel. Turns the simulation engine into a usable product: hash-pinned reproducibility manifests, a SQLite provenance DAG linking every artifact from raw data to published figure, a project bundle format (YAML + Parquet + NetCDF + Markdown) designed for Zenodo archival, and a NiceGUI browser UI with three vantage points (Operator / Modeler / Explorer). Includes a time-depth cinematic, scenario comparison, observation QC browser, YAML editor, report builder, and auto-collected citation graph. Runs entirely on-machine — no cloud account required. GPL/MIT process boundary: Studio calls the kernel via subprocess CLI and JSON-RPC, never as a linked import."
-    tags: ["Python", "NiceGUI", "FastAPI", "SQLite", "scientific computing", "provenance", "ocean modeling"]
+    description: "Aquirae (Aquatic Integrated Reproducible Analysis Environment) — a local-first, reproducible workbench for aquatic-system modeling. It is the application layer above an open-source simulation engine: the first engine is the pyGOTM 1D water-column model, and the architecture is built to host additional aquatic engines later. Aquirae turns a raw engine into a usable product: reproducibility-by-construction via hash-pinned manifests that record inputs, code versions, environment, and outputs; a SQLite provenance DAG linking every artifact from raw data to published figure; a portable project-bundle format (YAML + Parquet + NetCDF + Markdown) suitable for Zenodo archival; an auto-collected citation graph; and a NiceGUI browser UI with three vantage points (Operator / Modeler / Explorer) — Time-Depth Cinematic, Scenario Comparison, Intake-Depth Advisory, Provenance Inspector, Observation Browser, YAML Editor, and Report Builder. Runs entirely on-machine, no cloud account required. The engine is consumed across a strict process boundary (subprocess CLI and stdin/stdout JSON-RPC, never a linked import), keeping the AGPL-3.0 application cleanly separated from the GPL-2.0 engine while both share one conda environment. Currently pre-alpha (v0.1.0): package layout, agent contracts, and process-boundary stubs."
+    tags: ["Python", "NiceGUI", "FastAPI", "SQLite", "reproducibility", "provenance", "aquatic modeling"]
     url: ""
 ---

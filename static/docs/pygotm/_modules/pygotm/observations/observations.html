@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
         <title>pygotm.observations.observations - pyGOTM Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
@@ -259,6 +259,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/flex.html">Flex Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/gotland.html">Gotland Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lago_maggiore.html">Lago Maggiore Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lake_erken.html">Lake Erken Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/langmuir.html">Langmuir Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/liverpool_bay.html">Liverpool Bay Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/medsea_east.html">Medsea East Validation Report</a></li>
@@ -274,6 +275,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/wave_breaking.html">Wave Breaking Validation Report</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../validation/lake_erken_parity.html">Lake Erken — Parity Status and Limitations</a></li>
 </ul>
 
 </div>
@@ -387,6 +389,10 @@
     <span class="s2">&quot;jerlov_iii&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
     <span class="s2">&quot;custom&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
 <span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_method_name</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_vertical_velocity_settings</span><span class="p">(</span><span class="n">parsed</span><span class="p">:</span> <span class="n">GotmSettings</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">VerticalVelocitySettings</span><span class="p">:</span>
@@ -639,7 +645,15 @@
     <span class="n">vel_relax_ramp</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0e15</span>
     <span class="n">b_obs_surf</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="n">b_obs_NN</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="n">b_obs_sbf</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span></div>
+    <span class="n">b_obs_sbf</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">Qs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">Qt</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">Ls</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">Lt</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">Qlayer</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">Qres</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">FQ</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">wq</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 
 
@@ -683,7 +697,9 @@
     <span class="n">state</span><span class="o">.</span><span class="n">SRelaxSurf</span> <span class="o">=</span> <span class="n">parsed</span><span class="o">.</span><span class="n">salinity</span><span class="o">.</span><span class="n">relax</span><span class="o">.</span><span class="n">h_s</span>
     <span class="n">state</span><span class="o">.</span><span class="n">SRelaxBott</span> <span class="o">=</span> <span class="n">parsed</span><span class="o">.</span><span class="n">salinity</span><span class="o">.</span><span class="n">relax</span><span class="o">.</span><span class="n">h_b</span>
 
-    <span class="n">state</span><span class="o">.</span><span class="n">extinct_method</span> <span class="o">=</span> <span class="n">_EXTINCTION_METHOD</span><span class="p">[</span><span class="n">parsed</span><span class="o">.</span><span class="n">light_extinction</span><span class="o">.</span><span class="n">method</span><span class="p">]</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">extinct_method</span> <span class="o">=</span> <span class="n">_EXTINCTION_METHOD</span><span class="p">[</span>
+        <span class="n">_method_name</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">light_extinction</span><span class="o">.</span><span class="n">method</span><span class="p">)</span>
+    <span class="p">]</span>
     <span class="n">state</span><span class="o">.</span><span class="n">ext_press_mode</span> <span class="o">=</span> <span class="n">_EXT_PRESS_MODE</span><span class="p">[</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">ext_pressure</span><span class="o">.</span><span class="n">type</span><span class="p">]</span>
     <span class="n">state</span><span class="o">.</span><span class="n">int_press_type</span> <span class="o">=</span> <span class="n">_INT_PRESS_TYPE</span><span class="p">[</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">int_pressure</span><span class="o">.</span><span class="n">type</span><span class="p">]</span>
     <span class="n">state</span><span class="o">.</span><span class="n">s_adv</span> <span class="o">=</span> <span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">int_pressure</span><span class="o">.</span><span class="n">s_adv</span>
@@ -716,7 +732,9 @@
 
     <span class="n">state</span><span class="o">.</span><span class="n">tprof_input</span> <span class="o">=</span> <span class="n">_profile_input</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;temperature&quot;</span><span class="p">,</span>
-        <span class="n">method</span><span class="o">=</span><span class="n">_profile_method</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">temperature</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="n">analytical_constant</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="n">method</span><span class="o">=</span><span class="n">_profile_method</span><span class="p">(</span>
+            <span class="n">_method_name</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">temperature</span><span class="o">.</span><span class="n">method</span><span class="p">),</span> <span class="n">analytical_constant</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">),</span>
         <span class="n">path</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">temperature</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
         <span class="n">index</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">temperature</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
         <span class="n">constant_value</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">temperature</span><span class="o">.</span><span class="n">constant_value</span><span class="p">,</span>
@@ -729,7 +747,9 @@
     <span class="p">)</span>
     <span class="n">state</span><span class="o">.</span><span class="n">sprof_input</span> <span class="o">=</span> <span class="n">_profile_input</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;salinity&quot;</span><span class="p">,</span>
-        <span class="n">method</span><span class="o">=</span><span class="n">_profile_method</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">salinity</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="n">analytical_constant</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="n">method</span><span class="o">=</span><span class="n">_profile_method</span><span class="p">(</span>
+            <span class="n">_method_name</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">salinity</span><span class="o">.</span><span class="n">method</span><span class="p">),</span> <span class="n">analytical_constant</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">),</span>
         <span class="n">path</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">salinity</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
         <span class="n">index</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">salinity</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
         <span class="n">constant_value</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">salinity</span><span class="o">.</span><span class="n">constant_value</span><span class="p">,</span>
@@ -744,7 +764,9 @@
     <span class="n">gradients</span> <span class="o">=</span> <span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">int_pressure</span><span class="o">.</span><span class="n">gradients</span>
     <span class="n">state</span><span class="o">.</span><span class="n">dtdx_input</span> <span class="o">=</span> <span class="n">_profile_input</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;dtdx&quot;</span><span class="p">,</span>
-        <span class="n">method</span><span class="o">=</span><span class="n">_profile_method</span><span class="p">(</span><span class="n">gradients</span><span class="o">.</span><span class="n">dtdx</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="n">analytical_constant</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+        <span class="n">method</span><span class="o">=</span><span class="n">_profile_method</span><span class="p">(</span>
+            <span class="n">_method_name</span><span class="p">(</span><span class="n">gradients</span><span class="o">.</span><span class="n">dtdx</span><span class="o">.</span><span class="n">method</span><span class="p">),</span> <span class="n">analytical_constant</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">),</span>
         <span class="n">path</span><span class="o">=</span><span class="n">gradients</span><span class="o">.</span><span class="n">dtdx</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
         <span class="n">index</span><span class="o">=</span><span class="n">gradients</span><span class="o">.</span><span class="n">dtdx</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
         <span class="n">constant_value</span><span class="o">=</span><span class="n">gradients</span><span class="o">.</span><span class="n">dtdx</span><span class="o">.</span><span class="n">constant_value</span><span class="p">,</span>
@@ -753,7 +775,9 @@
     <span class="p">)</span>
     <span class="n">state</span><span class="o">.</span><span class="n">dtdy_input</span> <span class="o">=</span> <span class="n">_profile_input</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;dtdy&quot;</span><span class="p">,</span>
-        <span class="n">method</span><span class="o">=</span><span class="n">_profile_method</span><span class="p">(</span><span class="n">gradients</span><span class="o">.</span><span class="n">dtdy</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="n">analytical_constant</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+        <span class="n">method</span><span class="o">=</span><span class="n">_profile_method</span><span class="p">(</span>
+            <span class="n">_method_name</span><span class="p">(</span><span class="n">gradients</span><span class="o">.</span><span class="n">dtdy</span><span class="o">.</span><span class="n">method</span><span class="p">),</span> <span class="n">analytical_constant</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">),</span>
         <span class="n">path</span><span class="o">=</span><span class="n">gradients</span><span class="o">.</span><span class="n">dtdy</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
         <span class="n">index</span><span class="o">=</span><span class="n">gradients</span><span class="o">.</span><span class="n">dtdy</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
         <span class="n">constant_value</span><span class="o">=</span><span class="n">gradients</span><span class="o">.</span><span class="n">dtdy</span><span class="o">.</span><span class="n">constant_value</span><span class="p">,</span>
@@ -762,7 +786,9 @@
     <span class="p">)</span>
     <span class="n">state</span><span class="o">.</span><span class="n">dsdx_input</span> <span class="o">=</span> <span class="n">_profile_input</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;dsdx&quot;</span><span class="p">,</span>
-        <span class="n">method</span><span class="o">=</span><span class="n">_profile_method</span><span class="p">(</span><span class="n">gradients</span><span class="o">.</span><span class="n">dsdx</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="n">analytical_constant</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+        <span class="n">method</span><span class="o">=</span><span class="n">_profile_method</span><span class="p">(</span>
+            <span class="n">_method_name</span><span class="p">(</span><span class="n">gradients</span><span class="o">.</span><span class="n">dsdx</span><span class="o">.</span><span class="n">method</span><span class="p">),</span> <span class="n">analytical_constant</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">),</span>
         <span class="n">path</span><span class="o">=</span><span class="n">gradients</span><span class="o">.</span><span class="n">dsdx</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
         <span class="n">index</span><span class="o">=</span><span class="n">gradients</span><span class="o">.</span><span class="n">dsdx</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
         <span class="n">constant_value</span><span class="o">=</span><span class="n">gradients</span><span class="o">.</span><span class="n">dsdx</span><span class="o">.</span><span class="n">constant_value</span><span class="p">,</span>
@@ -771,7 +797,9 @@
     <span class="p">)</span>
     <span class="n">state</span><span class="o">.</span><span class="n">dsdy_input</span> <span class="o">=</span> <span class="n">_profile_input</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;dsdy&quot;</span><span class="p">,</span>
-        <span class="n">method</span><span class="o">=</span><span class="n">_profile_method</span><span class="p">(</span><span class="n">gradients</span><span class="o">.</span><span class="n">dsdy</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="n">analytical_constant</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+        <span class="n">method</span><span class="o">=</span><span class="n">_profile_method</span><span class="p">(</span>
+            <span class="n">_method_name</span><span class="p">(</span><span class="n">gradients</span><span class="o">.</span><span class="n">dsdy</span><span class="o">.</span><span class="n">method</span><span class="p">),</span> <span class="n">analytical_constant</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">),</span>
         <span class="n">path</span><span class="o">=</span><span class="n">gradients</span><span class="o">.</span><span class="n">dsdy</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
         <span class="n">index</span><span class="o">=</span><span class="n">gradients</span><span class="o">.</span><span class="n">dsdy</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
         <span class="n">constant_value</span><span class="o">=</span><span class="n">gradients</span><span class="o">.</span><span class="n">dsdy</span><span class="o">.</span><span class="n">constant_value</span><span class="p">,</span>
@@ -781,7 +809,9 @@
 
     <span class="n">state</span><span class="o">.</span><span class="n">uprof_input</span> <span class="o">=</span> <span class="n">_profile_input</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;u_obs&quot;</span><span class="p">,</span>
-        <span class="n">method</span><span class="o">=</span><span class="n">_profile_method</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">velocities</span><span class="o">.</span><span class="n">u</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="n">analytical_constant</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+        <span class="n">method</span><span class="o">=</span><span class="n">_profile_method</span><span class="p">(</span>
+            <span class="n">_method_name</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">velocities</span><span class="o">.</span><span class="n">u</span><span class="o">.</span><span class="n">method</span><span class="p">),</span> <span class="n">analytical_constant</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">),</span>
         <span class="n">path</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">velocities</span><span class="o">.</span><span class="n">u</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
         <span class="n">index</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">velocities</span><span class="o">.</span><span class="n">u</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
         <span class="n">constant_value</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">velocities</span><span class="o">.</span><span class="n">u</span><span class="o">.</span><span class="n">constant_value</span><span class="p">,</span>
@@ -790,7 +820,9 @@
     <span class="p">)</span>
     <span class="n">state</span><span class="o">.</span><span class="n">vprof_input</span> <span class="o">=</span> <span class="n">_profile_input</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;v_obs&quot;</span><span class="p">,</span>
-        <span class="n">method</span><span class="o">=</span><span class="n">_profile_method</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">velocities</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="n">analytical_constant</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+        <span class="n">method</span><span class="o">=</span><span class="n">_profile_method</span><span class="p">(</span>
+            <span class="n">_method_name</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">velocities</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">method</span><span class="p">),</span> <span class="n">analytical_constant</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">),</span>
         <span class="n">path</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">velocities</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
         <span class="n">index</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">velocities</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
         <span class="n">constant_value</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">velocities</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">constant_value</span><span class="p">,</span>
@@ -803,7 +835,7 @@
     <span class="n">state</span><span class="o">.</span><span class="n">epsprof_input</span> <span class="o">=</span> <span class="n">_profile_input</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;eps_obs&quot;</span><span class="p">,</span>
         <span class="n">method</span><span class="o">=</span><span class="n">_profile_method</span><span class="p">(</span>
-            <span class="n">parsed</span><span class="o">.</span><span class="n">turbulence</span><span class="o">.</span><span class="n">epsprof</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="n">analytical_constant</span><span class="o">=</span><span class="kc">False</span>
+            <span class="n">_method_name</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">turbulence</span><span class="o">.</span><span class="n">epsprof</span><span class="o">.</span><span class="n">method</span><span class="p">),</span> <span class="n">analytical_constant</span><span class="o">=</span><span class="kc">False</span>
         <span class="p">),</span>
         <span class="n">path</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">turbulence</span><span class="o">.</span><span class="n">epsprof</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
         <span class="n">index</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">turbulence</span><span class="o">.</span><span class="n">epsprof</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
@@ -817,7 +849,7 @@
 
     <span class="n">state</span><span class="o">.</span><span class="n">dpdx_input</span> <span class="o">=</span> <span class="n">_scalar_input</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;dpdx&quot;</span><span class="p">,</span>
-        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">ext_pressure</span><span class="o">.</span><span class="n">dpdx</span><span class="o">.</span><span class="n">method</span><span class="p">),</span>
+        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">_method_name</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">ext_pressure</span><span class="o">.</span><span class="n">dpdx</span><span class="o">.</span><span class="n">method</span><span class="p">)),</span>
         <span class="n">path</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">ext_pressure</span><span class="o">.</span><span class="n">dpdx</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
         <span class="n">index</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">ext_pressure</span><span class="o">.</span><span class="n">dpdx</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
         <span class="n">constant_value</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">ext_pressure</span><span class="o">.</span><span class="n">dpdx</span><span class="o">.</span><span class="n">constant_value</span><span class="p">,</span>
@@ -826,7 +858,7 @@
     <span class="p">)</span>
     <span class="n">state</span><span class="o">.</span><span class="n">dpdy_input</span> <span class="o">=</span> <span class="n">_scalar_input</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;dpdy&quot;</span><span class="p">,</span>
-        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">ext_pressure</span><span class="o">.</span><span class="n">dpdy</span><span class="o">.</span><span class="n">method</span><span class="p">),</span>
+        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">_method_name</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">ext_pressure</span><span class="o">.</span><span class="n">dpdy</span><span class="o">.</span><span class="n">method</span><span class="p">)),</span>
         <span class="n">path</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">ext_pressure</span><span class="o">.</span><span class="n">dpdy</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
         <span class="n">index</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">ext_pressure</span><span class="o">.</span><span class="n">dpdy</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
         <span class="n">constant_value</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">ext_pressure</span><span class="o">.</span><span class="n">dpdy</span><span class="o">.</span><span class="n">constant_value</span><span class="p">,</span>
@@ -835,7 +867,7 @@
     <span class="p">)</span>
     <span class="n">state</span><span class="o">.</span><span class="n">h_press_input</span> <span class="o">=</span> <span class="n">_scalar_input</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;h_press&quot;</span><span class="p">,</span>
-        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">ext_pressure</span><span class="o">.</span><span class="n">h</span><span class="o">.</span><span class="n">method</span><span class="p">),</span>
+        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">_method_name</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">ext_pressure</span><span class="o">.</span><span class="n">h</span><span class="o">.</span><span class="n">method</span><span class="p">)),</span>
         <span class="n">path</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">ext_pressure</span><span class="o">.</span><span class="n">h</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
         <span class="n">index</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">ext_pressure</span><span class="o">.</span><span class="n">h</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
         <span class="n">constant_value</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">ext_pressure</span><span class="o">.</span><span class="n">h</span><span class="o">.</span><span class="n">constant_value</span><span class="p">,</span>
@@ -844,7 +876,7 @@
     <span class="p">)</span>
     <span class="n">state</span><span class="o">.</span><span class="n">zeta_input</span> <span class="o">=</span> <span class="n">_scalar_input</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;zeta&quot;</span><span class="p">,</span>
-        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">zeta</span><span class="o">.</span><span class="n">method</span><span class="p">),</span>
+        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">_method_name</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">zeta</span><span class="o">.</span><span class="n">method</span><span class="p">)),</span>
         <span class="n">path</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">zeta</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
         <span class="n">index</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">zeta</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
         <span class="n">constant_value</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">mimic_3d</span><span class="o">.</span><span class="n">zeta</span><span class="o">.</span><span class="n">constant_value</span><span class="p">,</span>
@@ -853,7 +885,9 @@
     <span class="p">)</span>
     <span class="n">state</span><span class="o">.</span><span class="n">w_adv_input</span> <span class="o">=</span> <span class="n">_scalar_input</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;w_adv&quot;</span><span class="p">,</span>
-        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">w_adv_setting</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="n">constant_method</span><span class="o">=</span><span class="n">CONSTANT</span><span class="p">),</span>
+        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span>
+            <span class="n">_method_name</span><span class="p">(</span><span class="n">w_adv_setting</span><span class="o">.</span><span class="n">method</span><span class="p">),</span> <span class="n">constant_method</span><span class="o">=</span><span class="n">CONSTANT</span>
+        <span class="p">),</span>
         <span class="n">path</span><span class="o">=</span><span class="n">w_adv_setting</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
         <span class="n">index</span><span class="o">=</span><span class="n">w_adv_setting</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
         <span class="n">constant_value</span><span class="o">=</span><span class="n">w_adv_setting</span><span class="o">.</span><span class="n">constant_value</span><span class="p">,</span>
@@ -863,7 +897,7 @@
     <span class="p">)</span>
     <span class="n">state</span><span class="o">.</span><span class="n">w_height_input</span> <span class="o">=</span> <span class="n">_scalar_input</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;w_height&quot;</span><span class="p">,</span>
-        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">w_height_setting</span><span class="o">.</span><span class="n">method</span><span class="p">),</span>
+        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">_method_name</span><span class="p">(</span><span class="n">w_height_setting</span><span class="o">.</span><span class="n">method</span><span class="p">)),</span>
         <span class="n">path</span><span class="o">=</span><span class="n">w_height_setting</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
         <span class="n">index</span><span class="o">=</span><span class="n">w_height_setting</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
         <span class="n">constant_value</span><span class="o">=</span><span class="n">w_height_setting</span><span class="o">.</span><span class="n">constant_value</span><span class="p">,</span>
@@ -872,7 +906,7 @@
     <span class="p">)</span>
     <span class="n">state</span><span class="o">.</span><span class="n">A_input</span> <span class="o">=</span> <span class="n">_scalar_input</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">,</span>
-        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">light_extinction</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">method</span><span class="p">),</span>
+        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">_method_name</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">light_extinction</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">method</span><span class="p">)),</span>
         <span class="n">path</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">light_extinction</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
         <span class="n">index</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">light_extinction</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
         <span class="n">constant_value</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">light_extinction</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">constant_value</span><span class="p">,</span>
@@ -881,7 +915,7 @@
     <span class="p">)</span>
     <span class="n">state</span><span class="o">.</span><span class="n">g1_input</span> <span class="o">=</span> <span class="n">_scalar_input</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;g1&quot;</span><span class="p">,</span>
-        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">light_extinction</span><span class="o">.</span><span class="n">g1</span><span class="o">.</span><span class="n">method</span><span class="p">),</span>
+        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">_method_name</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">light_extinction</span><span class="o">.</span><span class="n">g1</span><span class="o">.</span><span class="n">method</span><span class="p">)),</span>
         <span class="n">path</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">light_extinction</span><span class="o">.</span><span class="n">g1</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
         <span class="n">index</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">light_extinction</span><span class="o">.</span><span class="n">g1</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
         <span class="n">constant_value</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">light_extinction</span><span class="o">.</span><span class="n">g1</span><span class="o">.</span><span class="n">constant_value</span><span class="p">,</span>
@@ -890,7 +924,7 @@
     <span class="p">)</span>
     <span class="n">state</span><span class="o">.</span><span class="n">g2_input</span> <span class="o">=</span> <span class="n">_scalar_input</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;g2&quot;</span><span class="p">,</span>
-        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">light_extinction</span><span class="o">.</span><span class="n">g2</span><span class="o">.</span><span class="n">method</span><span class="p">),</span>
+        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">_method_name</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">light_extinction</span><span class="o">.</span><span class="n">g2</span><span class="o">.</span><span class="n">method</span><span class="p">)),</span>
         <span class="n">path</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">light_extinction</span><span class="o">.</span><span class="n">g2</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
         <span class="n">index</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">light_extinction</span><span class="o">.</span><span class="n">g2</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
         <span class="n">constant_value</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">light_extinction</span><span class="o">.</span><span class="n">g2</span><span class="o">.</span><span class="n">constant_value</span><span class="p">,</span>
@@ -899,7 +933,7 @@
     <span class="p">)</span>
     <span class="n">state</span><span class="o">.</span><span class="n">Hs_input</span> <span class="o">=</span> <span class="n">_scalar_input</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Hs&quot;</span><span class="p">,</span>
-        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">waves</span><span class="o">.</span><span class="n">Hs</span><span class="o">.</span><span class="n">method</span><span class="p">),</span>
+        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">_method_name</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">waves</span><span class="o">.</span><span class="n">Hs</span><span class="o">.</span><span class="n">method</span><span class="p">)),</span>
         <span class="n">path</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">waves</span><span class="o">.</span><span class="n">Hs</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
         <span class="n">index</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">waves</span><span class="o">.</span><span class="n">Hs</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
         <span class="n">constant_value</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">waves</span><span class="o">.</span><span class="n">Hs</span><span class="o">.</span><span class="n">constant_value</span><span class="p">,</span>
@@ -908,7 +942,7 @@
     <span class="p">)</span>
     <span class="n">state</span><span class="o">.</span><span class="n">Tz_input</span> <span class="o">=</span> <span class="n">_scalar_input</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Tz&quot;</span><span class="p">,</span>
-        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">waves</span><span class="o">.</span><span class="n">Tz</span><span class="o">.</span><span class="n">method</span><span class="p">),</span>
+        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">_method_name</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">waves</span><span class="o">.</span><span class="n">Tz</span><span class="o">.</span><span class="n">method</span><span class="p">)),</span>
         <span class="n">path</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">waves</span><span class="o">.</span><span class="n">Tz</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
         <span class="n">index</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">waves</span><span class="o">.</span><span class="n">Tz</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
         <span class="n">constant_value</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">waves</span><span class="o">.</span><span class="n">Tz</span><span class="o">.</span><span class="n">constant_value</span><span class="p">,</span>
@@ -917,7 +951,7 @@
     <span class="p">)</span>
     <span class="n">state</span><span class="o">.</span><span class="n">phiw_input</span> <span class="o">=</span> <span class="n">_scalar_input</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;phiw&quot;</span><span class="p">,</span>
-        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">waves</span><span class="o">.</span><span class="n">phiw</span><span class="o">.</span><span class="n">method</span><span class="p">),</span>
+        <span class="n">method</span><span class="o">=</span><span class="n">_scalar_method</span><span class="p">(</span><span class="n">_method_name</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">waves</span><span class="o">.</span><span class="n">phiw</span><span class="o">.</span><span class="n">method</span><span class="p">)),</span>
         <span class="n">path</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">waves</span><span class="o">.</span><span class="n">phiw</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
         <span class="n">index</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">waves</span><span class="o">.</span><span class="n">phiw</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
         <span class="n">constant_value</span><span class="o">=</span><span class="n">parsed</span><span class="o">.</span><span class="n">waves</span><span class="o">.</span><span class="n">phiw</span><span class="o">.</span><span class="n">constant_value</span><span class="p">,</span>
@@ -945,6 +979,14 @@
     <span class="n">state</span><span class="o">.</span><span class="n">idpdy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
     <span class="n">state</span><span class="o">.</span><span class="n">SRelaxTau</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
     <span class="n">state</span><span class="o">.</span><span class="n">TRelaxTau</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">Qs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">Qt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">Ls</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">Lt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">Qlayer</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">Qres</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">FQ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">wq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
 
     <span class="n">db</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="n">ds</span> <span class="o">=</span> <span class="n">depth</span>
@@ -1124,7 +1166,15 @@
     <span class="n">state</span><span class="o">.</span><span class="n">idpdx</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">state</span><span class="o">.</span><span class="n">idpdy</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">state</span><span class="o">.</span><span class="n">SRelaxTau</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">state</span><span class="o">.</span><span class="n">TRelaxTau</span> <span class="o">=</span> <span class="kc">None</span></div>
+    <span class="n">state</span><span class="o">.</span><span class="n">TRelaxTau</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">Qs</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">Qt</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">Ls</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">Lt</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">Qlayer</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">Qres</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">FQ</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">wq</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 </pre></div>
         </article>
@@ -1162,8 +1212,8 @@
     </aside>
   </div>
 </div><script src="../../../_static/documentation_options.js?v=01f34227"></script>
-    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>

@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../../genindex.html"><link rel="search" title="Search" href="../../../../search.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
         <title>pygotm.icethm.models.mylake - pyGOTM Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=7bdb33bb" />
@@ -259,6 +259,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../validation/cases/flex.html">Flex Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../validation/cases/gotland.html">Gotland Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../validation/cases/lago_maggiore.html">Lago Maggiore Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../validation/cases/lake_erken.html">Lake Erken Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../validation/cases/langmuir.html">Langmuir Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../validation/cases/liverpool_bay.html">Liverpool Bay Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../validation/cases/medsea_east.html">Medsea East Validation Report</a></li>
@@ -274,6 +275,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../validation/cases/wave_breaking.html">Wave Breaking Validation Report</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../validation/lake_erken_parity.html">Lake Erken — Parity Status and Limitations</a></li>
 </ul>
 
 </div>
@@ -309,11 +311,10 @@
           <h1>Source code for pygotm.icethm.models.mylake</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Compact MyLake-style lake-ice thermodynamics.</span>
 
-<span class="sd">This implementation follows the MyLake family of slab-ice ideas used by</span>
-<span class="sd">Saloranta and Andersen (2007): supercooling first creates frazil ice, frazil</span>
-<span class="sd">consolidates into solid ice, conductive Stefan growth acts through the ice slab,</span>
-<span class="sd">and positive surface or basal energy melts existing ice. The kernel exposes the</span>
-<span class="sd">same state variables as the other pyGOTM ice models for shared diagnostics.</span>
+<span class="sd">This implementation translates the STIM MyLake slab-ice routine used by</span>
+<span class="sd">GOTM-Lake. It preserves the same surface and basal growth diagnostics and</span>
+<span class="sd">mutates the surface-water temperature in the same places as the Fortran</span>
+<span class="sd">``Tw`` argument.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
@@ -323,14 +324,11 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">pygotm.icethm._util</span><span class="w"> </span><span class="kn">import</span> <span class="n">freezing_temperature</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pygotm.icethm.constants</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
-    <span class="n">ALB_ICE</span><span class="p">,</span>
-    <span class="n">ALB_OCEAN</span><span class="p">,</span>
     <span class="n">C_WATER_VOL</span><span class="p">,</span>
-    <span class="n">K_ICE</span><span class="p">,</span>
     <span class="n">L_ICE</span><span class="p">,</span>
     <span class="n">MAX_FRAZIL</span><span class="p">,</span>
-    <span class="n">MIN_ICE_THICKNESS</span><span class="p">,</span>
-    <span class="n">MYLAKE_ATTN</span><span class="p">,</span>
+    <span class="n">MYLAKE_ALBEDO</span><span class="p">,</span>
+    <span class="n">MYLAKE_K_ICE</span><span class="p">,</span>
     <span class="n">RHO_ICE</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -348,67 +346,84 @@
     <span class="n">Qe</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">Ql</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">precip</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">Hice</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">Hfrazil</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">dHis</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">dHib</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">Tice_surface</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">ice_cover</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">albedo_ice</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">attenuation_ice</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">transmissivity</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">Tf</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">ocean_ice_flux</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">ocean_ice_heat_flux</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">ocean_ice_salt_flux</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Advance a single-column MyLake-style ice slab by one timestep.&quot;&quot;&quot;</span>
+    <span class="n">bottom_ice_energy</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Advance a single-column MyLake ice slab and return updated water T.&quot;&quot;&quot;</span>
 
     <span class="n">tf</span> <span class="o">=</span> <span class="n">freezing_temperature</span><span class="p">(</span><span class="n">S_sfc</span><span class="p">)</span>
     <span class="n">Tf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">tf</span>
-    <span class="n">water_depth</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">h_sfc</span><span class="p">,</span> <span class="n">MIN_ICE_THICKNESS</span><span class="p">)</span>
+    <span class="n">water_depth</span> <span class="o">=</span> <span class="n">h_sfc</span>
+    <span class="k">if</span> <span class="n">water_depth</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="n">water_depth</span> <span class="o">=</span> <span class="mf">1.0e-12</span>
     <span class="n">latent_per_m</span> <span class="o">=</span> <span class="n">RHO_ICE</span> <span class="o">*</span> <span class="n">L_ICE</span>
-    <span class="n">supercool</span> <span class="o">=</span> <span class="n">tf</span> <span class="o">-</span> <span class="n">T_w</span>
-    <span class="k">if</span> <span class="n">supercool</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
-        <span class="n">Hfrazil</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">C_WATER_VOL</span> <span class="o">*</span> <span class="n">water_depth</span> <span class="o">*</span> <span class="n">supercool</span> <span class="o">/</span> <span class="n">latent_per_m</span>
 
-    <span class="k">if</span> <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mf">0.0</span> <span class="ow">and</span> <span class="n">Hfrazil</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">MAX_FRAZIL</span><span class="p">:</span>
-        <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Hfrazil</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">Hfrazil</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">bottom_ice_energy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">T_w</span> <span class="o">-</span> <span class="n">tf</span><span class="p">)</span> <span class="o">*</span> <span class="n">water_depth</span> <span class="o">*</span> <span class="n">C_WATER_VOL</span>
+    <span class="n">bottom_ice_energy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">ocean_ice_flux</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="n">dHis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">dHib</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">bottom_ice_energy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">latent_per_m</span>
 
-    <span class="n">ocean_heat</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="k">if</span> <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">T_air</span> <span class="o">&lt;</span> <span class="n">tf</span><span class="p">:</span>
-            <span class="n">denom</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mf">0.05</span><span class="p">)</span>
-            <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">K_ICE</span> <span class="o">*</span> <span class="p">(</span><span class="n">tf</span> <span class="o">-</span> <span class="n">T_air</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">latent_per_m</span> <span class="o">*</span> <span class="n">denom</span><span class="p">)</span>
-
-        <span class="n">net_surface</span> <span class="o">=</span> <span class="n">Qsw</span> <span class="o">+</span> <span class="n">Qh</span> <span class="o">+</span> <span class="n">Qe</span> <span class="o">+</span> <span class="n">Ql</span>
-        <span class="k">if</span> <span class="n">net_surface</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
-            <span class="n">melt</span> <span class="o">=</span> <span class="n">net_surface</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">latent_per_m</span>
-            <span class="k">if</span> <span class="n">melt</span> <span class="o">&gt;</span> <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
-                <span class="n">melt</span> <span class="o">=</span> <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="n">melt</span>
-
-        <span class="n">warm</span> <span class="o">=</span> <span class="n">T_w</span> <span class="o">-</span> <span class="n">tf</span>
-        <span class="k">if</span> <span class="n">warm</span> <span class="o">&gt;</span> <span class="mf">0.0</span> <span class="ow">and</span> <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
-            <span class="n">basal</span> <span class="o">=</span> <span class="n">C_WATER_VOL</span> <span class="o">*</span> <span class="n">water_depth</span> <span class="o">*</span> <span class="n">warm</span> <span class="o">/</span> <span class="n">latent_per_m</span>
-            <span class="k">if</span> <span class="n">basal</span> <span class="o">&gt;</span> <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
-                <span class="n">basal</span> <span class="o">=</span> <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="n">basal</span>
-            <span class="n">ocean_heat</span> <span class="o">=</span> <span class="n">basal</span> <span class="o">*</span> <span class="n">latent_per_m</span> <span class="o">/</span> <span class="n">dt</span>
-
-    <span class="k">if</span> <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">MIN_ICE_THICKNESS</span><span class="p">:</span>
-        <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
-        <span class="n">ice_cover</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">albedo_ice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">ALB_OCEAN</span>
-        <span class="n">transmissivity</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
-        <span class="n">Tice_surface</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">tf</span>
+    <span class="k">if</span> <span class="n">ice_cover</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">dHib</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="n">Hfrazil</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dHib</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">precip</span>
+        <span class="k">if</span> <span class="n">Hfrazil</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">MAX_FRAZIL</span><span class="p">:</span>
+            <span class="n">ice_cover</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+            <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Hfrazil</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">Hfrazil</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">if</span> <span class="n">Hfrazil</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="n">T_w</span> <span class="o">=</span> <span class="o">-</span><span class="n">Hfrazil</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">latent_per_m</span> <span class="o">/</span> <span class="p">(</span><span class="n">water_depth</span> <span class="o">*</span> <span class="n">C_WATER_VOL</span><span class="p">)</span> <span class="o">+</span> <span class="n">tf</span>
+            <span class="n">Hfrazil</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">ice_cover</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
-        <span class="n">albedo_ice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">ALB_ICE</span>
-        <span class="n">transmissivity</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">MYLAKE_ATTN</span><span class="p">)</span>
-        <span class="n">Tice_surface</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">tf</span><span class="p">,</span> <span class="n">T_air</span><span class="p">)</span>
+        <span class="n">T_w</span> <span class="o">=</span> <span class="n">tf</span>
+        <span class="k">if</span> <span class="n">T_air</span> <span class="o">&lt;</span> <span class="n">tf</span><span class="p">:</span>
+            <span class="n">dHis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">10.0</span> <span class="o">*</span> <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">Tice_surface</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">tf</span> <span class="o">+</span> <span class="n">T_air</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">alpha</span><span class="p">)</span>
+            <span class="n">growth_arg</span> <span class="o">=</span> <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">growth_arg</span> <span class="o">+=</span> <span class="p">(</span>
+                <span class="mf">2.0</span> <span class="o">*</span> <span class="n">MYLAKE_K_ICE</span> <span class="o">/</span> <span class="n">latent_per_m</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="n">tf</span> <span class="o">-</span> <span class="n">Tice_surface</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">growth_arg</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+                <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">growth_arg</span><span class="p">)</span>
+            <span class="n">dHis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">dHis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Tice_surface</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">qflux</span> <span class="o">=</span> <span class="n">Qh</span> <span class="o">+</span> <span class="n">Qe</span> <span class="o">+</span> <span class="n">Ql</span>
+            <span class="n">dHis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="n">Qsw</span> <span class="o">+</span> <span class="n">qflux</span><span class="p">)</span> <span class="o">/</span> <span class="n">latent_per_m</span>
+            <span class="k">if</span> <span class="n">dHis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+                <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dHis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-    <span class="k">if</span> <span class="n">Hfrazil</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
-        <span class="n">Hfrazil</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="n">ocean_ice_heat_flux</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">ocean_heat</span>
-    <span class="n">ocean_ice_salt_flux</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span></div>
+        <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">precip</span>
+        <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dHib</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="n">T_w</span> <span class="o">=</span> <span class="o">-</span><span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">latent_per_m</span> <span class="o">/</span> <span class="p">(</span><span class="n">water_depth</span> <span class="o">*</span> <span class="n">C_WATER_VOL</span><span class="p">)</span> <span class="o">+</span> <span class="n">tf</span>
+            <span class="n">ice_cover</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">attenuation_ice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">transmissivity</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">albedo_ice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">MYLAKE_ALBEDO</span>
+            <span class="n">transmissivity</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Hice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">attenuation_ice</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">ocean_ice_heat_flux</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">ocean_ice_salt_flux</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">return</span> <span class="n">T_w</span></div>
 
 </pre></div>
         </article>
@@ -446,8 +461,8 @@
     </aside>
   </div>
 </div><script src="../../../../_static/documentation_options.js?v=01f34227"></script>
-    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../../_static/copybutton.js?v=f281be69"></script>

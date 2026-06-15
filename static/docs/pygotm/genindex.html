@@ -258,6 +258,7 @@
 <li class="toctree-l2"><a class="reference internal" href="validation/cases/flex.html">Flex Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="validation/cases/gotland.html">Gotland Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="validation/cases/lago_maggiore.html">Lago Maggiore Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation/cases/lake_erken.html">Lake Erken Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="validation/cases/langmuir.html">Langmuir Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="validation/cases/liverpool_bay.html">Liverpool Bay Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="validation/cases/medsea_east.html">Medsea East Validation Report</a></li>
@@ -273,6 +274,7 @@
 <li class="toctree-l2"><a class="reference internal" href="validation/cases/wave_breaking.html">Wave Breaking Validation Report</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="validation/lake_erken_parity.html">Lake Erken — Parity Status and Limitations</a></li>
 </ul>
 
 </div>
@@ -332,6 +334,8 @@
 </li>
         <li><a href="api/util.html#pygotm.util.adv_center.adv_center_batch">adv_center_batch() (in module pygotm.util.adv_center)</a>
 </li>
+        <li><a href="api/util.html#pygotm.util.adv_center.adv_center_lake">adv_center_lake() (in module pygotm.util.adv_center)</a>
+</li>
         <li><a href="api/extras.html#pygotm.extras.sediment.sediment.SedimentState.adv_cu">adv_cu (pygotm.extras.sediment.sediment.SedimentState attribute)</a>
 
         <ul>
@@ -354,6 +358,20 @@
 </li>
         <li><a href="api/util.html#pygotm.util.adv_center.AdvectionWorkspace">AdvectionWorkspace (class in pygotm.util.adv_center)</a>
 </li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.Af">Af (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
+
+        <ul>
+          <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.Af">(pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+</li>
+          <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.Af">(pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.Afo">Afo (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
+
+        <ul>
+          <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.Afo">(pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+</li>
+        </ul></li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.airp">airp (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
 
         <ul>
@@ -412,12 +430,12 @@
 </li>
         <li><a href="api/airsea.html#pygotm.airsea.albedo_water.albedo_water">albedo_water() (in module pygotm.airsea.albedo_water)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/fabm.html#pygotm.fabm.state.allocate_fabm_state">allocate_fabm_state() (in module pygotm.fabm.state)</a>
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.allocate_runtime_forcing">allocate_runtime_forcing() (in module pygotm.gotm.runtime_forcing)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_output.allocate_runtime_output">allocate_runtime_output() (in module pygotm.gotm.runtime_output)</a>
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_state.allocate_runtime_state">allocate_runtime_state() (in module pygotm.gotm.runtime_state)</a>
@@ -494,6 +512,12 @@
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_params.RuntimeParams.at5">at5 (pygotm.gotm.runtime_params.RuntimeParams attribute)</a>
 </li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.attenuation_ice">attenuation_ice (pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+
+        <ul>
+          <li><a href="api/icethm.html#pygotm.icethm.state.IceState.attenuation_ice">(pygotm.icethm.state.IceState attribute)</a>
+</li>
+        </ul></li>
         <li><a href="api/extras.html#pygotm.extras.sediment.sediment.SedimentState.au">au (pygotm.extras.sediment.sediment.SedimentState attribute)</a>
 
         <ul>
@@ -928,6 +952,22 @@
           <li><a href="api/gotm.html#pygotm.gotm.runtime_params.RuntimeParams.depth">(pygotm.gotm.runtime_params.RuntimeParams attribute)</a>
 </li>
         </ul></li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.dHib">dHib (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+
+        <ul>
+          <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.dHib">(pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+</li>
+          <li><a href="api/icethm.html#pygotm.icethm.state.IceState.dHib">(pygotm.icethm.state.IceState attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.dHis">dHis (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+
+        <ul>
+          <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.dHis">(pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+</li>
+          <li><a href="api/icethm.html#pygotm.icethm.state.IceState.dHis">(pygotm.icethm.state.IceState attribute)</a>
+</li>
+        </ul></li>
         <li><a href="api/fabm.html#pygotm.fabm.engine.FABMEngine.diagnostic">diagnostic() (pygotm.fabm.engine.FABMEngine method)</a>
 </li>
         <li><a href="api/fabm.html#pygotm.fabm.gotm_fabm.FabmState.diagnostics">diagnostics (pygotm.fabm.gotm_fabm.FabmState attribute)</a>
@@ -945,6 +985,8 @@
         <li><a href="api/util.html#pygotm.util.diff_center.diff_center">diff_center() (in module pygotm.util.diff_center)</a>
 </li>
         <li><a href="api/util.html#pygotm.util.diff_center.diff_center_batch">diff_center_batch() (in module pygotm.util.diff_center)</a>
+</li>
+        <li><a href="api/util.html#pygotm.util.diff_center.diff_center_lake">diff_center_lake() (in module pygotm.util.diff_center)</a>
 </li>
         <li><a href="api/util.html#pygotm.util.diff_face.diff_face">diff_face() (in module pygotm.util.diff_face)</a>
 </li>
@@ -988,6 +1030,8 @@
 </li>
         <li><a href="api/config.html#pygotm.config.GotmConfig.document">document (pygotm.config.GotmConfig attribute)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/config.html#pygotm.config.ExtPressureSettings.dpdx">dpdx (pygotm.config.ExtPressureSettings attribute)</a>
 
         <ul>
@@ -1002,8 +1046,6 @@
           <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.dpdy">(pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/observations.html#pygotm.observations.observations.ObservationsState.dpdy_input">dpdy_input (pygotm.observations.observations.ObservationsState attribute)</a>
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.drag">drag (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
@@ -1278,14 +1320,14 @@
 </li>
         <li><a href="api/airsea.html#pygotm.airsea.fairall.fairall">fairall() (in module pygotm.airsea.fairall)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.fdd">fdd (pygotm.gotm.runtime_state.RuntimeState attribute)</a>
 
         <ul>
           <li><a href="api/icethm.html#pygotm.icethm.state.IceState.fdd">(pygotm.icethm.state.IceState attribute)</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/config.html#pygotm.config.GridSettings.file">file (pygotm.config.GridSettings attribute)</a>
 
         <ul>
@@ -1308,6 +1350,14 @@
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_builder.RuntimeBundle.forcing">forcing (pygotm.gotm.runtime_builder.RuntimeBundle attribute)</a>
 </li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.FQ">FQ (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+
+        <ul>
+          <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.FQ">(pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+</li>
+          <li><a href="api/observations.html#pygotm.observations.observations.ObservationsState.FQ">(pygotm.observations.observations.ObservationsState attribute)</a>
+</li>
+        </ul></li>
         <li><a href="api/icethm.html#pygotm.icethm._util.freezing_temperature">freezing_temperature() (in module pygotm.icethm._util)</a>
 </li>
         <li><a href="api/icethm.html#pygotm.icethm._util.freezing_temperature_winton">freezing_temperature_winton() (in module pygotm.icethm._util)</a>
@@ -1481,6 +1531,8 @@
         <li><a href="api/config.html#pygotm.config.ExtPressureSettings.h">h (pygotm.config.ExtPressureSettings attribute)</a>
 
         <ul>
+          <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.h">(pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
+</li>
           <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.h">(pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
 </li>
           <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.h">(pygotm.gotm.runtime_state.RuntimeState attribute)</a>
@@ -1518,14 +1570,14 @@
           <li><a href="api/fabm.html#pygotm.fabm.engine.FABMEngine.has_dependency">(pygotm.fabm.engine.FABMEngine method)</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.heat">heat (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
 
         <ul>
           <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.heat">(pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/config.html#pygotm.config.VerticalVelocitySettings.height">height (pygotm.config.VerticalVelocitySettings attribute)</a>
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.Hfrazil">Hfrazil (pygotm.gotm.runtime_state.RuntimeState attribute)</a>
@@ -1542,8 +1594,12 @@
         </ul></li>
         <li><a href="api/icethm.html#pygotm.icethm.params.IceParams.Hice_init">Hice_init (pygotm.icethm.params.IceParams attribute)</a>
 </li>
-        <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.ho">ho (pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.ho">ho (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
+
+        <ul>
+          <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.ho">(pygotm.gotm.runtime_state.RuntimeState attribute)</a>
 </li>
+        </ul></li>
         <li><a href="api/fabm.html#pygotm.fabm.gotm_fabm_input.InputVariable.horizontal_id">horizontal_id (pygotm.fabm.gotm_fabm_input.InputVariable attribute)</a>
 </li>
         <li><a href="api/config.html#pygotm.config.WaveSettings.Hs">Hs (pygotm.config.WaveSettings attribute)</a>
@@ -1565,6 +1621,8 @@
 </li>
         </ul></li>
         <li><a href="api/airsea.html#pygotm.airsea.humidity.humidity">humidity() (in module pygotm.airsea.humidity)</a>
+</li>
+        <li><a href="api/config.html#pygotm.config.LocationSettings.hypsograph">hypsograph (pygotm.config.LocationSettings attribute)</a>
 </li>
     </ul></td>
   </tr></table>
@@ -1646,14 +1704,14 @@
 </li>
         <li><a href="api/stokes_drift.html#pygotm.stokes_drift.init_stokes_drift_yaml">init_stokes_drift_yaml() (in module pygotm.stokes_drift)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/util.html#pygotm.util.time.GotmTime.init_time">init_time() (pygotm.util.time.GotmTime method)</a>
 </li>
         <li><a href="api/util.html#pygotm.util.tridiagonal.init_tridiagonal">init_tridiagonal() (in module pygotm.util.tridiagonal)</a>
 </li>
         <li><a href="api/fabm.html#pygotm.fabm.gotm_fabm.init_var_gotm_fabm">init_var_gotm_fabm() (in module pygotm.fabm.gotm_fabm)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/observations.html#pygotm.observations.observations.ObservationsState.initial_salinity_type">initial_salinity_type (pygotm.observations.observations.ObservationsState attribute)</a>
 </li>
         <li><a href="api/observations.html#pygotm.observations.observations.ObservationsState.initial_temperature_type">initial_temperature_type (pygotm.observations.observations.ObservationsState attribute)</a>
@@ -1670,7 +1728,17 @@
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.int_evap">int_evap (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
 </li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.int_flow">int_flow (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+</li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.int_flows">int_flows (pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+</li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.int_fwf">int_fwf (pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+</li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.int_heat">int_heat (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+</li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.int_inflow">int_inflow (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+</li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.int_outflow">int_outflow (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.int_precip">int_precip (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
 </li>
@@ -1686,6 +1754,12 @@
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.int_total">int_total (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
 </li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.int_water_balance">int_water_balance (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+
+        <ul>
+          <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.int_water_balance">(pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+</li>
+        </ul></li>
         <li><a href="api/airsea.html#pygotm.airsea.airsea.integrated_fluxes">integrated_fluxes() (in module pygotm.airsea.airsea)</a>
 </li>
         <li><a href="api/execution.html#pygotm.execution.benchmark.BenchmarkTimings.integration_s">integration_s (pygotm.execution.benchmark.BenchmarkTimings attribute)</a>
@@ -1726,12 +1800,14 @@
   <h2>J</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="api/util.html#pygotm.util.time.GotmTime.jul1">jul1 (pygotm.util.time.GotmTime attribute)</a>
+        <li><a href="api/util.html#pygotm.util.density.jackett_density">jackett_density() (in module pygotm.util.density)</a>
 </li>
-        <li><a href="api/util.html#pygotm.util.time.GotmTime.jul2">jul2 (pygotm.util.time.GotmTime attribute)</a>
+        <li><a href="api/util.html#pygotm.util.time.GotmTime.jul1">jul1 (pygotm.util.time.GotmTime attribute)</a>
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/util.html#pygotm.util.time.GotmTime.jul2">jul2 (pygotm.util.time.GotmTime attribute)</a>
+</li>
         <li><a href="api/util.html#pygotm.util.time.julian_day">julian_day() (in module pygotm.util.time)</a>
 </li>
         <li><a href="api/util.html#pygotm.util.time.GotmTime.julianday">julianday (pygotm.util.time.GotmTime attribute)</a>
@@ -1818,6 +1894,8 @@
 </li>
         <li><a href="api/util.html#pygotm.util.lagrange.lagrange">lagrange() (in module pygotm.util.lagrange)</a>
 </li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_params.RuntimeParams.lake">lake (pygotm.gotm.runtime_params.RuntimeParams attribute)</a>
+</li>
         <li><a href="api/stokes_drift.html#pygotm.stokes_drift.langmuir_number">langmuir_number() (in module pygotm.stokes_drift)</a>
 </li>
         <li><a href="api/config.html#pygotm.config.LocationSettings.latitude">latitude (pygotm.config.LocationSettings attribute)</a>
@@ -1834,8 +1912,6 @@
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_params.RuntimeParams.length_lim">length_lim (pygotm.gotm.runtime_params.RuntimeParams attribute)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/fabm.html#pygotm.fabm.gotm_fabm.light">light() (in module pygotm.fabm.gotm_fabm)</a>
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.light_A">light_A (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
@@ -1844,6 +1920,8 @@
           <li><a href="api/gotm.html#pygotm.gotm.runtime_params.RuntimeParams.light_A">(pygotm.gotm.runtime_params.RuntimeParams attribute)</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/config.html#pygotm.config.GotmSettings.light_extinction">light_extinction (pygotm.config.GotmSettings attribute)</a>
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.light_g1">light_g1 (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
@@ -1884,8 +1962,20 @@
 </li>
         <li><a href="api/airsea.html#pygotm.airsea.longwave_radiation.longwave_radiation">longwave_radiation() (in module pygotm.airsea.longwave_radiation)</a>
 </li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.Ls">Ls (pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+
+        <ul>
+          <li><a href="api/observations.html#pygotm.observations.observations.ObservationsState.Ls">(pygotm.observations.observations.ObservationsState attribute)</a>
+</li>
+        </ul></li>
         <li><a href="api/extras.html#pygotm.extras.sediment.sediment.SedimentState.Lsour">Lsour (pygotm.extras.sediment.sediment.SedimentState attribute)</a>
 </li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.Lt">Lt (pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+
+        <ul>
+          <li><a href="api/observations.html#pygotm.observations.observations.ObservationsState.Lt">(pygotm.observations.observations.ObservationsState attribute)</a>
+</li>
+        </ul></li>
     </ul></td>
   </tr></table>
 </section>
@@ -2261,6 +2351,8 @@
         </ul></li>
         <li><a href="api/fabm.html#pygotm.fabm.gotm_fabm_input.InputVariable.ncid">ncid (pygotm.fabm.gotm_fabm_input.InputVariable attribute)</a>
 </li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.net_water_balance">net_water_balance (pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+</li>
         <li><a href="api/config.html#pygotm.config.GridSettings.nlev">nlev (pygotm.config.GridSettings attribute)</a>
 
         <ul>
@@ -2299,20 +2391,26 @@
           <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.NNS">(pygotm.gotm.runtime_state.RuntimeState attribute)</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.NNT">NNT (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
 
         <ul>
           <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.NNT">(pygotm.gotm.runtime_state.RuntimeState attribute)</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/icethm.html#pygotm.icethm.params.IceModelEnum.NO_ICE">NO_ICE (pygotm.icethm.params.IceModelEnum attribute)</a>
 </li>
         <li><a href="api/execution.html#pygotm.execution.benchmark.BenchmarkResult.nopython_signature_count">nopython_signature_count (pygotm.execution.benchmark.BenchmarkResult attribute)</a>
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.nout">nout (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
 </li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.nstreams">nstreams (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
+
+        <ul>
+          <li><a href="api/gotm.html#pygotm.gotm.runtime_params.RuntimeParams.nstreams">(pygotm.gotm.runtime_params.RuntimeParams attribute)</a>
+</li>
+        </ul></li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.nt">nt (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
 
         <ul>
@@ -2405,10 +2503,10 @@
           <li><a href="api/util.html#pygotm.util.ode_solvers_template.ode_solver">(in module pygotm.util.ode_solvers_template)</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/config.html#pygotm.config.InputSetting.offset">offset (pygotm.config.InputSetting attribute)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.omega">omega (pygotm.gotm.runtime_state.RuntimeState attribute)</a>
 
         <ul>
@@ -2432,6 +2530,8 @@
         <li><a href="api/execution.html#pygotm.execution.benchmark.BenchmarkTimings.output_conversion_s">output_conversion_s (pygotm.execution.benchmark.BenchmarkTimings attribute)</a>
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.output_every">output_every (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+</li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_builder.RuntimeBundle.output_reduce_mode">output_reduce_mode (pygotm.gotm.runtime_builder.RuntimeBundle attribute)</a>
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.output_step">output_step (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
 </li>
@@ -3282,6 +3382,8 @@
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_work.RuntimeWork.q2l">q2l (pygotm.gotm.runtime_work.RuntimeWork attribute)</a>
 </li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.Q_Kristine">Q_Kristine (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+</li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_work.RuntimeWork.q_sour">q_sour (pygotm.gotm.runtime_work.RuntimeWork attribute)</a>
 
         <ul>
@@ -3292,20 +3394,58 @@
           <li><a href="api/turbulence.html#pygotm.turbulence.tkeeq.TKEEquationWorkspace.q_sour">(pygotm.turbulence.tkeeq.TKEEquationWorkspace attribute)</a>
 </li>
         </ul></li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.Q_Stensta">Q_Stensta (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+</li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.Q_Unguaged">Q_Unguaged (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+</li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.qa">qa (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.qe">qe (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.qh">qh (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
 </li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.ql">ql (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+</li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.Qlayer">Qlayer (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+
+        <ul>
+          <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.Qlayer">(pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+</li>
+          <li><a href="api/observations.html#pygotm.observations.observations.ObservationsState.Qlayer">(pygotm.observations.observations.ObservationsState attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.qlobs">qlobs (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+</li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.ql">ql (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.Qres">Qres (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+
+        <ul>
+          <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.Qres">(pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+</li>
+          <li><a href="api/observations.html#pygotm.observations.observations.ObservationsState.Qres">(pygotm.observations.observations.ObservationsState attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.Qs">Qs (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.qs">qs (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
 </li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.Qs">Qs (pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+
+        <ul>
+          <li><a href="api/observations.html#pygotm.observations.observations.ObservationsState.Qs">(pygotm.observations.observations.ObservationsState attribute)</a>
+</li>
+        </ul></li>
         <li><a href="api/extras.html#pygotm.extras.sediment.sediment.SedimentState.Qsour">Qsour (pygotm.extras.sediment.sediment.SedimentState attribute)</a>
 </li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.Qt">Qt (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+
+        <ul>
+          <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.Qt">(pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+</li>
+          <li><a href="api/observations.html#pygotm.observations.observations.ObservationsState.Qt">(pygotm.observations.observations.ObservationsState attribute)</a>
+</li>
+        </ul></li>
         <li><a href="api/extras.html#pygotm.extras.sediment.sediment.SedimentState.qu">qu (pygotm.extras.sediment.sediment.SedimentState attribute)</a>
 
         <ul>
@@ -3766,8 +3906,6 @@
 </li>
         <li><a href="api/config.html#pygotm.config.GotmConfig.source_dir">source_dir (pygotm.config.GotmConfig property)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/config.html#pygotm.config.GotmConfig.source_path">source_path (pygotm.config.GotmConfig attribute)</a>
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.Sp">Sp (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
@@ -3790,6 +3928,8 @@
 </li>
         <li><a href="api/observations.html#pygotm.observations.observations.ObservationsState.SRelaxSurf">SRelaxSurf (pygotm.observations.observations.ObservationsState attribute)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/observations.html#pygotm.observations.observations.ObservationsState.SRelaxTau">SRelaxTau (pygotm.observations.observations.ObservationsState attribute)</a>
 </li>
         <li><a href="api/observations.html#pygotm.observations.observations.ObservationsState.SRelaxTauB">SRelaxTauB (pygotm.observations.observations.ObservationsState attribute)</a>
@@ -3892,6 +4032,8 @@
 </li>
         <li><a href="api/turbulence.html#pygotm.turbulence.epsbalgebraic.step_epsbalgebraic_single">step_epsbalgebraic_single() (in module pygotm.turbulence.epsbalgebraic)</a>
 </li>
+        <li><a href="api/fabm.html#pygotm.fabm.gotm_fabm.step_fabm_lake_advection_single">step_fabm_lake_advection_single() (in module pygotm.fabm.gotm_fabm)</a>
+</li>
         <li><a href="api/fabm.html#pygotm.fabm.gotm_fabm.step_fabm_post_rates_single">step_fabm_post_rates_single() (in module pygotm.fabm.gotm_fabm)</a>
 </li>
         <li><a href="api/fabm.html#pygotm.fabm.gotm_fabm.step_fabm_transport_single">step_fabm_transport_single() (in module pygotm.fabm.gotm_fabm)</a>
@@ -3924,6 +4066,8 @@
 </li>
         <li><a href="api/meanflow.html#pygotm.meanflow.salinity.step_salinity">step_salinity() (in module pygotm.meanflow.salinity)</a>
 </li>
+        <li><a href="api/meanflow.html#pygotm.meanflow.salinity.step_salinity_lake_single">step_salinity_lake_single() (in module pygotm.meanflow.salinity)</a>
+</li>
         <li><a href="api/meanflow.html#pygotm.meanflow.salinity.step_salinity_single">step_salinity_single() (in module pygotm.meanflow.salinity)</a>
 </li>
         <li><a href="api/meanflow.html#pygotm.meanflow.shear.step_shear_single">step_shear_single() (in module pygotm.meanflow.shear)</a>
@@ -3931,6 +4075,8 @@
         <li><a href="api/icethm.html#pygotm.icethm.models.simple.step_simple">step_simple() (in module pygotm.icethm.models.simple)</a>
 </li>
         <li><a href="api/meanflow.html#pygotm.meanflow.temperature.step_temperature">step_temperature() (in module pygotm.meanflow.temperature)</a>
+</li>
+        <li><a href="api/meanflow.html#pygotm.meanflow.temperature.step_temperature_lake_single">step_temperature_lake_single() (in module pygotm.meanflow.temperature)</a>
 </li>
         <li><a href="api/meanflow.html#pygotm.meanflow.temperature.step_temperature_single">step_temperature_single() (in module pygotm.meanflow.temperature)</a>
 </li>
@@ -3940,6 +4086,10 @@
 </li>
         <li><a href="api/meanflow.html#pygotm.meanflow.uequation.step_uequation">step_uequation() (in module pygotm.meanflow.uequation)</a>
 </li>
+        <li><a href="api/meanflow.html#pygotm.meanflow.uequation.step_uequation_lake">step_uequation_lake() (in module pygotm.meanflow.uequation)</a>
+</li>
+        <li><a href="api/meanflow.html#pygotm.meanflow.uequation.step_uequation_lake_single">step_uequation_lake_single() (in module pygotm.meanflow.uequation)</a>
+</li>
         <li><a href="api/meanflow.html#pygotm.meanflow.uequation.step_uequation_single">step_uequation_single() (in module pygotm.meanflow.uequation)</a>
 </li>
         <li><a href="api/turbulence.html#pygotm.turbulence.variances.step_variances">step_variances() (in module pygotm.turbulence.variances)</a>
@@ -3947,6 +4097,10 @@
         <li><a href="api/turbulence.html#pygotm.turbulence.variances.step_variances_single">step_variances_single() (in module pygotm.turbulence.variances)</a>
 </li>
         <li><a href="api/meanflow.html#pygotm.meanflow.vequation.step_vequation">step_vequation() (in module pygotm.meanflow.vequation)</a>
+</li>
+        <li><a href="api/meanflow.html#pygotm.meanflow.vequation.step_vequation_lake">step_vequation_lake() (in module pygotm.meanflow.vequation)</a>
+</li>
+        <li><a href="api/meanflow.html#pygotm.meanflow.vequation.step_vequation_lake_single">step_vequation_lake_single() (in module pygotm.meanflow.vequation)</a>
 </li>
         <li><a href="api/meanflow.html#pygotm.meanflow.vequation.step_vequation_single">step_vequation_single() (in module pygotm.meanflow.vequation)</a>
 </li>
@@ -3976,6 +4130,30 @@
           <li><a href="api/util.html#pygotm.util.time.GotmTime.stop">(pygotm.util.time.GotmTime attribute)</a>
 </li>
         </ul></li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.stream_concentration_masks">stream_concentration_masks (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
+</li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.stream_concentrations">stream_concentrations (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
+</li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.stream_flow">stream_flow (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
+</li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.stream_has_S">stream_has_S (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
+</li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.stream_has_T">stream_has_T (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
+</li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.stream_int_inflow">stream_int_inflow (pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+</li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.stream_int_outflow">stream_int_outflow (pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+</li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.stream_method">stream_method (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
+</li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.stream_salt">stream_salt (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
+</li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.stream_temp">stream_temp (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
+</li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.stream_zl">stream_zl (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
+</li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.stream_zu">stream_zu (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
+</li>
         <li><a href="api/validation.html#pygotm.validation.runner.strip_case_plots">strip_case_plots() (in module pygotm.validation.runner)</a>
 </li>
         <li><a href="api/validation.html#pygotm.validation.runner.summary_case">summary_case() (in module pygotm.validation.runner)</a>
@@ -4038,6 +4216,8 @@
           <li><a href="api/observations.html#pygotm.observations.observations.ObservationsState.t_adv">(pygotm.observations.observations.ObservationsState attribute)</a>
 </li>
         </ul></li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.T_Kristine">T_Kristine (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+</li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.T_melt">T_melt (pygotm.gotm.runtime_state.RuntimeState attribute)</a>
 
         <ul>
@@ -4047,6 +4227,8 @@
         <li><a href="api/observations.html#pygotm.observations.observations.ObservationsState.t_obs_NN">t_obs_NN (pygotm.observations.observations.ObservationsState attribute)</a>
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_work.RuntimeWork.t_relax_tau">t_relax_tau (pygotm.gotm.runtime_work.RuntimeWork attribute)</a>
+</li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.T_Unguaged">T_Unguaged (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
 </li>
         <li><a href="api/extras.html#pygotm.extras.sediment.sediment.SedimentState.take_mean">take_mean (pygotm.extras.sediment.sediment.SedimentState attribute)</a>
 </li>
@@ -4308,6 +4490,8 @@
 </li>
         <li><a href="api/meanflow.html#pygotm.meanflow.uequation.uequation">uequation() (in module pygotm.meanflow.uequation)</a>
 </li>
+        <li><a href="api/util.html#pygotm.util.density.unesco_density">unesco_density() (in module pygotm.util.density)</a>
+</li>
         <li><a href="api/fabm.html#pygotm.fabm.engine.FABMOutputSpec.units">units (pygotm.fabm.engine.FABMOutputSpec attribute)</a>
 </li>
         <li><a href="api/fabm.html#pygotm.fabm.engine.FABMEngine.unresolved_dependencies">unresolved_dependencies() (pygotm.fabm.engine.FABMEngine method)</a>
@@ -4334,6 +4518,8 @@
           <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.us">(pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.us0">us0 (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
 
         <ul>
@@ -4342,8 +4528,6 @@
           <li><a href="api/stokes_drift.html#pygotm.stokes_drift.StokesDriftState.us0">(pygotm.stokes_drift.StokesDriftState attribute)</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/stokes_drift.html#pygotm.stokes_drift.StokesDriftState.us0_input">us0_input (pygotm.stokes_drift.StokesDriftState attribute)</a>
 </li>
         <li><a href="api/stokes_drift.html#pygotm.stokes_drift.StokesDriftState.us0_method">us0_method (pygotm.stokes_drift.StokesDriftState attribute)</a>
@@ -4476,6 +4660,18 @@
 </li>
         <li><a href="api/validation.html#pygotm.validation.compare.VarResult">VarResult (class in pygotm.validation.compare)</a>
 </li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.Vc">Vc (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
+
+        <ul>
+          <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.Vc">(pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.Vco">Vco (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
+
+        <ul>
+          <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.Vco">(pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+</li>
+        </ul></li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_params.RuntimeParams.vel_relax_ramp">vel_relax_ramp (pygotm.gotm.runtime_params.RuntimeParams attribute)</a>
 
         <ul>
@@ -4488,10 +4684,10 @@
           <li><a href="api/observations.html#pygotm.observations.observations.ObservationsState.vel_relax_tau">(pygotm.observations.observations.ObservationsState attribute)</a>
 </li>
         </ul></li>
-        <li><a href="api/gotm.html#pygotm.gotm.runtime_work.RuntimeWork.vel_relax_tau_eff">vel_relax_tau_eff (pygotm.gotm.runtime_work.RuntimeWork attribute)</a>
-</li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_work.RuntimeWork.vel_relax_tau_eff">vel_relax_tau_eff (pygotm.gotm.runtime_work.RuntimeWork attribute)</a>
+</li>
         <li><a href="api/config.html#pygotm.config.GotmSettings.velocities">velocities (pygotm.config.GotmSettings attribute)</a>
 </li>
         <li><a href="api/config.html#pygotm.config.VelocitySettings">VelocitySettings (class in pygotm.config)</a>
@@ -4588,10 +4784,12 @@
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.time_loop.warmup_couette_step_routines">warmup_couette_step_routines() (in module pygotm.gotm.time_loop)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/execution.html#pygotm.execution.benchmark.BenchmarkTimings.warmup_s">warmup_s (pygotm.execution.benchmark.BenchmarkTimings attribute)</a>
 </li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_params.RuntimeParams.water_balance_method">water_balance_method (pygotm.gotm.runtime_params.RuntimeParams attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/config.html#pygotm.config.GotmSettings.waves">waves (pygotm.config.GotmSettings attribute)</a>
 </li>
         <li><a href="api/config.html#pygotm.config.WaveSettings">WaveSettings (class in pygotm.config)</a>
@@ -4602,6 +4800,14 @@
 </li>
         <li><a href="api/gotm.html#pygotm.gotm.runtime_builder.RuntimeBundle.work">work (pygotm.gotm.runtime_builder.RuntimeBundle attribute)</a>
 </li>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.wq">wq (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+
+        <ul>
+          <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.wq">(pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+</li>
+          <li><a href="api/observations.html#pygotm.observations.observations.ObservationsState.wq">(pygotm.observations.observations.ObservationsState attribute)</a>
+</li>
+        </ul></li>
         <li><a href="api/driver.html#pygotm.driver.GotmDriver.write_dataset">write_dataset() (pygotm.driver.GotmDriver static method)</a>
 </li>
         <li><a href="api/util.html#pygotm.util.time.write_time_string">write_time_string() (in module pygotm.util.time)</a>
@@ -4632,8 +4838,12 @@
         </ul></li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.xRf">xRf (pygotm.gotm.runtime_state.RuntimeState attribute)</a>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.xRf">xRf (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+
+        <ul>
+          <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.xRf">(pygotm.gotm.runtime_state.RuntimeState attribute)</a>
 </li>
+        </ul></li>
         <li><a href="api/extras.html#pygotm.extras.seagrass.seagrass.SeagrassState.xx">xx (pygotm.extras.seagrass.seagrass.SeagrassState attribute)</a>
 </li>
         <li><a href="api/extras.html#pygotm.extras.seagrass.seagrass.SeagrassState.xxP">xxP (pygotm.extras.seagrass.seagrass.SeagrassState attribute)</a>
@@ -4670,9 +4880,11 @@
   <h2>Z</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.z">z (pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+        <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.z">z (pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
 
         <ul>
+          <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.z">(pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
+</li>
           <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.z">(pygotm.gotm.runtime_state.RuntimeState attribute)</a>
 </li>
         </ul></li>
@@ -4749,6 +4961,8 @@
         <li><a href="api/extras.html#pygotm.extras.sediment.sediment.SedimentState.zi">zi (pygotm.extras.sediment.sediment.SedimentState attribute)</a>
 
         <ul>
+          <li><a href="api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.zi">(pygotm.gotm.runtime_forcing.RuntimeForcing attribute)</a>
+</li>
           <li><a href="api/gotm.html#pygotm.gotm.runtime_output.RuntimeOutput.zi">(pygotm.gotm.runtime_output.RuntimeOutput attribute)</a>
 </li>
           <li><a href="api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.zi">(pygotm.gotm.runtime_state.RuntimeState attribute)</a>

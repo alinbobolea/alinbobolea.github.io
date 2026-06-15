@@ -4,13 +4,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
         <title>pygotm.gotm.runtime_state - pyGOTM Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=23f90c4b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=f28d94ff" />
     
     
 
@@ -196,6 +196,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/interfaces.html">Command and Developer Surfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/stability.html">Kernel Stability Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/serve.html">Warm Daemon Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/citations.html">Citations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/configuration.html">Configuration</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
@@ -210,6 +214,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../user_manual/dynamics.html">Dynamics: Pressure Gradients, Velocities, Waves, and Vertical Advection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../user_manual/equation_of_state.html">Equation of State and Bottom Boundary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../user_manual/output.html">Output and Restart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../user_manual/input_file_formats.html">Input Data File Formats</a></li>
 </ul>
 </li>
 </ul>
@@ -219,6 +224,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../physics/meanflow.html">Mean Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../physics/turbulence.html">Turbulence Closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../physics/airsea.html">Air–Sea Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/ice_thermodynamics.html">Ice Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/biogeochemistry.html">Biogeochemistry and FABM Coupling</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -232,15 +239,43 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/input.html">Input</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/validation.html">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/execution.html">Execution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/stokes_drift.html">Stokes Drift</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/fabm.html">FABM Coupling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/icethm.html">Ice Thermodynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/extras.html">Optional Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/cvmix.html">CVMix Interface</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Validation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../validation/overview.html">Validation Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../validation/test_cases.html">Test Cases</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../validation/test_cases.html">Test Cases</a><input aria-label="Toggle navigation of Test Cases" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/asics_med.html">Asics Med Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/blacksea.html">Blacksea Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/channel.html">Channel Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/couette.html">Couette Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/entrainment.html">Entrainment Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/estuary.html">Estuary Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/flex.html">Flex Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/gotland.html">Gotland Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lago_maggiore.html">Lago Maggiore Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lake_erken.html">Lake Erken Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/langmuir.html">Langmuir Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/liverpool_bay.html">Liverpool Bay Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/medsea_east.html">Medsea East Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/medsea_west.html">Medsea West Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/nns_annual.html">Nns Annual Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/nns_seasonal.html">Nns Seasonal Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/ows_papa.html">Ows Papa Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/plume.html">Plume Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/resolute.html">Resolute Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/reynolds.html">Reynolds Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/rouse.html">Rouse Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/seagrass.html">Seagrass Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/wave_breaking.html">Wave Breaking Validation Report</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../validation/lake_erken_parity.html">Lake Erken — Parity Status and Limitations</a></li>
 </ul>
 
 </div>
@@ -296,6 +331,18 @@
     <span class="s2">&quot;zi&quot;</span><span class="p">,</span>
     <span class="s2">&quot;h&quot;</span><span class="p">,</span>
     <span class="s2">&quot;ho&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Vc&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Vco&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Af&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Afo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Qs&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Qt&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Ls&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Lt&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Qlayer&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Qres&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FQ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;wq&quot;</span><span class="p">,</span>
     <span class="s2">&quot;u&quot;</span><span class="p">,</span>
     <span class="s2">&quot;uo&quot;</span><span class="p">,</span>
     <span class="s2">&quot;v&quot;</span><span class="p">,</span>
@@ -381,6 +428,8 @@
     <span class="s2">&quot;Hice&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Hsnow&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Hfrazil&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dHis&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dHib&quot;</span><span class="p">,</span>
     <span class="s2">&quot;T1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;T2&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Tice_surface&quot;</span><span class="p">,</span>
@@ -388,6 +437,7 @@
     <span class="s2">&quot;ice_cover&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Tf&quot;</span><span class="p">,</span>
     <span class="s2">&quot;albedo_ice&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;attenuation_ice&quot;</span><span class="p">,</span>
     <span class="s2">&quot;transmissivity&quot;</span><span class="p">,</span>
     <span class="s2">&quot;ocean_ice_flux&quot;</span><span class="p">,</span>
     <span class="s2">&quot;ocean_ice_heat_flux&quot;</span><span class="p">,</span>
@@ -397,6 +447,12 @@
     <span class="s2">&quot;melt_rate&quot;</span><span class="p">,</span>
     <span class="s2">&quot;T_melt&quot;</span><span class="p">,</span>
     <span class="s2">&quot;S_melt&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;net_water_balance&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;int_water_balance&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;int_fwf&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;int_flows&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;stream_int_inflow&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;stream_int_outflow&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 
 
@@ -424,6 +480,18 @@
     <span class="n">zi</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">h</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">ho</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Vc</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Vco</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Af</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Afo</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Qs</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Qt</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Ls</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Lt</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Qlayer</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Qres</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">FQ</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">wq</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">u</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">uo</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">v</span><span class="p">:</span> <span class="n">FloatArray</span>
@@ -510,6 +578,8 @@
     <span class="n">Hice</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">Hsnow</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">Hfrazil</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">dHis</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">dHib</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">T1</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">T2</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">Tice_surface</span><span class="p">:</span> <span class="n">FloatArray</span>
@@ -517,6 +587,7 @@
     <span class="n">ice_cover</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">Tf</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">albedo_ice</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">attenuation_ice</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">transmissivity</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">ocean_ice_flux</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">ocean_ice_heat_flux</span><span class="p">:</span> <span class="n">FloatArray</span>
@@ -526,6 +597,12 @@
     <span class="n">melt_rate</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">T_melt</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">S_melt</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">net_water_balance</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">int_water_balance</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">int_fwf</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">int_flows</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">stream_int_inflow</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">stream_int_outflow</span><span class="p">:</span> <span class="n">FloatArray</span>
 
 <div class="viewcode-block" id="RuntimeState.iter_profile_arrays">
 <a class="viewcode-back" href="../../../api/gotm.html#pygotm.gotm.runtime_state.RuntimeState.iter_profile_arrays">[docs]</a>
@@ -589,6 +666,18 @@
         <span class="n">zi</span><span class="o">=</span><span class="n">_new_profile</span><span class="p">(</span><span class="n">nlev</span><span class="p">),</span>
         <span class="n">h</span><span class="o">=</span><span class="n">_new_profile</span><span class="p">(</span><span class="n">nlev</span><span class="p">),</span>
         <span class="n">ho</span><span class="o">=</span><span class="n">_new_profile</span><span class="p">(</span><span class="n">nlev</span><span class="p">),</span>
+        <span class="n">Vc</span><span class="o">=</span><span class="n">_new_profile</span><span class="p">(</span><span class="n">nlev</span><span class="p">),</span>
+        <span class="n">Vco</span><span class="o">=</span><span class="n">_new_profile</span><span class="p">(</span><span class="n">nlev</span><span class="p">),</span>
+        <span class="n">Af</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
+        <span class="n">Afo</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
+        <span class="n">Qs</span><span class="o">=</span><span class="n">_new_profile</span><span class="p">(</span><span class="n">nlev</span><span class="p">),</span>
+        <span class="n">Qt</span><span class="o">=</span><span class="n">_new_profile</span><span class="p">(</span><span class="n">nlev</span><span class="p">),</span>
+        <span class="n">Ls</span><span class="o">=</span><span class="n">_new_profile</span><span class="p">(</span><span class="n">nlev</span><span class="p">),</span>
+        <span class="n">Lt</span><span class="o">=</span><span class="n">_new_profile</span><span class="p">(</span><span class="n">nlev</span><span class="p">),</span>
+        <span class="n">Qlayer</span><span class="o">=</span><span class="n">_new_profile</span><span class="p">(</span><span class="n">nlev</span><span class="p">),</span>
+        <span class="n">Qres</span><span class="o">=</span><span class="n">_new_profile</span><span class="p">(</span><span class="n">nlev</span><span class="p">),</span>
+        <span class="n">FQ</span><span class="o">=</span><span class="n">_new_profile</span><span class="p">(</span><span class="n">nlev</span><span class="p">),</span>
+        <span class="n">wq</span><span class="o">=</span><span class="n">_new_profile</span><span class="p">(</span><span class="n">nlev</span><span class="p">),</span>
         <span class="n">u</span><span class="o">=</span><span class="n">_new_profile</span><span class="p">(</span><span class="n">nlev</span><span class="p">),</span>
         <span class="n">uo</span><span class="o">=</span><span class="n">_new_profile</span><span class="p">(</span><span class="n">nlev</span><span class="p">),</span>
         <span class="n">v</span><span class="o">=</span><span class="n">_new_profile</span><span class="p">(</span><span class="n">nlev</span><span class="p">),</span>
@@ -671,6 +760,8 @@
         <span class="n">Hice</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
         <span class="n">Hsnow</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
         <span class="n">Hfrazil</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
+        <span class="n">dHis</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
+        <span class="n">dHib</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
         <span class="n">T1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
         <span class="n">T2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
         <span class="n">Tice_surface</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
@@ -678,6 +769,7 @@
         <span class="n">ice_cover</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
         <span class="n">Tf</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
         <span class="n">albedo_ice</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
+        <span class="n">attenuation_ice</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
         <span class="n">transmissivity</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
         <span class="n">ocean_ice_flux</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
         <span class="n">ocean_ice_heat_flux</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
@@ -687,6 +779,12 @@
         <span class="n">melt_rate</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
         <span class="n">T_melt</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
         <span class="n">S_melt</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
+        <span class="n">net_water_balance</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
+        <span class="n">int_water_balance</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
+        <span class="n">int_fwf</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
+        <span class="n">int_flows</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
+        <span class="n">stream_int_inflow</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
+        <span class="n">stream_int_outflow</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
     <span class="p">)</span>
     <span class="n">state</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">state</span></div>
@@ -727,8 +825,8 @@
     </aside>
   </div>
 </div><script src="../../../_static/documentation_options.js?v=01f34227"></script>
-    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>

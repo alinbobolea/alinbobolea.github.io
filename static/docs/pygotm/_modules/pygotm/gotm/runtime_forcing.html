@@ -4,13 +4,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
         <title>pygotm.gotm.runtime_forcing - pyGOTM Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=23f90c4b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=f28d94ff" />
     
     
 
@@ -196,6 +196,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/interfaces.html">Command and Developer Surfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/stability.html">Kernel Stability Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/serve.html">Warm Daemon Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/citations.html">Citations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/configuration.html">Configuration</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
@@ -210,6 +214,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../user_manual/dynamics.html">Dynamics: Pressure Gradients, Velocities, Waves, and Vertical Advection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../user_manual/equation_of_state.html">Equation of State and Bottom Boundary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../user_manual/output.html">Output and Restart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../user_manual/input_file_formats.html">Input Data File Formats</a></li>
 </ul>
 </li>
 </ul>
@@ -234,6 +239,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/input.html">Input</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/validation.html">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/execution.html">Execution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/stokes_drift.html">Stokes Drift</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/fabm.html">FABM Coupling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/icethm.html">Ice Thermodynamics</a></li>
@@ -243,7 +249,33 @@
 <p class="caption" role="heading"><span class="caption-text">Validation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../validation/overview.html">Validation Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../validation/test_cases.html">Test Cases</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../validation/test_cases.html">Test Cases</a><input aria-label="Toggle navigation of Test Cases" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/asics_med.html">Asics Med Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/blacksea.html">Blacksea Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/channel.html">Channel Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/couette.html">Couette Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/entrainment.html">Entrainment Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/estuary.html">Estuary Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/flex.html">Flex Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/gotland.html">Gotland Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lago_maggiore.html">Lago Maggiore Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lake_erken.html">Lake Erken Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/langmuir.html">Langmuir Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/liverpool_bay.html">Liverpool Bay Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/medsea_east.html">Medsea East Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/medsea_west.html">Medsea West Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/nns_annual.html">Nns Annual Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/nns_seasonal.html">Nns Seasonal Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/ows_papa.html">Ows Papa Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/plume.html">Plume Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/resolute.html">Resolute Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/reynolds.html">Reynolds Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/rouse.html">Rouse Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/seagrass.html">Seagrass Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/wave_breaking.html">Wave Breaking Validation Report</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../validation/lake_erken_parity.html">Lake Erken — Parity Status and Limitations</a></li>
 </ul>
 
 </div>
@@ -282,7 +314,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterator</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NDArray</span>
@@ -325,6 +357,14 @@
 <span class="p">)</span>
 
 <span class="n">_PROFILE_SERIES</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ho&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Vc&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Vco&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Af&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Afo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;z&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;zi&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Tobs&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Sobs&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Tprof&quot;</span><span class="p">,</span>
@@ -351,6 +391,18 @@
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
 
 
+<span class="k">def</span><span class="w"> </span><span class="nf">_stream_static_int</span><span class="p">(</span><span class="n">nstreams</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">IntArray</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nstreams</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_stream_static_float</span><span class="p">(</span><span class="n">nstreams</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FloatArray</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nstreams</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_stream_series</span><span class="p">(</span><span class="n">nt</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">nstreams</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FloatArray</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nstreams</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+
 <div class="viewcode-block" id="RuntimeForcing">
 <a class="viewcode-back" href="../../../api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing">[docs]</a>
 <span class="nd">@dataclass</span><span class="p">(</span><span class="n">slots</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -359,6 +411,7 @@
 
     <span class="n">nlev</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">nt</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">nstreams</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">yearday</span><span class="p">:</span> <span class="n">IntArray</span>
 
     <span class="n">time</span><span class="p">:</span> <span class="n">FloatArray</span>
@@ -390,6 +443,24 @@
     <span class="n">light_g1</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">light_g2</span><span class="p">:</span> <span class="n">FloatArray</span>
 
+    <span class="n">stream_method</span><span class="p">:</span> <span class="n">IntArray</span>
+    <span class="n">stream_has_T</span><span class="p">:</span> <span class="n">IntArray</span>
+    <span class="n">stream_has_S</span><span class="p">:</span> <span class="n">IntArray</span>
+    <span class="n">stream_zl</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">stream_zu</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">stream_flow</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">stream_temp</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">stream_salt</span><span class="p">:</span> <span class="n">FloatArray</span>
+
+    <span class="n">h</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">ho</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Vc</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Vco</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Af</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">Afo</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">z</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">zi</span><span class="p">:</span> <span class="n">FloatArray</span>
+
     <span class="n">Tobs</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">Sobs</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">Tprof</span><span class="p">:</span> <span class="n">FloatArray</span>
@@ -405,6 +476,8 @@
     <span class="n">vs</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">dusdz</span><span class="p">:</span> <span class="n">FloatArray</span>
     <span class="n">dvsdz</span><span class="p">:</span> <span class="n">FloatArray</span>
+    <span class="n">stream_concentrations</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">FloatArray</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+    <span class="n">stream_concentration_masks</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">IntArray</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
 
 <div class="viewcode-block" id="RuntimeForcing.iter_scalar_series">
 <a class="viewcode-back" href="../../../api/gotm.html#pygotm.gotm.runtime_forcing.RuntimeForcing.iter_scalar_series">[docs]</a>
@@ -435,6 +508,9 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nt</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;nt must be non-negative, got </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nt</span><span class="si">}</span><span class="s2">&quot;</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nstreams</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;nstreams must be non-negative, got </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nstreams</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">yearday</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">:</span>
             <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;yearday must have dtype int64, got </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">yearday</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
@@ -457,6 +533,88 @@
                 <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must be C-contiguous&quot;</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
+        <span class="n">stream_shape</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nstreams</span><span class="p">,)</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;stream_method&quot;</span><span class="p">,</span> <span class="s2">&quot;stream_has_T&quot;</span><span class="p">,</span> <span class="s2">&quot;stream_has_S&quot;</span><span class="p">):</span>
+            <span class="n">array</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must have dtype int64, got </span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">stream_shape</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must have shape </span><span class="si">{</span><span class="n">stream_shape</span><span class="si">}</span><span class="s2">, got </span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">array</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">c_contiguous</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must be C-contiguous&quot;</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;stream_zl&quot;</span><span class="p">,</span> <span class="s2">&quot;stream_zu&quot;</span><span class="p">):</span>
+            <span class="n">array</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must have dtype float64, got </span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">stream_shape</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must have shape </span><span class="si">{</span><span class="n">stream_shape</span><span class="si">}</span><span class="s2">, got </span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">array</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">c_contiguous</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must be C-contiguous&quot;</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">stream_series_shape</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nstreams</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;stream_flow&quot;</span><span class="p">,</span> <span class="s2">&quot;stream_temp&quot;</span><span class="p">,</span> <span class="s2">&quot;stream_salt&quot;</span><span class="p">):</span>
+            <span class="n">array</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must have dtype float64, got </span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">stream_series_shape</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must have shape </span><span class="si">{</span><span class="n">stream_series_shape</span><span class="si">}</span><span class="s2">, got </span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">array</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">c_contiguous</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must be C-contiguous&quot;</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">extra_concentration_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stream_concentrations</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stream_concentration_masks</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">extra_concentration_names</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">extra_concentration_names</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;stream concentration </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> is missing a configured mask&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">extra_mask_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stream_concentration_masks</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stream_concentrations</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">extra_mask_names</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">extra_mask_names</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;stream concentration mask </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> is missing values&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">array</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stream_concentrations</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;stream concentration </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> must have dtype float64, &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;got </span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">stream_series_shape</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;stream concentration </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> must have shape &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">stream_series_shape</span><span class="si">}</span><span class="s2">, got </span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">array</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">c_contiguous</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;stream concentration </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> must be C-contiguous&quot;</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stream_concentration_masks</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">mask</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;stream concentration mask </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> must have dtype int64, &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;got </span><span class="si">{</span><span class="n">mask</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mask</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">stream_shape</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;stream concentration mask </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> must have shape &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">stream_shape</span><span class="si">}</span><span class="s2">, got </span><span class="si">{</span><span class="n">mask</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">mask</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">c_contiguous</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;stream concentration mask </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2"> must be C-contiguous&quot;</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
         <span class="n">profile_shape</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">array</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iter_profile_series</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
@@ -474,12 +632,18 @@
 
 <div class="viewcode-block" id="allocate_runtime_forcing">
 <a class="viewcode-back" href="../../../api/gotm.html#pygotm.gotm.runtime_forcing.allocate_runtime_forcing">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">allocate_runtime_forcing</span><span class="p">(</span><span class="n">nlev</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">nt</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RuntimeForcing</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">allocate_runtime_forcing</span><span class="p">(</span>
+    <span class="n">nlev</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">nt</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">nstreams</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RuntimeForcing</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Allocate dense runtime forcing arrays for steps 0:nt.&quot;&quot;&quot;</span>
 
     <span class="n">forcing</span> <span class="o">=</span> <span class="n">RuntimeForcing</span><span class="p">(</span>
         <span class="n">nlev</span><span class="o">=</span><span class="n">nlev</span><span class="p">,</span>
         <span class="n">nt</span><span class="o">=</span><span class="n">nt</span><span class="p">,</span>
+        <span class="n">nstreams</span><span class="o">=</span><span class="n">nstreams</span><span class="p">,</span>
         <span class="n">yearday</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">),</span>
         <span class="n">time</span><span class="o">=</span><span class="n">_scalar_series</span><span class="p">(</span><span class="n">nt</span><span class="p">),</span>
         <span class="n">secondsofday</span><span class="o">=</span><span class="n">_scalar_series</span><span class="p">(</span><span class="n">nt</span><span class="p">),</span>
@@ -509,6 +673,22 @@
         <span class="n">light_A</span><span class="o">=</span><span class="n">_scalar_series</span><span class="p">(</span><span class="n">nt</span><span class="p">),</span>
         <span class="n">light_g1</span><span class="o">=</span><span class="n">_scalar_series</span><span class="p">(</span><span class="n">nt</span><span class="p">),</span>
         <span class="n">light_g2</span><span class="o">=</span><span class="n">_scalar_series</span><span class="p">(</span><span class="n">nt</span><span class="p">),</span>
+        <span class="n">stream_method</span><span class="o">=</span><span class="n">_stream_static_int</span><span class="p">(</span><span class="n">nstreams</span><span class="p">),</span>
+        <span class="n">stream_has_T</span><span class="o">=</span><span class="n">_stream_static_int</span><span class="p">(</span><span class="n">nstreams</span><span class="p">),</span>
+        <span class="n">stream_has_S</span><span class="o">=</span><span class="n">_stream_static_int</span><span class="p">(</span><span class="n">nstreams</span><span class="p">),</span>
+        <span class="n">stream_zl</span><span class="o">=</span><span class="n">_stream_static_float</span><span class="p">(</span><span class="n">nstreams</span><span class="p">),</span>
+        <span class="n">stream_zu</span><span class="o">=</span><span class="n">_stream_static_float</span><span class="p">(</span><span class="n">nstreams</span><span class="p">),</span>
+        <span class="n">stream_flow</span><span class="o">=</span><span class="n">_stream_series</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">nstreams</span><span class="p">),</span>
+        <span class="n">stream_temp</span><span class="o">=</span><span class="n">_stream_series</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">nstreams</span><span class="p">),</span>
+        <span class="n">stream_salt</span><span class="o">=</span><span class="n">_stream_series</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">nstreams</span><span class="p">),</span>
+        <span class="n">h</span><span class="o">=</span><span class="n">_profile_series</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
+        <span class="n">ho</span><span class="o">=</span><span class="n">_profile_series</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
+        <span class="n">Vc</span><span class="o">=</span><span class="n">_profile_series</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
+        <span class="n">Vco</span><span class="o">=</span><span class="n">_profile_series</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
+        <span class="n">Af</span><span class="o">=</span><span class="n">_profile_series</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
+        <span class="n">Afo</span><span class="o">=</span><span class="n">_profile_series</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
+        <span class="n">z</span><span class="o">=</span><span class="n">_profile_series</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
+        <span class="n">zi</span><span class="o">=</span><span class="n">_profile_series</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
         <span class="n">Tobs</span><span class="o">=</span><span class="n">_profile_series</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
         <span class="n">Sobs</span><span class="o">=</span><span class="n">_profile_series</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
         <span class="n">Tprof</span><span class="o">=</span><span class="n">_profile_series</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">nlev</span><span class="p">),</span>
@@ -564,8 +744,8 @@
     </aside>
   </div>
 </div><script src="../../../_static/documentation_options.js?v=01f34227"></script>
-    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>

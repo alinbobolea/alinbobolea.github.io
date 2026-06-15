@@ -78,6 +78,10 @@ body:has(.list-page) .header-nav {
   color: var(--secondary);
 }
 
+.article-body ul {
+  padding-inline-start: 1.25rem;
+}
+
 .article-body h2,
 .article-body h3,
 .article-body h4 {

@@ -260,6 +260,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../validation/cases/flex.html">Flex Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../validation/cases/gotland.html">Gotland Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../validation/cases/lago_maggiore.html">Lago Maggiore Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../validation/cases/lake_erken.html">Lake Erken Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../validation/cases/langmuir.html">Langmuir Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../validation/cases/liverpool_bay.html">Liverpool Bay Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../validation/cases/medsea_east.html">Medsea East Validation Report</a></li>
@@ -275,6 +276,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../validation/cases/wave_breaking.html">Wave Breaking Validation Report</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../validation/lake_erken_parity.html">Lake Erken — Parity Status and Limitations</a></li>
 </ul>
 
 </div>
@@ -339,7 +341,12 @@ output against Fortran reference NetCDF files, and rendering HTML reports.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygotm.validation.runner.summary_case">
 <span class="sig-prename descclassname"><span class="pre">pygotm.validation.runner.</span></span><span class="sig-name descname"><span class="pre">summary_case</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygotm/validation/runner.html#summary_case"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygotm.validation.runner.summary_case" title="Link to this definition">¶</a></dt>
-<dd><p>Return a lightweight case summary without per-variable result rows.</p>
+<dd><p>Return a lightweight case summary keeping only non-PASS variable rows.</p>
+<p>PASS rows and embedded Plotly payloads are dropped so the tracked
+<code class="docutils literal notranslate"><span class="pre">report.json</span></code> snapshot stays small, while the non-PASS variable names,
+sections, and statuses are retained. This lets the documentation build
+regenerate its remaining-differences narrative from the tracked snapshot
+instead of the untracked per-variable <code class="docutils literal notranslate"><span class="pre">results.json</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">CaseResult</span></code></span></p>

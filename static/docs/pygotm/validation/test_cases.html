@@ -260,6 +260,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cases/flex.html">Flex Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cases/gotland.html">Gotland Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cases/lago_maggiore.html">Lago Maggiore Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases/lake_erken.html">Lake Erken Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cases/langmuir.html">Langmuir Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cases/liverpool_bay.html">Liverpool Bay Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cases/medsea_east.html">Medsea East Validation Report</a></li>
@@ -275,6 +276,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cases/wave_breaking.html">Wave Breaking Validation Report</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="lake_erken_parity.html">Lake Erken — Parity Status and Limitations</a></li>
 </ul>
 
 </div>
@@ -316,7 +318,7 @@
           <section id="test-cases">
 <h1>Test Cases<a class="headerlink" href="#test-cases" title="Link to this heading">¶</a></h1>
 <p>pyGOTM is validated against the 22 official GOTM 6.0.7 test cases.  The table below summarizes the latest generated <code class="docutils literal notranslate"><span class="pre">validation/report/report.html</span></code> snapshot,
-generated at <code class="docutils literal notranslate"><span class="pre">2026-06-01T23:33:58Z</span></code>.</p>
+generated at <code class="docutils literal notranslate"><span class="pre">2026-06-15T14:57:59Z</span></code>.</p>
 <p>Case status is aggregated from Frechet variable statuses:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">PASS</span></code> means every compared numeric variable has status <code class="docutils literal notranslate"><span class="pre">PASS</span></code>.</p></li>
@@ -325,8 +327,8 @@ generated at <code class="docutils literal notranslate"><span class="pre">2026-0
 <li><p><code class="docutils literal notranslate"><span class="pre">ERROR</span></code> means the case failed during setup, execution, or comparison
 before a complete variable table could be produced.</p></li>
 </ul>
-<p>The snapshot verdict is <code class="docutils literal notranslate"><span class="pre">PARTIAL</span> <span class="pre">PARITY</span></code>: 15 cases pass, 7 cases fail, and 0 cases error.
-Across all cases, the variable totals are 2316 <code class="docutils literal notranslate"><span class="pre">PASS</span></code>, 67 <code class="docutils literal notranslate"><span class="pre">MARGINAL</span></code>, 31 <code class="docutils literal notranslate"><span class="pre">DISCREPANT</span></code>, and 0 <code class="docutils literal notranslate"><span class="pre">BROKEN</span></code>.</p>
+<p>The snapshot verdict is <code class="docutils literal notranslate"><span class="pre">PARTIAL</span> <span class="pre">PARITY</span></code>: 15 cases pass, 8 cases fail, and 0 cases error.
+Across all cases, the variable totals are 2376 <code class="docutils literal notranslate"><span class="pre">PASS</span></code>, 72 <code class="docutils literal notranslate"><span class="pre">MARGINAL</span></code>, 57 <code class="docutils literal notranslate"><span class="pre">DISCREPANT</span></code>, and 64 <code class="docutils literal notranslate"><span class="pre">BROKEN</span></code>.</p>
 <p>Each case name in the table below links to the committed full
 per-case report snapshot. If a link 404s, regenerate the reports with
 <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">run</span> <span class="pre">-n</span> <span class="pre">pygotm</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pygotm.validation.run_validation</span></code>
@@ -417,7 +419,15 @@ and rebuild the documentation.</p>
 <td><p>0</p></td>
 <td><p>Alpine lake.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="cases/langmuir.html"><span class="doc">langmuir</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="cases/lake_erken.html"><span class="doc">lake_erken</span></a></p></td>
+<td><p>FAIL</p></td>
+<td><p>60</p></td>
+<td><p>5</p></td>
+<td><p>26</p></td>
+<td><p>64</p></td>
+<td><p>Hypsographic lake with FABM <code class="docutils literal notranslate"><span class="pre">selmaprotbas</span></code> biogeochemistry. Hypsography/water-balance at exact parity. Residual <code class="docutils literal notranslate"><span class="pre">FAIL</span></code> has two independent causes: a mild seasonal under-mixing of the summer thermocline (26 native variables BROKEN; the closure source is byte-identical between the gotm-lake and gotm-model lineages, so it is not a closure-coefficient divergence) and the FABM <code class="docutils literal notranslate"><span class="pre">variable_bottom_index</span></code> build limitation. See <a class="reference internal" href="lake_erken_parity.html"><span class="doc">Lake Erken — Parity Status and Limitations</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cases/langmuir.html"><span class="doc">langmuir</span></a></p></td>
 <td><p>FAIL</p></td>
 <td><p>111</p></td>
 <td><p>1</p></td>
@@ -425,7 +435,7 @@ and rebuild the documentation.</p>
 <td><p>0</p></td>
 <td><p>Langmuir turbulence with Stokes drift.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="cases/liverpool_bay.html"><span class="doc">liverpool_bay</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="cases/liverpool_bay.html"><span class="doc">liverpool_bay</span></a></p></td>
 <td><p>PASS</p></td>
 <td><p>105</p></td>
 <td><p>0</p></td>
@@ -433,7 +443,7 @@ and rebuild the documentation.</p>
 <td><p>0</p></td>
 <td><p>Tidal mixing in Liverpool Bay.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="cases/medsea_east.html"><span class="doc">medsea_east</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="cases/medsea_east.html"><span class="doc">medsea_east</span></a></p></td>
 <td><p>FAIL</p></td>
 <td><p>124</p></td>
 <td><p>16</p></td>
@@ -441,7 +451,7 @@ and rebuild the documentation.</p>
 <td><p>0</p></td>
 <td><p>Eastern Mediterranean.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="cases/medsea_west.html"><span class="doc">medsea_west</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="cases/medsea_west.html"><span class="doc">medsea_west</span></a></p></td>
 <td><p>FAIL</p></td>
 <td><p>128</p></td>
 <td><p>11</p></td>
@@ -449,7 +459,7 @@ and rebuild the documentation.</p>
 <td><p>0</p></td>
 <td><p>Western Mediterranean.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="cases/nns_annual.html"><span class="doc">nns_annual</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="cases/nns_annual.html"><span class="doc">nns_annual</span></a></p></td>
 <td><p>FAIL</p></td>
 <td><p>102</p></td>
 <td><p>7</p></td>
@@ -457,7 +467,7 @@ and rebuild the documentation.</p>
 <td><p>0</p></td>
 <td><p>North Sea annual cycle.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="cases/nns_seasonal.html"><span class="doc">nns_seasonal</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="cases/nns_seasonal.html"><span class="doc">nns_seasonal</span></a></p></td>
 <td><p>PASS</p></td>
 <td><p>105</p></td>
 <td><p>0</p></td>
@@ -465,7 +475,7 @@ and rebuild the documentation.</p>
 <td><p>0</p></td>
 <td><p>North Sea seasonal cycle.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="cases/ows_papa.html"><span class="doc">ows_papa</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="cases/ows_papa.html"><span class="doc">ows_papa</span></a></p></td>
 <td><p>FAIL</p></td>
 <td><p>111</p></td>
 <td><p>1</p></td>
@@ -473,7 +483,7 @@ and rebuild the documentation.</p>
 <td><p>0</p></td>
 <td><p>Ocean Weather Station Papa.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="cases/plume.html"><span class="doc">plume</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="cases/plume.html"><span class="doc">plume</span></a></p></td>
 <td><p>PASS</p></td>
 <td><p>113</p></td>
 <td><p>0</p></td>
@@ -481,7 +491,7 @@ and rebuild the documentation.</p>
 <td><p>0</p></td>
 <td><p>Freshwater plume.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="cases/resolute.html"><span class="doc">resolute</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="cases/resolute.html"><span class="doc">resolute</span></a></p></td>
 <td><p>FAIL</p></td>
 <td><p>92</p></td>
 <td><p>17</p></td>
@@ -489,7 +499,7 @@ and rebuild the documentation.</p>
 <td><p>0</p></td>
 <td><p>Arctic mixing.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="cases/reynolds.html"><span class="doc">reynolds</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="cases/reynolds.html"><span class="doc">reynolds</span></a></p></td>
 <td><p>PASS</p></td>
 <td><p>105</p></td>
 <td><p>0</p></td>
@@ -497,7 +507,7 @@ and rebuild the documentation.</p>
 <td><p>0</p></td>
 <td><p>Reynolds number scaling.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="cases/rouse.html"><span class="doc">rouse</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="cases/rouse.html"><span class="doc">rouse</span></a></p></td>
 <td><p>PASS</p></td>
 <td><p>108</p></td>
 <td><p>0</p></td>
@@ -505,7 +515,7 @@ and rebuild the documentation.</p>
 <td><p>0</p></td>
 <td><p>Rouse sediment profile.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="cases/seagrass.html"><span class="doc">seagrass</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="cases/seagrass.html"><span class="doc">seagrass</span></a></p></td>
 <td><p>PASS</p></td>
 <td><p>104</p></td>
 <td><p>0</p></td>
@@ -513,7 +523,7 @@ and rebuild the documentation.</p>
 <td><p>0</p></td>
 <td><p>Seagrass canopy dynamics. See <a class="reference internal" href="#fortran-parity-deviations"><span class="std std-ref">Fortran Parity Deviations</span></a>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="cases/wave_breaking.html"><span class="doc">wave_breaking</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="cases/wave_breaking.html"><span class="doc">wave_breaking</span></a></p></td>
 <td><p>PASS</p></td>
 <td><p>100</p></td>
 <td><p>0</p></td>
@@ -521,7 +531,7 @@ and rebuild the documentation.</p>
 <td><p>0</p></td>
 <td><p>Wave-breaking enhanced mixing.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="cases/asics_med.html"><span class="doc">asics_med</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="cases/asics_med.html"><span class="doc">asics_med</span></a></p></td>
 <td><p>PASS</p></td>
 <td><p>104</p></td>
 <td><p>0</p></td>

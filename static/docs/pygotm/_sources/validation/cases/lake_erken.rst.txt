@@ -1,0 +1,9 @@
+Lake Erken Validation Report
+============================
+
+.. raw:: html
+
+   <iframe src="../lake_erken-gotm.html"
+           style="width:100%;height:90vh;border:none;display:block;"
+           title="lake_erken validation report">
+   </iframe>

@@ -260,6 +260,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../validation/cases/flex.html">Flex Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../validation/cases/gotland.html">Gotland Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../validation/cases/lago_maggiore.html">Lago Maggiore Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../validation/cases/lake_erken.html">Lake Erken Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../validation/cases/langmuir.html">Langmuir Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../validation/cases/liverpool_bay.html">Liverpool Bay Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../validation/cases/medsea_east.html">Medsea East Validation Report</a></li>
@@ -275,6 +276,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../validation/cases/wave_breaking.html">Wave Breaking Validation Report</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../validation/lake_erken_parity.html">Lake Erken — Parity Status and Limitations</a></li>
 </ul>
 
 </div>
@@ -345,21 +347,21 @@ conda<span class="w"> </span>run<span class="w"> </span>-n<span class="w"> </spa
 <h2>Environment Contents and Boundaries<a class="headerlink" href="#environment-contents-and-boundaries" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pygotm-conda-env.yml</span></code> is the authoritative conda environment definition for
 local development, validation, documentation, and integration work.  It is a
-deliberate superset covering both pyGOTM kernel and pyGOTM Studio runtime
-dependencies. It currently includes:</p>
+deliberate superset covering both the pyGOTM kernel and the Aquirae
+application runtime dependencies. It currently includes:</p>
 <ul class="simple">
 <li><p>Python 3.12 and the core scientific stack: Numba, NumPy, SciPy, xarray,
 NetCDF4, PyYAML, pandas, Pydantic, Click, GSW, and pyfabm.</p></li>
 <li><p>Dask and distributed for multi-case validation orchestration.</p></li>
 <li><p>pybtex for citation parsing, Matplotlib for documentation figures, and
 Plotly for embedded Frechet validation report plots.</p></li>
-<li><p>pyGOTM Studio runtime: FastAPI, Uvicorn, WebSockets, python-dotenv,
+<li><p>Aquirae application runtime: FastAPI, Uvicorn, WebSockets, python-dotenv,
 NiceGUI, Jinja2, markdown-it-py, httpx, rich, cmocean, and WeasyPrint.
-Studio deps are declared here so the single <code class="docutils literal notranslate"><span class="pre">pygotm</span></code> conda environment
-covers both the kernel and the studio application layer.</p></li>
+These deps are declared here so the single <code class="docutils literal notranslate"><span class="pre">pygotm</span></code> conda environment
+covers both the kernel and the Aquirae application layer.</p></li>
 <li><p>Developer and documentation tools: pytest, anyio, Ruff, mypy, PyYAML type
 stubs, pre-commit, hatch, reuse (REUSE/SPDX licensing compliance),
-import-linter (kernel–studio boundary contract), Sphinx 8.x, Furo,
+import-linter (kernel–application boundary contract), Sphinx 8.x, Furo,
 MyST, MyST-NB, copybutton, and Mermaid.</p></li>
 </ul>
 <p>FABM support depends on <code class="docutils literal notranslate"><span class="pre">pyfabm</span></code> from conda-forge. pyGOTM does not publish a

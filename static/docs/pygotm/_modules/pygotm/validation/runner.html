@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
         <title>pygotm.validation.runner - pyGOTM Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
@@ -259,6 +259,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/flex.html">Flex Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/gotland.html">Gotland Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lago_maggiore.html">Lago Maggiore Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lake_erken.html">Lake Erken Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/langmuir.html">Langmuir Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/liverpool_bay.html">Liverpool Bay Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/medsea_east.html">Medsea East Validation Report</a></li>
@@ -274,6 +275,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/wave_breaking.html">Wave Breaking Validation Report</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../validation/lake_erken_parity.html">Lake Erken — Parity Status and Limitations</a></li>
 </ul>
 
 </div>
@@ -311,10 +313,12 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">traceback</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">replace</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">pygotm.validation.compare</span><span class="w"> </span><span class="kn">import</span> <span class="n">compare_nc</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pygotm.validation.debug</span><span class="w"> </span><span class="kn">import</span> <span class="n">write_turbulence_debug_dump</span>
@@ -339,7 +343,10 @@
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Path</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Run a compiled parity case, write NetCDF, return (path, elapsed_s).&quot;&quot;&quot;</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">pygotm.driver</span><span class="w"> </span><span class="kn">import</span> <span class="n">GotmDriver</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">pygotm.validation.reference</span><span class="w"> </span><span class="kn">import</span> <span class="n">resolve_reference_case</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pygotm.validation.reference</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+        <span class="n">open_reference_dataset</span><span class="p">,</span>
+        <span class="n">resolve_reference_case</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="n">case</span> <span class="o">=</span> <span class="n">resolve_reference_case</span><span class="p">(</span><span class="n">case_name</span><span class="p">,</span> <span class="n">cases_root</span><span class="o">=</span><span class="n">cases_root</span><span class="p">)</span>
     <span class="n">case_dir</span> <span class="o">=</span> <span class="n">runs_dir</span> <span class="o">/</span> <span class="n">case</span><span class="o">.</span><span class="n">run_name</span>
@@ -347,18 +354,81 @@
     <span class="n">nc_path</span> <span class="o">=</span> <span class="n">case_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">case</span><span class="o">.</span><span class="n">run_name</span><span class="si">}</span><span class="s2">.nc&quot;</span>
 
     <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
-    <span class="n">dataset</span> <span class="o">=</span> <span class="n">GotmDriver</span><span class="p">(</span><span class="n">case</span><span class="o">.</span><span class="n">yaml_path</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">output_path</span><span class="o">=</span><span class="n">nc_path</span><span class="p">)</span>
+    <span class="n">driver</span> <span class="o">=</span> <span class="n">GotmDriver</span><span class="p">(</span><span class="n">case</span><span class="o">.</span><span class="n">yaml_path</span><span class="p">)</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">dataset</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;runtime&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="s2">&quot;compiled&quot;</span><span class="p">:</span>
             <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;parity case </span><span class="si">{</span><span class="n">case</span><span class="o">.</span><span class="n">run_name</span><span class="si">!r}</span><span class="s2"> did not use the Numba compiled runtime&quot;</span>
             <span class="p">)</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">reference</span> <span class="o">=</span> <span class="n">open_reference_dataset</span><span class="p">(</span><span class="n">case</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">keep</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">reference</span><span class="o">.</span><span class="n">data_vars</span> <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">dataset</span><span class="o">.</span><span class="n">data_vars</span><span class="p">]</span>
+            <span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="n">keep</span><span class="p">]</span>
+            <span class="n">GotmDriver</span><span class="o">.</span><span class="n">write_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">nc_path</span><span class="p">)</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">reference</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="c1"># Stage the exact configs the run consumed so validation/runs/&lt;case&gt; is a</span>
+        <span class="c1"># self-consistent, re-runnable reference bundle for downstream ingestion.</span>
+        <span class="n">_stage_bundle_configs</span><span class="p">(</span><span class="n">driver</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="n">case_dir</span><span class="p">)</span>
     <span class="k">finally</span><span class="p">:</span>
         <span class="n">dataset</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span>
     <span class="k">return</span> <span class="n">nc_path</span><span class="p">,</span> <span class="n">elapsed</span></div>
 
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_fabm_config_filename</span><span class="p">(</span><span class="n">document</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the FABM config filename a GOTM document references (default).&quot;&quot;&quot;</span>
+
+    <span class="n">raw_fabm</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;fabm&quot;</span><span class="p">)</span>
+    <span class="n">raw_fabm</span> <span class="o">=</span> <span class="n">raw_fabm</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw_fabm</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="k">else</span> <span class="p">{}</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span>
+        <span class="n">raw_fabm</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;config&quot;</span><span class="p">)</span>
+        <span class="ow">or</span> <span class="n">raw_fabm</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;config_file&quot;</span><span class="p">)</span>
+        <span class="ow">or</span> <span class="n">raw_fabm</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;yaml&quot;</span><span class="p">)</span>
+        <span class="ow">or</span> <span class="n">raw_fabm</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;file&quot;</span><span class="p">)</span>
+        <span class="ow">or</span> <span class="s2">&quot;fabm.yaml&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_stage_bundle_configs</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">case_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stage the exact configs a run consumed into its bundle directory.</span>
+
+<span class="sd">    Writes the GOTM YAML that was run and the **materialized** FABM YAML that</span>
+<span class="sd">    pyfabm actually loaded — the legacy GOTM-lake ``selmaprotbas`` phytoplankton</span>
+<span class="sd">    ``alpha``/``beta`` parameters are stripped by</span>
+<span class="sd">    :func:`pygotm.fabm.config.resolve_fabm_config_path` because conda</span>
+<span class="sd">    ``pyfabm`` cannot parse them. Staging this materialized config keeps the</span>
+<span class="sd">    bundle&#39;s ``fabm.yaml`` byte-identical to the NetCDF ``fabm_yaml_sha256``</span>
+<span class="sd">    attribute, so re-running ``validation/runs/&lt;case&gt;`` reproduces the recorded</span>
+<span class="sd">    config hashes (the bundle is self-consistent for downstream ingestion).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pygotm.fabm.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">fabm_enabled</span><span class="p">,</span> <span class="n">resolve_fabm_config_path</span>
+
+    <span class="n">source_path</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s2">&quot;source_path&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">source_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="n">source_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">source_path</span><span class="p">)</span>
+    <span class="n">document</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">resolved_document</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">return</span>
+
+    <span class="n">staged_gotm</span> <span class="o">=</span> <span class="n">case_dir</span> <span class="o">/</span> <span class="n">source_path</span><span class="o">.</span><span class="n">name</span>
+    <span class="k">if</span> <span class="n">source_path</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span> <span class="o">!=</span> <span class="n">staged_gotm</span><span class="o">.</span><span class="n">resolve</span><span class="p">():</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">source_path</span><span class="p">,</span> <span class="n">staged_gotm</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">fabm_enabled</span><span class="p">(</span><span class="n">document</span><span class="p">):</span>
+        <span class="k">return</span>
+    <span class="n">config_path</span> <span class="o">=</span> <span class="n">resolve_fabm_config_path</span><span class="p">(</span><span class="n">source_path</span><span class="p">,</span> <span class="n">document</span><span class="p">)</span>
+    <span class="n">relative</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_fabm_config_filename</span><span class="p">(</span><span class="n">document</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">relative</span><span class="o">.</span><span class="n">is_absolute</span><span class="p">():</span>
+        <span class="k">return</span>
+    <span class="n">dest</span> <span class="o">=</span> <span class="n">case_dir</span> <span class="o">/</span> <span class="n">relative</span>
+    <span class="n">dest</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">config_path</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span> <span class="o">!=</span> <span class="n">dest</span><span class="o">.</span><span class="n">resolve</span><span class="p">():</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">config_path</span><span class="p">,</span> <span class="n">dest</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="validate_case">
@@ -445,9 +515,30 @@
 <div class="viewcode-block" id="summary_case">
 <a class="viewcode-back" href="../../../api/validation.html#pygotm.validation.runner.summary_case">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">summary_case</span><span class="p">(</span><span class="n">result</span><span class="p">:</span> <span class="n">CaseResult</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CaseResult</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a lightweight case summary without per-variable result rows.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a lightweight case summary keeping only non-PASS variable rows.</span>
 
-    <span class="k">return</span> <span class="n">replace</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="p">[])</span></div>
+<span class="sd">    PASS rows and embedded Plotly payloads are dropped so the tracked</span>
+<span class="sd">    ``report.json`` snapshot stays small, while the non-PASS variable names,</span>
+<span class="sd">    sections, and statuses are retained. This lets the documentation build</span>
+<span class="sd">    regenerate its remaining-differences narrative from the tracked snapshot</span>
+<span class="sd">    instead of the untracked per-variable ``results.json``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">non_pass</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">replace</span><span class="p">(</span>
+            <span class="n">variable</span><span class="p">,</span>
+            <span class="n">reference_at_worst</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;nan&quot;</span><span class="p">),</span>
+            <span class="n">calculated_at_worst</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;nan&quot;</span><span class="p">),</span>
+            <span class="n">d_raw</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;nan&quot;</span><span class="p">),</span>
+            <span class="n">d_norm</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;nan&quot;</span><span class="p">),</span>
+            <span class="n">score</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">peak_d_norm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">plot_html</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">variables</span>
+        <span class="k">if</span> <span class="n">variable</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="s2">&quot;PASS&quot;</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">replace</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">variables</span><span class="o">=</span><span class="n">non_pass</span><span class="p">)</span></div>
 
 
 
@@ -530,8 +621,8 @@
     </aside>
   </div>
 </div><script src="../../../_static/documentation_options.js?v=01f34227"></script>
-    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>

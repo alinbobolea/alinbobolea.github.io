@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
         <title>pygotm.fabm.gotm_fabm - pyGOTM Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
@@ -197,6 +197,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/interfaces.html">Command and Developer Surfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/stability.html">Kernel Stability Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/serve.html">Warm Daemon Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/citations.html">Citations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/configuration.html">Configuration</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
@@ -256,6 +259,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/flex.html">Flex Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/gotland.html">Gotland Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lago_maggiore.html">Lago Maggiore Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lake_erken.html">Lake Erken Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/langmuir.html">Langmuir Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/liverpool_bay.html">Liverpool Bay Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/medsea_east.html">Medsea East Validation Report</a></li>
@@ -271,6 +275,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/wave_breaking.html">Wave Breaking Validation Report</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../validation/lake_erken_parity.html">Lake Erken — Parity Status and Limitations</a></li>
 </ul>
 
 </div>
@@ -342,7 +347,13 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">numba</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">pygotm.util.adv_center</span><span class="w"> </span><span class="kn">import</span> <span class="n">CONSERVATIVE</span><span class="p">,</span> <span class="n">FLUX</span><span class="p">,</span> <span class="n">P2_PDM</span><span class="p">,</span> <span class="n">adv_center</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pygotm.util.adv_center</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">CONSERVATIVE</span><span class="p">,</span>
+    <span class="n">FLUX</span><span class="p">,</span>
+    <span class="n">P2_PDM</span><span class="p">,</span>
+    <span class="n">adv_center</span><span class="p">,</span>
+    <span class="n">adv_center_lake</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pygotm.util.diff_center</span><span class="w"> </span><span class="kn">import</span> <span class="n">NEUMANN</span><span class="p">,</span> <span class="n">diff_center</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
@@ -375,6 +386,7 @@
     <span class="s2">&quot;save_diagnostics&quot;</span><span class="p">,</span>
     <span class="s2">&quot;set_env_gotm_fabm&quot;</span><span class="p">,</span>
     <span class="s2">&quot;start_gotm_fabm&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;step_fabm_lake_advection_single&quot;</span><span class="p">,</span>
     <span class="s2">&quot;step_fabm_post_rates_single&quot;</span><span class="p">,</span>
     <span class="s2">&quot;step_fabm_transport_single&quot;</span><span class="p">,</span>
 <span class="p">]</span>
@@ -513,6 +525,94 @@
         <span class="c1"># Add the extinction of the second half of the grid box.</span>
         <span class="n">bioext</span> <span class="o">+=</span> <span class="n">local_ext</span> <span class="o">*</span> <span class="n">h</span><span class="p">[</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.5</span>
     <span class="k">return</span> <span class="n">surface_par</span></div>
+
+
+
+<div class="viewcode-block" id="step_fabm_lake_advection_single">
+<a class="viewcode-back" href="../../../api/fabm.html#pygotm.fabm.gotm_fabm.step_fabm_lake_advection_single">[docs]</a>
+<span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">step_fabm_lake_advection_single</span><span class="p">(</span>
+    <span class="n">nlev</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">w_adv_ctr</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">n_interior</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">stream_flow</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">stream_Q</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">stream_concentrations</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">stream_has_concentration</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">no_river_dilution</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">h_step</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">vco_step</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">vc_step</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">afo_step</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">wq_step</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">qres_step</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">cc</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">adv_cu</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">l_sour</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">q_sour</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Apply lake stream/residual water-balance advection to FABM tracers.&quot;&quot;&quot;</span>
+
+    <span class="n">nstreams</span> <span class="o">=</span> <span class="n">stream_flow</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_interior</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">l_sour</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">q_sour</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">for</span> <span class="n">stream</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nstreams</span><span class="p">):</span>
+            <span class="n">flow</span> <span class="o">=</span> <span class="n">stream_flow</span><span class="p">[</span><span class="n">stream</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">flow</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span>
+                    <span class="n">stream_has_concentration</span><span class="p">[</span><span class="n">var</span><span class="p">,</span> <span class="n">stream</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span>
+                    <span class="ow">or</span> <span class="n">no_river_dilution</span><span class="p">[</span><span class="n">var</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+                <span class="p">):</span>
+                    <span class="n">stream_conc</span> <span class="o">=</span> <span class="mf">0.0</span>
+                    <span class="k">if</span> <span class="n">stream_has_concentration</span><span class="p">[</span><span class="n">var</span><span class="p">,</span> <span class="n">stream</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">stream_conc</span> <span class="o">=</span> <span class="n">stream_concentrations</span><span class="p">[</span><span class="n">var</span><span class="p">,</span> <span class="n">stream</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">stream_conc</span> <span class="o">=</span> <span class="n">cc</span><span class="p">[</span><span class="n">var</span><span class="p">,</span> <span class="n">nlev</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                    <span class="n">q_sour</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="n">stream_Q</span><span class="p">[</span><span class="n">stream</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">stream_conc</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">stream_has_concentration</span><span class="p">[</span><span class="n">var</span><span class="p">,</span> <span class="n">stream</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">stream_conc</span> <span class="o">=</span> <span class="n">stream_concentrations</span><span class="p">[</span><span class="n">var</span><span class="p">,</span> <span class="n">stream</span><span class="p">]</span>
+                    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                        <span class="n">q_sour</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="n">stream_Q</span><span class="p">[</span><span class="n">stream</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">stream_conc</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                        <span class="n">l_sour</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="n">stream_Q</span><span class="p">[</span><span class="n">stream</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">qres</span> <span class="o">=</span> <span class="n">qres_step</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">qres</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+                <span class="n">q_sour</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="n">qres</span> <span class="o">*</span> <span class="n">cc</span><span class="p">[</span><span class="n">var</span><span class="p">,</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">l_sour</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="n">qres</span>
+            <span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">cc</span><span class="p">[</span><span class="n">var</span><span class="p">,</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+
+        <span class="n">adv_center_lake</span><span class="p">(</span>
+            <span class="n">nlev</span><span class="p">,</span>
+            <span class="n">dt</span><span class="p">,</span>
+            <span class="n">h_step</span><span class="p">,</span>
+            <span class="n">vco_step</span><span class="p">,</span>
+            <span class="n">vc_step</span><span class="p">,</span>
+            <span class="n">afo_step</span><span class="p">,</span>
+            <span class="n">wq_step</span><span class="p">,</span>
+            <span class="n">FLUX</span><span class="p">,</span>
+            <span class="n">FLUX</span><span class="p">,</span>
+            <span class="mf">0.0</span><span class="p">,</span>
+            <span class="mf">0.0</span><span class="p">,</span>
+            <span class="n">l_sour</span><span class="p">,</span>
+            <span class="n">q_sour</span><span class="p">,</span>
+            <span class="n">w_adv_ctr</span><span class="p">,</span>
+            <span class="n">CONSERVATIVE</span><span class="p">,</span>
+            <span class="n">y</span><span class="p">,</span>
+            <span class="n">adv_cu</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nlev</span><span class="p">):</span>
+            <span class="n">cc</span><span class="p">[</span><span class="n">var</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span></div>
 
 
 
@@ -1068,8 +1168,8 @@
     </aside>
   </div>
 </div><script src="../../../_static/documentation_options.js?v=01f34227"></script>
-    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>

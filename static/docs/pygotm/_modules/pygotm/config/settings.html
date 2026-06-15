@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
         <title>pygotm.config.settings - pyGOTM Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
@@ -259,6 +259,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/flex.html">Flex Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/gotland.html">Gotland Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lago_maggiore.html">Lago Maggiore Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lake_erken.html">Lake Erken Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/langmuir.html">Langmuir Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/liverpool_bay.html">Liverpool Bay Validation Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/medsea_east.html">Medsea East Validation Report</a></li>
@@ -274,6 +275,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/wave_breaking.html">Wave Breaking Validation Report</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../validation/lake_erken_parity.html">Lake Erken — Parity Status and Limitations</a></li>
 </ul>
 
 </div>
@@ -358,6 +360,190 @@
 <span class="n">WRITE_DETAIL_DEFAULT</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">WRITE_DETAIL_FULL</span> <span class="o">=</span> <span class="mi">2</span>
 
+<span class="n">_INPUT_METHOD_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;constant&quot;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;constant&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;file&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;calculate&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_OPTIONAL_INPUT_METHOD_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;off&quot;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;constant&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;file&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_TIDAL_INPUT_METHOD_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;constant&quot;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;tidal&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;file&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_GRID_METHOD_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;analytical&quot;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;file_sigma&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;file_h&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;adaptive&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_PROFILE_METHOD_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;off&quot;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;constant&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;file&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_ANALYTICAL_PROFILE_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;constant&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;two_layer&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;buoyancy&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_LIGHT_EXTINCTION_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;jerlov_i&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;jerlov_1_50m&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;jerlov_ia&quot;</span><span class="p">,</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;jerlov_ib&quot;</span><span class="p">,</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;jerlov_ii&quot;</span><span class="p">,</span>
+    <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;jerlov_iii&quot;</span><span class="p">,</span>
+    <span class="mi">7</span><span class="p">:</span> <span class="s2">&quot;custom&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_EXT_PRESSURE_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;elevation&quot;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;velocity&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;average_velocity&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_INT_PRESSURE_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;gradients&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;plume&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_PLUME_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;surface&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_W_ADV_DISCR_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;upstream&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;p2&quot;</span><span class="p">,</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;superbee&quot;</span><span class="p">,</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;muscl&quot;</span><span class="p">,</span>
+    <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;p2_pdm&quot;</span><span class="p">,</span>
+    <span class="mi">13</span><span class="p">:</span> <span class="s2">&quot;splmax13&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_FLUX_METHOD_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;off&quot;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;kondo&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;fairall&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_HUMIDITY_TYPE_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;relative&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;wet_bulb&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;dew_point&quot;</span><span class="p">,</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;specific&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_LONGWAVE_METHOD_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;file&quot;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;clark&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;hastenrath_lamb&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;bignami&quot;</span><span class="p">,</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;berliand_berliand&quot;</span><span class="p">,</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;josey1&quot;</span><span class="p">,</span>
+    <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;josey2&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_ALBEDO_METHOD_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;constant&quot;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;payne&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;cogley&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_SSUV_METHOD_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;absolute&quot;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;relative&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_LAKE_ICE_MODEL_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;no_ice&quot;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;lebedev&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;mylake&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;winton&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_TURB_METHOD_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;no_model&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;first_order&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;second_order&quot;</span><span class="p">,</span>
+    <span class="mi">100</span><span class="p">:</span> <span class="s2">&quot;cvmix&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_TKE_METHOD_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;local_eq&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;tke&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;mellor_yamada&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_LEN_SCALE_METHOD_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;parabolic&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;triangular&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;xing_davies&quot;</span><span class="p">,</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;robert_ouellet&quot;</span><span class="p">,</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;blackadar&quot;</span><span class="p">,</span>
+    <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;bougeault_andre&quot;</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">:</span> <span class="s2">&quot;dissipation&quot;</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">:</span> <span class="s2">&quot;mellor_yamada&quot;</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">:</span> <span class="s2">&quot;gls&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_STAB_METHOD_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;constant&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;munk_anderson&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;schumann_gerz&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_SCND_METHOD_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;quasi_eq&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;weak_eq_kb_eq&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_SCND_COEFF_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;custom&quot;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;gibson_launder&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;mellor_yamada&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;kantha_clayson&quot;</span><span class="p">,</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;luyten&quot;</span><span class="p">,</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;canuto_a&quot;</span><span class="p">,</span>
+    <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;canuto_b&quot;</span><span class="p">,</span>
+    <span class="mi">7</span><span class="p">:</span> <span class="s2">&quot;cheng&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_MY_LENGTH_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;parabolic&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;triangular&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_EOS_METHOD_CODES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;full_teos10&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;full_teos10&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;linear_teos10&quot;</span><span class="p">,</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;linear_custom&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># GOTM eq_state ``mode`` selects the formula: 1=UNESCO, 2=Jackett et al. (2005).</span>
+<span class="n">_EOS_MODE_CODES</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;unesco&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;jackett&quot;</span><span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_eos_method_token</span><span class="p">(</span><span class="n">mode</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">method</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Resolve a pyGOTM density-method token from a raw GOTM ``eq_state`` block.</span>
+
+<span class="sd">    GOTM splits the equation of state into ``mode`` (1=UNESCO, 2=Jackett et al.</span>
+<span class="sd">    2005; default 2) and ``method`` (1=full with in-situ temperature/density,</span>
+<span class="sd">    2=full with potential temperature/density, 3=linearised at T0/S0/p0,</span>
+<span class="sd">    4=linearised at T0/S0/p0 with custom expansion coefficients; default 2).</span>
+<span class="sd">    pyGOTM expresses the same choices as a single token, e.g.</span>
+<span class="sd">    ``jackett_potential`` or ``unesco_in_situ``.  The full in-situ/potential</span>
+<span class="sd">    distinction (carried only by ``method``) is what selects whether the</span>
+<span class="sd">    pressure term is applied, so both fields must be combined; reading</span>
+<span class="sd">    ``method`` alone silently collapses Jackett potential density onto</span>
+<span class="sd">    full TEOS-10 in-situ density.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">method</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;+-&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+        <span class="c1"># Already a named token (e.g. &quot;full_teos10&quot;); leave it for _code_token.</span>
+        <span class="k">return</span> <span class="n">_canonical_token</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="s2">&quot;full_teos10&quot;</span><span class="p">)</span>
+    <span class="n">method_code</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">method</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">method_code</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">mode</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;+-&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+            <span class="n">formula</span> <span class="o">=</span> <span class="n">_canonical_token</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="s2">&quot;jackett&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mode_code</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">mode</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+            <span class="n">formula</span> <span class="o">=</span> <span class="n">_EOS_MODE_CODES</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">mode_code</span><span class="p">,</span> <span class="s2">&quot;jackett&quot;</span><span class="p">)</span>
+        <span class="n">suffix</span> <span class="o">=</span> <span class="s2">&quot;in_situ&quot;</span> <span class="k">if</span> <span class="n">method_code</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">&quot;potential&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">formula</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">suffix</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">return</span> <span class="n">_EOS_METHOD_CODES</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">method_code</span><span class="p">,</span> <span class="s2">&quot;full_teos10&quot;</span><span class="p">)</span>
+
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_format_timestamp</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">date</span> <span class="o">|</span> <span class="n">datetime</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
@@ -402,6 +588,293 @@
     <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[\s-]+&quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 
 
+<span class="k">def</span><span class="w"> </span><span class="nf">_code_token</span><span class="p">(</span>
+    <span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span>
+    <span class="n">default</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">mapping</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_canonical_token</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">stripped</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">stripped</span> <span class="ow">and</span> <span class="n">stripped</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;+-&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+            <span class="n">code</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">stripped</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">stripped</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_canonical_token</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_as_mapping</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="p">{}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_copy_if_present</span><span class="p">(</span>
+    <span class="n">source</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">],</span>
+    <span class="n">target</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">],</span>
+    <span class="n">source_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">target_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">source_key</span> <span class="ow">in</span> <span class="n">source</span> <span class="ow">and</span> <span class="n">target_key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">target</span><span class="p">:</span>
+        <span class="n">target</span><span class="p">[</span><span class="n">target_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="n">source_key</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_normalise_input_method</span><span class="p">(</span>
+    <span class="n">node</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span>
+    <span class="n">mapping</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">_INPUT_METHOD_CODES</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;method&quot;</span> <span class="ow">in</span> <span class="n">node</span><span class="p">:</span>
+        <span class="n">node</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">],</span> <span class="s2">&quot;constant&quot;</span><span class="p">,</span> <span class="n">mapping</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_normalise_profile_section</span><span class="p">(</span>
+    <span class="n">node</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">temp</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;method&quot;</span><span class="p">)</span>
+    <span class="n">node</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="s2">&quot;off&quot;</span><span class="p">,</span> <span class="n">_PROFILE_METHOD_CODES</span><span class="p">)</span>
+    <span class="n">analytical</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;analytical&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">analytical</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="n">analytical_method</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span>
+        <span class="n">analytical</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;method&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;constant&quot;</span><span class="p">,</span>
+        <span class="n">_ANALYTICAL_PROFILE_CODES</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">node</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;constant&quot;</span><span class="p">:</span>
+        <span class="n">node</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">analytical_method</span>
+    <span class="k">if</span> <span class="n">temp</span><span class="p">:</span>
+        <span class="n">two_layer</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;two_layer&quot;</span><span class="p">,</span> <span class="p">{}))</span>
+        <span class="n">_copy_if_present</span><span class="p">(</span><span class="n">analytical</span><span class="p">,</span> <span class="n">two_layer</span><span class="p">,</span> <span class="s2">&quot;z_t1&quot;</span><span class="p">,</span> <span class="s2">&quot;z_s&quot;</span><span class="p">)</span>
+        <span class="n">_copy_if_present</span><span class="p">(</span><span class="n">analytical</span><span class="p">,</span> <span class="n">two_layer</span><span class="p">,</span> <span class="s2">&quot;t_1&quot;</span><span class="p">,</span> <span class="s2">&quot;t_s&quot;</span><span class="p">)</span>
+        <span class="n">_copy_if_present</span><span class="p">(</span><span class="n">analytical</span><span class="p">,</span> <span class="n">two_layer</span><span class="p">,</span> <span class="s2">&quot;z_t2&quot;</span><span class="p">,</span> <span class="s2">&quot;z_b&quot;</span><span class="p">)</span>
+        <span class="n">_copy_if_present</span><span class="p">(</span><span class="n">analytical</span><span class="p">,</span> <span class="n">two_layer</span><span class="p">,</span> <span class="s2">&quot;t_2&quot;</span><span class="p">,</span> <span class="s2">&quot;t_b&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;t_1&quot;</span> <span class="ow">in</span> <span class="n">analytical</span> <span class="ow">and</span> <span class="s2">&quot;constant_value&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">node</span><span class="p">:</span>
+            <span class="n">node</span><span class="p">[</span><span class="s2">&quot;constant_value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">analytical</span><span class="p">[</span><span class="s2">&quot;t_1&quot;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">two_layer</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;two_layer&quot;</span><span class="p">,</span> <span class="p">{}))</span>
+        <span class="n">_copy_if_present</span><span class="p">(</span><span class="n">analytical</span><span class="p">,</span> <span class="n">two_layer</span><span class="p">,</span> <span class="s2">&quot;z_s1&quot;</span><span class="p">,</span> <span class="s2">&quot;z_s&quot;</span><span class="p">)</span>
+        <span class="n">_copy_if_present</span><span class="p">(</span><span class="n">analytical</span><span class="p">,</span> <span class="n">two_layer</span><span class="p">,</span> <span class="s2">&quot;s_1&quot;</span><span class="p">,</span> <span class="s2">&quot;s_s&quot;</span><span class="p">)</span>
+        <span class="n">_copy_if_present</span><span class="p">(</span><span class="n">analytical</span><span class="p">,</span> <span class="n">two_layer</span><span class="p">,</span> <span class="s2">&quot;z_s2&quot;</span><span class="p">,</span> <span class="s2">&quot;z_b&quot;</span><span class="p">)</span>
+        <span class="n">_copy_if_present</span><span class="p">(</span><span class="n">analytical</span><span class="p">,</span> <span class="n">two_layer</span><span class="p">,</span> <span class="s2">&quot;s_2&quot;</span><span class="p">,</span> <span class="s2">&quot;s_b&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;s_1&quot;</span> <span class="ow">in</span> <span class="n">analytical</span> <span class="ow">and</span> <span class="s2">&quot;constant_value&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">node</span><span class="p">:</span>
+            <span class="n">node</span><span class="p">[</span><span class="s2">&quot;constant_value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">analytical</span><span class="p">[</span><span class="s2">&quot;s_1&quot;</span><span class="p">]</span>
+    <span class="n">_copy_if_present</span><span class="p">(</span><span class="n">analytical</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="s2">&quot;obs_NN&quot;</span><span class="p">,</span> <span class="s2">&quot;NN&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_normalise_surface_section</span><span class="p">(</span><span class="n">document</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">surface</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;surface&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">surface</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="n">meteo</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">surface</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;meteo&quot;</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span>
+        <span class="s2">&quot;u10&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v10&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;airp&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;airt&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hum&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cloud&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;swr&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;precip&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;calc_evaporation&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ssuv_method&quot;</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="n">_copy_if_present</span><span class="p">(</span><span class="n">meteo</span><span class="p">,</span> <span class="n">surface</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+
+    <span class="n">fluxes</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">surface</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;fluxes&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="s2">&quot;method&quot;</span> <span class="ow">in</span> <span class="n">fluxes</span><span class="p">:</span>
+        <span class="n">fluxes</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span><span class="n">fluxes</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">],</span> <span class="s2">&quot;off&quot;</span><span class="p">,</span> <span class="n">_FLUX_METHOD_CODES</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;heat&quot;</span><span class="p">,</span> <span class="s2">&quot;tx&quot;</span><span class="p">,</span> <span class="s2">&quot;ty&quot;</span><span class="p">):</span>
+        <span class="n">_normalise_input_method</span><span class="p">(</span><span class="n">_as_mapping</span><span class="p">(</span><span class="n">fluxes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)))</span>
+
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;u10&quot;</span><span class="p">,</span> <span class="s2">&quot;v10&quot;</span><span class="p">,</span> <span class="s2">&quot;airp&quot;</span><span class="p">,</span> <span class="s2">&quot;airt&quot;</span><span class="p">,</span> <span class="s2">&quot;cloud&quot;</span><span class="p">,</span> <span class="s2">&quot;swr&quot;</span><span class="p">,</span> <span class="s2">&quot;precip&quot;</span><span class="p">):</span>
+        <span class="n">_normalise_input_method</span><span class="p">(</span><span class="n">_as_mapping</span><span class="p">(</span><span class="n">surface</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)))</span>
+    <span class="n">hum</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">surface</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;hum&quot;</span><span class="p">))</span>
+    <span class="n">_normalise_input_method</span><span class="p">(</span><span class="n">hum</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;type&quot;</span> <span class="ow">in</span> <span class="n">hum</span><span class="p">:</span>
+        <span class="n">hum</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span><span class="n">hum</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">],</span> <span class="s2">&quot;relative&quot;</span><span class="p">,</span> <span class="n">_HUMIDITY_TYPE_CODES</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s2">&quot;ssuv_method&quot;</span> <span class="ow">in</span> <span class="n">surface</span><span class="p">:</span>
+        <span class="n">surface</span><span class="p">[</span><span class="s2">&quot;ssuv_method&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span>
+            <span class="n">surface</span><span class="p">[</span><span class="s2">&quot;ssuv_method&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;relative&quot;</span><span class="p">,</span>
+            <span class="n">_SSUV_METHOD_CODES</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="n">longwave</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">surface</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;longwave_radiation&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="s2">&quot;method&quot;</span> <span class="ow">in</span> <span class="n">longwave</span><span class="p">:</span>
+        <span class="n">longwave</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span>
+            <span class="n">longwave</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;clark&quot;</span><span class="p">,</span>
+            <span class="n">_LONGWAVE_METHOD_CODES</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="n">albedo</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">surface</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;albedo&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="s2">&quot;method&quot;</span> <span class="ow">in</span> <span class="n">albedo</span><span class="p">:</span>
+        <span class="n">albedo</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span>
+            <span class="n">albedo</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;payne&quot;</span><span class="p">,</span>
+            <span class="n">_ALBEDO_METHOD_CODES</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="n">ice</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">surface</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ice&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="s2">&quot;model&quot;</span> <span class="ow">in</span> <span class="n">ice</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ice</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">],</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">ice</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_LAKE_ICE_MODEL_CODES</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">ice</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">ice</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_normalise_mimic_3d_section</span><span class="p">(</span><span class="n">document</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">mimic</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;mimic_3d&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">mimic</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="n">ext</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">mimic</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ext_pressure&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="s2">&quot;mode&quot;</span> <span class="ow">in</span> <span class="n">ext</span> <span class="ow">and</span> <span class="s2">&quot;type&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ext</span><span class="p">:</span>
+        <span class="n">ext</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ext</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="s2">&quot;type&quot;</span> <span class="ow">in</span> <span class="n">ext</span><span class="p">:</span>
+        <span class="n">ext</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span><span class="n">ext</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">],</span> <span class="s2">&quot;elevation&quot;</span><span class="p">,</span> <span class="n">_EXT_PRESSURE_CODES</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;dpdx&quot;</span><span class="p">,</span> <span class="s2">&quot;dpdy&quot;</span><span class="p">):</span>
+        <span class="n">_normalise_input_method</span><span class="p">(</span><span class="n">_as_mapping</span><span class="p">(</span><span class="n">ext</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)),</span> <span class="n">_TIDAL_INPUT_METHOD_CODES</span><span class="p">)</span>
+    <span class="n">_normalise_input_method</span><span class="p">(</span><span class="n">_as_mapping</span><span class="p">(</span><span class="n">ext</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">)))</span>
+
+    <span class="n">int_press</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">mimic</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;int_pressure&quot;</span><span class="p">))</span>
+    <span class="n">legacy_int_press</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">mimic</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;int_press&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">legacy_int_press</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">int_press</span><span class="p">:</span>
+        <span class="n">int_press</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">legacy_int_press</span><span class="p">)</span>
+        <span class="n">mimic</span><span class="p">[</span><span class="s2">&quot;int_pressure&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">int_press</span>
+    <span class="k">if</span> <span class="s2">&quot;type&quot;</span> <span class="ow">in</span> <span class="n">int_press</span><span class="p">:</span>
+        <span class="n">int_press</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span>
+            <span class="n">int_press</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;none&quot;</span><span class="p">,</span>
+            <span class="n">_INT_PRESSURE_CODES</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="n">gradients</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">int_press</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;gradients&quot;</span><span class="p">,</span> <span class="p">{}))</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;dsdx&quot;</span><span class="p">,</span> <span class="s2">&quot;dsdy&quot;</span><span class="p">,</span> <span class="s2">&quot;dtdx&quot;</span><span class="p">,</span> <span class="s2">&quot;dtdy&quot;</span><span class="p">):</span>
+        <span class="n">_copy_if_present</span><span class="p">(</span><span class="n">int_press</span><span class="p">,</span> <span class="n">gradients</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="n">_normalise_input_method</span><span class="p">(</span>
+            <span class="n">_as_mapping</span><span class="p">(</span><span class="n">gradients</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)),</span> <span class="n">_OPTIONAL_INPUT_METHOD_CODES</span>
+        <span class="p">)</span>
+    <span class="n">plume</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">int_press</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;plume&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="s2">&quot;type&quot;</span> <span class="ow">in</span> <span class="n">plume</span><span class="p">:</span>
+        <span class="n">plume</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span><span class="n">plume</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">],</span> <span class="s2">&quot;bottom&quot;</span><span class="p">,</span> <span class="n">_PLUME_CODES</span><span class="p">)</span>
+
+    <span class="n">zeta</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">mimic</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;zeta&quot;</span><span class="p">))</span>
+    <span class="n">_normalise_input_method</span><span class="p">(</span><span class="n">zeta</span><span class="p">,</span> <span class="n">_TIDAL_INPUT_METHOD_CODES</span><span class="p">)</span>
+
+    <span class="n">w</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">mimic</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">))</span>
+    <span class="n">_normalise_input_method</span><span class="p">(</span><span class="n">_as_mapping</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;max&quot;</span><span class="p">)),</span> <span class="n">_OPTIONAL_INPUT_METHOD_CODES</span><span class="p">)</span>
+    <span class="n">_normalise_input_method</span><span class="p">(</span><span class="n">_as_mapping</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;height&quot;</span><span class="p">)),</span> <span class="n">_INPUT_METHOD_CODES</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;adv_discr&quot;</span> <span class="ow">in</span> <span class="n">w</span><span class="p">:</span>
+        <span class="n">w</span><span class="p">[</span><span class="s2">&quot;adv_discr&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="s2">&quot;adv_discr&quot;</span><span class="p">],</span> <span class="s2">&quot;p2_pdm&quot;</span><span class="p">,</span> <span class="n">_W_ADV_DISCR_CODES</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_normalise_turbulence_section</span><span class="p">(</span><span class="n">document</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">turbulence</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;turbulence&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">turbulence</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">default</span> <span class="ow">in</span> <span class="p">(</span>
+        <span class="p">(</span><span class="s2">&quot;turb_method&quot;</span><span class="p">,</span> <span class="n">_TURB_METHOD_CODES</span><span class="p">,</span> <span class="s2">&quot;second_order&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;tke_method&quot;</span><span class="p">,</span> <span class="n">_TKE_METHOD_CODES</span><span class="p">,</span> <span class="s2">&quot;tke&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;len_scale_method&quot;</span><span class="p">,</span> <span class="n">_LEN_SCALE_METHOD_CODES</span><span class="p">,</span> <span class="s2">&quot;dissipation&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;stab_method&quot;</span><span class="p">,</span> <span class="n">_STAB_METHOD_CODES</span><span class="p">,</span> <span class="s2">&quot;schumann_gerz&quot;</span><span class="p">),</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">turbulence</span><span class="p">:</span>
+            <span class="n">turbulence</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span><span class="n">turbulence</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">default</span><span class="p">,</span> <span class="n">mapping</span><span class="p">)</span>
+
+    <span class="n">scnd</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">turbulence</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;scnd&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="s2">&quot;method&quot;</span> <span class="ow">in</span> <span class="n">scnd</span><span class="p">:</span>
+        <span class="n">scnd</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span>
+            <span class="n">scnd</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">],</span> <span class="s2">&quot;weak_eq_kb_eq&quot;</span><span class="p">,</span> <span class="n">_SCND_METHOD_CODES</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;scnd_coeff&quot;</span> <span class="ow">in</span> <span class="n">scnd</span><span class="p">:</span>
+        <span class="n">scnd</span><span class="p">[</span><span class="s2">&quot;scnd_coeff&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span>
+            <span class="n">scnd</span><span class="p">[</span><span class="s2">&quot;scnd_coeff&quot;</span><span class="p">],</span> <span class="s2">&quot;canuto_a&quot;</span><span class="p">,</span> <span class="n">_SCND_COEFF_CODES</span>
+        <span class="p">)</span>
+
+    <span class="n">my</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">turbulence</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;my&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="s2">&quot;length&quot;</span> <span class="ow">in</span> <span class="n">my</span><span class="p">:</span>
+        <span class="n">my</span><span class="p">[</span><span class="s2">&quot;length&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span><span class="n">my</span><span class="p">[</span><span class="s2">&quot;length&quot;</span><span class="p">],</span> <span class="s2">&quot;parabolic&quot;</span><span class="p">,</span> <span class="n">_MY_LENGTH_CODES</span><span class="p">)</span>
+
+    <span class="n">epsprof</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">turbulence</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;epsprof&quot;</span><span class="p">))</span>
+    <span class="n">_normalise_input_method</span><span class="p">(</span><span class="n">epsprof</span><span class="p">,</span> <span class="n">_OPTIONAL_INPUT_METHOD_CODES</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_normalise_eos_section</span><span class="p">(</span><span class="n">document</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">legacy</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;eq_state&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">legacy</span> <span class="ow">and</span> <span class="s2">&quot;equation_of_state&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">document</span><span class="p">:</span>
+        <span class="n">equation</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="s2">&quot;method&quot;</span> <span class="ow">in</span> <span class="n">legacy</span> <span class="ow">or</span> <span class="s2">&quot;mode&quot;</span> <span class="ow">in</span> <span class="n">legacy</span><span class="p">:</span>
+            <span class="n">equation</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_eos_method_token</span><span class="p">(</span>
+                <span class="n">legacy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;mode&quot;</span><span class="p">),</span>
+                <span class="n">legacy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;method&quot;</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="n">linear</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">source</span><span class="p">,</span> <span class="n">target</span> <span class="ow">in</span> <span class="p">(</span>
+            <span class="p">(</span><span class="s2">&quot;T0&quot;</span><span class="p">,</span> <span class="s2">&quot;T0&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;S0&quot;</span><span class="p">,</span> <span class="s2">&quot;S0&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;p0&quot;</span><span class="p">,</span> <span class="s2">&quot;p0&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;dtr0&quot;</span><span class="p">,</span> <span class="s2">&quot;alpha&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;dsr0&quot;</span><span class="p">,</span> <span class="s2">&quot;beta&quot;</span><span class="p">),</span>
+        <span class="p">):</span>
+            <span class="n">_copy_if_present</span><span class="p">(</span><span class="n">legacy</span><span class="p">,</span> <span class="n">linear</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">linear</span><span class="p">:</span>
+            <span class="n">equation</span><span class="p">[</span><span class="s2">&quot;linear&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">linear</span>
+        <span class="n">document</span><span class="p">[</span><span class="s2">&quot;equation_of_state&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">equation</span>
+
+    <span class="n">equation</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;equation_of_state&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="s2">&quot;method&quot;</span> <span class="ow">in</span> <span class="n">equation</span><span class="p">:</span>
+        <span class="n">equation</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span>
+            <span class="n">equation</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;full_teos10&quot;</span><span class="p">,</span>
+            <span class="n">_EOS_METHOD_CODES</span><span class="p">,</span>
+        <span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_normalize_gotm_document</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">object</span><span class="p">:</span>
+    <span class="n">normalized</span> <span class="o">=</span> <span class="n">_normalize_settings_document</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">normalized</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">normalized</span>
+
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">normalized</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;grid&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="s2">&quot;method&quot;</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">:</span>
+        <span class="n">grid</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">],</span> <span class="s2">&quot;analytical&quot;</span><span class="p">,</span> <span class="n">_GRID_METHOD_CODES</span><span class="p">)</span>
+
+    <span class="n">temperature</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">normalized</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;temperature&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">temperature</span><span class="p">:</span>
+        <span class="n">_normalise_profile_section</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">temp</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">salinity</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">normalized</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;salinity&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">salinity</span><span class="p">:</span>
+        <span class="n">_normalise_profile_section</span><span class="p">(</span><span class="n">salinity</span><span class="p">,</span> <span class="n">temp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">light</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">normalized</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;light_extinction&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="s2">&quot;method&quot;</span> <span class="ow">in</span> <span class="n">light</span><span class="p">:</span>
+        <span class="n">light</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span>
+            <span class="n">light</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;jerlov_i&quot;</span><span class="p">,</span>
+            <span class="n">_LIGHT_EXTINCTION_CODES</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;g1&quot;</span><span class="p">,</span> <span class="s2">&quot;g2&quot;</span><span class="p">):</span>
+        <span class="n">_normalise_input_method</span><span class="p">(</span><span class="n">_as_mapping</span><span class="p">(</span><span class="n">light</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)))</span>
+
+    <span class="n">velocities</span> <span class="o">=</span> <span class="n">_as_mapping</span><span class="p">(</span><span class="n">normalized</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;velocities&quot;</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">):</span>
+        <span class="n">_normalise_input_method</span><span class="p">(</span>
+            <span class="n">_as_mapping</span><span class="p">(</span><span class="n">velocities</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)),</span> <span class="n">_OPTIONAL_INPUT_METHOD_CODES</span>
+        <span class="p">)</span>
+
+    <span class="n">_normalise_surface_section</span><span class="p">(</span><span class="n">normalized</span><span class="p">)</span>
+    <span class="n">_normalise_mimic_3d_section</span><span class="p">(</span><span class="n">normalized</span><span class="p">)</span>
+    <span class="n">_normalise_turbulence_section</span><span class="p">(</span><span class="n">normalized</span><span class="p">)</span>
+    <span class="n">_normalise_eos_section</span><span class="p">(</span><span class="n">normalized</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">normalized</span>
+
+
 <span class="k">class</span><span class="w"> </span><span class="nc">_SettingsModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">model_config</span> <span class="o">=</span> <span class="n">ConfigDict</span><span class="p">(</span><span class="n">extra</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">populate_by_name</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
@@ -411,7 +884,7 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">InputSetting</span><span class="p">(</span><span class="n">_SettingsModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Configuration for a scalar or profile input in GOTM YAML.&quot;&quot;&quot;</span>
 
-    <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;constant&quot;</span>
+    <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">=</span> <span class="s2">&quot;constant&quot;</span>
     <span class="n">constant_value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
     <span class="n">column</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
@@ -431,7 +904,7 @@
 
     <span class="nd">@model_validator</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;after&quot;</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_normalise</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">InputSetting</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">_canonical_token</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="s2">&quot;constant&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="s2">&quot;constant&quot;</span><span class="p">,</span> <span class="n">_INPUT_METHOD_CODES</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
 
     <span class="nd">@property</span>
@@ -476,7 +949,7 @@
 <div class="viewcode-block" id="TemperatureSettings">
 <a class="viewcode-back" href="../../../api/config.html#pygotm.config.TemperatureSettings">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">TemperatureSettings</span><span class="p">(</span><span class="n">InputSetting</span><span class="p">):</span>
-    <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;off&quot;</span>
+    <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">=</span> <span class="s2">&quot;off&quot;</span>
     <span class="nb">type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;in_situ&quot;</span>
     <span class="n">two_layer</span><span class="p">:</span> <span class="n">TemperatureTwoLayerSettings</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
         <span class="n">default_factory</span><span class="o">=</span><span class="n">TemperatureTwoLayerSettings</span>
@@ -486,7 +959,7 @@
 
     <span class="nd">@model_validator</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;after&quot;</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_normalise_temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TemperatureSettings</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">_canonical_token</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="s2">&quot;off&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="s2">&quot;off&quot;</span><span class="p">,</span> <span class="n">_PROFILE_METHOD_CODES</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">_canonical_token</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="s2">&quot;in_situ&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
@@ -495,7 +968,7 @@
 <div class="viewcode-block" id="SalinitySettings">
 <a class="viewcode-back" href="../../../api/config.html#pygotm.config.SalinitySettings">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">SalinitySettings</span><span class="p">(</span><span class="n">InputSetting</span><span class="p">):</span>
-    <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;off&quot;</span>
+    <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">=</span> <span class="s2">&quot;off&quot;</span>
     <span class="nb">type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;practical&quot;</span>
     <span class="n">two_layer</span><span class="p">:</span> <span class="n">SalinityTwoLayerSettings</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
         <span class="n">default_factory</span><span class="o">=</span><span class="n">SalinityTwoLayerSettings</span>
@@ -505,7 +978,7 @@
 
     <span class="nd">@model_validator</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;after&quot;</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_normalise_salinity</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SalinitySettings</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">_canonical_token</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="s2">&quot;off&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="s2">&quot;off&quot;</span><span class="p">,</span> <span class="n">_PROFILE_METHOD_CODES</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">_canonical_token</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="s2">&quot;practical&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
@@ -526,7 +999,7 @@
 <div class="viewcode-block" id="ScalarTidalSettings">
 <a class="viewcode-back" href="../../../api/config.html#pygotm.config.ScalarTidalSettings">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">ScalarTidalSettings</span><span class="p">(</span><span class="n">InputSetting</span><span class="p">):</span>
-    <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;constant&quot;</span>
+    <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">=</span> <span class="s2">&quot;constant&quot;</span>
     <span class="n">tidal</span><span class="p">:</span> <span class="n">TidalConstituentSettings</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">TidalConstituentSettings</span><span class="p">)</span>
     <span class="n">period_1</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">44714.0</span>
     <span class="n">period_2</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">43200.0</span>
@@ -551,7 +1024,7 @@
 
     <span class="nd">@model_validator</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;after&quot;</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_normalise_tidal</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ScalarTidalSettings</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">_canonical_token</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="s2">&quot;constant&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="s2">&quot;constant&quot;</span><span class="p">,</span> <span class="n">_TIDAL_INPUT_METHOD_CODES</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
 
@@ -559,14 +1032,18 @@
 <div class="viewcode-block" id="LightExtinctionSettings">
 <a class="viewcode-back" href="../../../api/config.html#pygotm.config.LightExtinctionSettings">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">LightExtinctionSettings</span><span class="p">(</span><span class="n">_SettingsModel</span><span class="p">):</span>
-    <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;jerlov_i&quot;</span>
+    <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">=</span> <span class="s2">&quot;jerlov_i&quot;</span>
     <span class="n">A</span><span class="p">:</span> <span class="n">InputSetting</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">InputSetting</span><span class="p">(</span><span class="n">constant_value</span><span class="o">=</span><span class="mf">0.7</span><span class="p">))</span>
     <span class="n">g1</span><span class="p">:</span> <span class="n">InputSetting</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">InputSetting</span><span class="p">(</span><span class="n">constant_value</span><span class="o">=</span><span class="mf">0.4</span><span class="p">))</span>
     <span class="n">g2</span><span class="p">:</span> <span class="n">InputSetting</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">InputSetting</span><span class="p">(</span><span class="n">constant_value</span><span class="o">=</span><span class="mf">8.0</span><span class="p">))</span>
 
     <span class="nd">@model_validator</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;after&quot;</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_normalise_method</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LightExtinctionSettings</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">_canonical_token</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="s2">&quot;jerlov_i&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span>
+            <span class="s2">&quot;jerlov_i&quot;</span><span class="p">,</span>
+            <span class="n">_LIGHT_EXTINCTION_CODES</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
 
@@ -692,7 +1169,8 @@
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;GOTM site&quot;</span>
     <span class="n">latitude</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="n">longitude</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="n">depth</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">100.0</span></div>
+    <span class="n">depth</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">100.0</span>
+    <span class="n">hypsograph</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span></div>
 
 
 
@@ -725,14 +1203,14 @@
 <a class="viewcode-back" href="../../../api/config.html#pygotm.config.GridSettings">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">GridSettings</span><span class="p">(</span><span class="n">_SettingsModel</span><span class="p">):</span>
     <span class="n">nlev</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span>
-    <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;analytical&quot;</span>
+    <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">=</span> <span class="s2">&quot;analytical&quot;</span>
     <span class="n">ddu</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="n">ddl</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
     <span class="nd">@model_validator</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;after&quot;</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_normalise_method</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GridSettings</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">_canonical_token</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="s2">&quot;analytical&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">_code_token</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="s2">&quot;analytical&quot;</span><span class="p">,</span> <span class="n">_GRID_METHOD_CODES</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
 
@@ -779,7 +1257,7 @@
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;top-level YAML document in </span><span class="si">{</span><span class="n">config_path</span><span class="si">}</span><span class="s2"> must be a mapping&quot;</span>
         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">GotmSettings</span><span class="o">.</span><span class="n">model_validate</span><span class="p">(</span><span class="n">_normalize_settings_document</span><span class="p">(</span><span class="n">raw</span><span class="p">))</span></div>
+    <span class="k">return</span> <span class="n">GotmSettings</span><span class="o">.</span><span class="n">model_validate</span><span class="p">(</span><span class="n">_normalize_gotm_document</span><span class="p">(</span><span class="n">raw</span><span class="p">))</span></div>
 
 
 
@@ -837,8 +1315,8 @@
     </aside>
   </div>
 </div><script src="../../../_static/documentation_options.js?v=01f34227"></script>
-    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>

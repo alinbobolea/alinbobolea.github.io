@@ -4,13 +4,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
         <title>pygotm.fabm.config - pyGOTM Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=23f90c4b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=f28d94ff" />
     
     
 
@@ -196,6 +196,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/interfaces.html">Command and Developer Surfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/stability.html">Kernel Stability Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/serve.html">Warm Daemon Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/citations.html">Citations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/configuration.html">Configuration</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
@@ -210,6 +214,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../user_manual/dynamics.html">Dynamics: Pressure Gradients, Velocities, Waves, and Vertical Advection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../user_manual/equation_of_state.html">Equation of State and Bottom Boundary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../user_manual/output.html">Output and Restart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../user_manual/input_file_formats.html">Input Data File Formats</a></li>
 </ul>
 </li>
 </ul>
@@ -219,6 +224,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../physics/meanflow.html">Mean Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../physics/turbulence.html">Turbulence Closures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../physics/airsea.html">Air–Sea Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/ice_thermodynamics.html">Ice Thermodynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/biogeochemistry.html">Biogeochemistry and FABM Coupling</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -232,15 +239,43 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/input.html">Input</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/validation.html">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/execution.html">Execution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/stokes_drift.html">Stokes Drift</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/fabm.html">FABM Coupling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/icethm.html">Ice Thermodynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/extras.html">Optional Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/cvmix.html">CVMix Interface</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Validation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../validation/overview.html">Validation Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../validation/test_cases.html">Test Cases</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../validation/test_cases.html">Test Cases</a><input aria-label="Toggle navigation of Test Cases" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/asics_med.html">Asics Med Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/blacksea.html">Blacksea Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/channel.html">Channel Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/couette.html">Couette Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/entrainment.html">Entrainment Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/estuary.html">Estuary Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/flex.html">Flex Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/gotland.html">Gotland Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lago_maggiore.html">Lago Maggiore Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lake_erken.html">Lake Erken Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/langmuir.html">Langmuir Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/liverpool_bay.html">Liverpool Bay Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/medsea_east.html">Medsea East Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/medsea_west.html">Medsea West Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/nns_annual.html">Nns Annual Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/nns_seasonal.html">Nns Seasonal Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/ows_papa.html">Ows Papa Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/plume.html">Plume Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/resolute.html">Resolute Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/reynolds.html">Reynolds Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/rouse.html">Rouse Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/seagrass.html">Seagrass Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/wave_breaking.html">Wave Breaking Validation Report</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../validation/lake_erken_parity.html">Lake Erken — Parity Status and Limitations</a></li>
 </ul>
 
 </div>
@@ -274,13 +309,46 @@
         </div>
         <article role="main" id="furo-main-content">
           <h1>Source code for pygotm.fabm.config</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Configuration helpers for the Python-level FABM bridge.&quot;&quot;&quot;</span>
+<span></span><span class="sd">&quot;&quot;&quot;Configuration helpers for the Python-level FABM bridge.</span>
+
+<span class="sd">**FABM model YAML transformation (why the original** ``fabm.yaml`` **is rewritten).**</span>
+<span class="sd">The GOTM-lake ``selmaprotbas`` phytoplankton model accepts two parameters that</span>
+<span class="sd">exist **only** in the GOTM-lake fork&#39;s bundled FABM build:</span>
+
+<span class="sd">* ``alpha`` — nutrient-uptake half-saturation, and</span>
+<span class="sd">* ``beta`` — temperature growth-correction factor.</span>
+
+<span class="sd">The conda ``pyfabm`` distribution (the stock upstream FABM library pyGOTM links</span>
+<span class="sd">against) does not declare these parameters, so loading a reference</span>
+<span class="sd">``fabm.yaml`` that contains them raises an &quot;invalid configuration&quot; error and the</span>
+<span class="sd">case cannot start.</span>
+
+<span class="sd">To run such cases at all, :func:`resolve_fabm_config_path` /</span>
+<span class="sd">:func:`_normalized_fabm_config_path` materialize a pyfabm-compatible copy of the</span>
+<span class="sd">model YAML with ``alpha``/``beta`` stripped from every</span>
+<span class="sd">``selmaprotbas/phytoplankton`` instance and point the run at that copy. The</span>
+<span class="sd">transformation is recorded in the NetCDF ``fabm_yaml_sha256`` attribute (it</span>
+<span class="sd">hashes the materialized file), and the validation runner stages the same</span>
+<span class="sd">materialized YAML into the case bundle, so the bundle stays self-consistent and</span>
+<span class="sd">reproducible.</span>
+
+<span class="sd">This stripping is a genuine **limitation**, not a cosmetic normalization: pyGOTM</span>
+<span class="sd">then runs ``selmaprotbas`` with the upstream **defaults** for ``alpha``/``beta``</span>
+<span class="sd">rather than the GOTM-lake tuned values, so the biogeochemistry cannot reach full</span>
+<span class="sd">parity with the GOTM-lake reference until pyfabm exposes these parameters. See</span>
+<span class="sd">``docs/validation/lake_erken_parity.md`` for the full lake_erken limitation</span>
+<span class="sd">picture (this, plus the ``variable_bottom_index`` benthic-coupling limitation).</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
+<span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">&quot;FABMConfig&quot;</span><span class="p">,</span>
@@ -289,9 +357,13 @@
     <span class="s2">&quot;resolve_fabm_config_path&quot;</span><span class="p">,</span>
 <span class="p">]</span>
 
+<span class="c1"># GOTM-lake-only selmaprotbas phytoplankton parameters that conda pyfabm cannot</span>
+<span class="c1"># parse; stripped during materialization (see module docstring).</span>
+<span class="n">_LEGACY_SELMA_PHYTOPLANKTON_PARAMETERS</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">((</span><span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="s2">&quot;beta&quot;</span><span class="p">))</span>
+
 
 <div class="viewcode-block" id="FABMConfig">
-<a class="viewcode-back" href="../../../api/fabm.html#pygotm.fabm.FABMConfig">[docs]</a>
+<a class="viewcode-back" href="../../../api/fabm.html#pygotm.fabm.config.FABMConfig">[docs]</a>
 <span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">slots</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">FABMConfig</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Resolved FABM settings from a GOTM YAML document.&quot;&quot;&quot;</span>
@@ -312,12 +384,17 @@
     <span class="k">return</span> <span class="p">{}</span>
 
 
+<div class="viewcode-block" id="fabm_enabled">
+<a class="viewcode-back" href="../../../api/fabm.html#pygotm.fabm.config.fabm_enabled">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">fabm_enabled</span><span class="p">(</span><span class="n">document</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Return whether ``fabm.use`` is enabled in a GOTM YAML document.&quot;&quot;&quot;</span>
 
-    <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">_mapping</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;fabm&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;use&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">_mapping</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;fabm&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;use&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span></div>
 
 
+
+<div class="viewcode-block" id="resolve_fabm_config_path">
+<a class="viewcode-back" href="../../../api/fabm.html#pygotm.fabm.config.resolve_fabm_config_path">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">resolve_fabm_config_path</span><span class="p">(</span>
     <span class="n">gotm_yaml_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span>
     <span class="n">document</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
@@ -339,9 +416,51 @@
     <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;FABM model YAML not found: </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">path</span>
+    <span class="k">return</span> <span class="n">_normalized_fabm_config_path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></div>
 
 
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_normalized_fabm_config_path</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a pyfabm-compatible FABM YAML path derived from *path*.</span>
+
+<span class="sd">    Strips the GOTM-lake-only ``selmaprotbas`` phytoplankton ``alpha``/``beta``</span>
+<span class="sd">    parameters (see module docstring) that conda ``pyfabm`` cannot parse. If the</span>
+<span class="sd">    source contains none, the original path is returned unchanged (idempotent);</span>
+<span class="sd">    otherwise a stripped copy is written under ``$TMPDIR/pygotm-fabm`` and that</span>
+<span class="sd">    path is returned. The transformation is deterministic, so re-running a staged</span>
+<span class="sd">    bundle reproduces the recorded ``fabm_yaml_sha256``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">path</span>
+
+    <span class="n">changed</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">instances</span> <span class="o">=</span> <span class="n">_mapping</span><span class="p">(</span><span class="n">raw</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;instances&quot;</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">instances</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span> <span class="o">!=</span> <span class="s2">&quot;selmaprotbas/phytoplankton&quot;</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">parameters</span> <span class="o">=</span> <span class="n">_mapping</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;parameters&quot;</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">_LEGACY_SELMA_PHYTOPLANKTON_PARAMETERS</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">parameters</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">parameters</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                <span class="n">changed</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">changed</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">path</span>
+
+    <span class="n">digest</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()[:</span><span class="mi">16</span><span class="p">]</span>
+    <span class="n">target_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">tempfile</span><span class="o">.</span><span class="n">gettempdir</span><span class="p">())</span> <span class="o">/</span> <span class="s2">&quot;pygotm-fabm&quot;</span>
+    <span class="n">target_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">target_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">digest</span><span class="si">}</span><span class="s2">.yaml&quot;</span>
+    <span class="n">target</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">yaml</span><span class="o">.</span><span class="n">safe_dump</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">target</span>
+
+
+<div class="viewcode-block" id="load_fabm_config">
+<a class="viewcode-back" href="../../../api/fabm.html#pygotm.fabm.config.load_fabm_config">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">load_fabm_config</span><span class="p">(</span>
     <span class="n">document</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
     <span class="n">gotm_yaml_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span>
@@ -360,7 +479,8 @@
         <span class="n">shade_feedback</span><span class="o">=</span><span class="nb">bool</span><span class="p">(</span><span class="n">feedbacks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;shade&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)),</span>
         <span class="n">albedo_feedback</span><span class="o">=</span><span class="nb">bool</span><span class="p">(</span><span class="n">feedbacks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;albedo&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)),</span>
         <span class="n">surface_drag_feedback</span><span class="o">=</span><span class="nb">bool</span><span class="p">(</span><span class="n">feedbacks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;surface_drag&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)),</span>
-    <span class="p">)</span>
+    <span class="p">)</span></div>
+
 </pre></div>
         </article>
       </div>
@@ -397,8 +517,8 @@
     </aside>
   </div>
 </div><script src="../../../_static/documentation_options.js?v=01f34227"></script>
-    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>

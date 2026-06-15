@@ -4,13 +4,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
         <title>pygotm.util.density - pyGOTM Documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=23f90c4b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=f28d94ff" />
     
     
 
@@ -196,6 +196,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/interfaces.html">Command and Developer Surfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/stability.html">Kernel Stability Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/serve.html">Warm Daemon Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/citations.html">Citations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/configuration.html">Configuration</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
@@ -210,6 +214,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../user_manual/dynamics.html">Dynamics: Pressure Gradients, Velocities, Waves, and Vertical Advection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../user_manual/equation_of_state.html">Equation of State and Bottom Boundary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../user_manual/output.html">Output and Restart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../user_manual/input_file_formats.html">Input Data File Formats</a></li>
 </ul>
 </li>
 </ul>
@@ -234,6 +239,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../api/util.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/input.html">Input</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/validation.html">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/execution.html">Execution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/stokes_drift.html">Stokes Drift</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/fabm.html">FABM Coupling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/icethm.html">Ice Thermodynamics</a></li>
@@ -243,7 +249,33 @@
 <p class="caption" role="heading"><span class="caption-text">Validation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../validation/overview.html">Validation Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../validation/test_cases.html">Test Cases</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../validation/test_cases.html">Test Cases</a><input aria-label="Toggle navigation of Test Cases" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/asics_med.html">Asics Med Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/blacksea.html">Blacksea Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/channel.html">Channel Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/couette.html">Couette Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/entrainment.html">Entrainment Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/estuary.html">Estuary Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/flex.html">Flex Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/gotland.html">Gotland Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lago_maggiore.html">Lago Maggiore Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/lake_erken.html">Lake Erken Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/langmuir.html">Langmuir Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/liverpool_bay.html">Liverpool Bay Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/medsea_east.html">Medsea East Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/medsea_west.html">Medsea West Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/nns_annual.html">Nns Annual Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/nns_seasonal.html">Nns Seasonal Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/ows_papa.html">Ows Papa Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/plume.html">Plume Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/resolute.html">Resolute Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/reynolds.html">Reynolds Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/rouse.html">Rouse Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/seagrass.html">Seagrass Validation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../validation/cases/wave_breaking.html">Wave Breaking Validation Report</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../validation/lake_erken_parity.html">Lake Erken — Parity Status and Limitations</a></li>
 </ul>
 
 </div>
@@ -310,6 +342,8 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
 <span class="kn">import</span><span class="w"> </span><span class="nn">gsw</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_gsw</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -321,21 +355,187 @@
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">&quot;CP0&quot;</span><span class="p">,</span>
     <span class="s2">&quot;DensityState&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;METHOD_JACKETT_FULL&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;METHOD_JACKETT_POTENTIAL&quot;</span><span class="p">,</span>
     <span class="s2">&quot;METHOD_LINEAR_TEOS10&quot;</span><span class="p">,</span>
     <span class="s2">&quot;METHOD_LINEAR_USER&quot;</span><span class="p">,</span>
     <span class="s2">&quot;METHOD_TEOS10&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;METHOD_UNESCO_FULL&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;METHOD_UNESCO_POTENTIAL&quot;</span><span class="p">,</span>
     <span class="s2">&quot;clean_density&quot;</span><span class="p">,</span>
     <span class="s2">&quot;do_density&quot;</span><span class="p">,</span>
     <span class="s2">&quot;get_alpha&quot;</span><span class="p">,</span>
     <span class="s2">&quot;get_beta&quot;</span><span class="p">,</span>
     <span class="s2">&quot;get_rho&quot;</span><span class="p">,</span>
     <span class="s2">&quot;init_density&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;jackett_density&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;unesco_density&quot;</span><span class="p">,</span>
 <span class="p">]</span>
 
 <span class="c1"># Density method codes matching GOTM Fortran density_method variable</span>
 <span class="n">METHOD_TEOS10</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Full TEOS-10 equation of state (gsw_rho / gsw_sigma0)</span>
 <span class="n">METHOD_LINEAR_TEOS10</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># Linearised EOS; α, β computed from TEOS-10 at (S0,T0,p0)</span>
 <span class="n">METHOD_LINEAR_USER</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># Linearised EOS with user-supplied ρ₀, α₀, β₀</span>
+<span class="n">METHOD_UNESCO_FULL</span> <span class="o">=</span> <span class="mi">101</span>
+<span class="n">METHOD_UNESCO_POTENTIAL</span> <span class="o">=</span> <span class="mi">102</span>
+<span class="n">METHOD_JACKETT_FULL</span> <span class="o">=</span> <span class="mi">201</span>
+<span class="n">METHOD_JACKETT_POTENTIAL</span> <span class="o">=</span> <span class="mi">202</span>
+
+
+<div class="viewcode-block" id="unesco_density">
+<a class="viewcode-back" href="../../../api/util.html#pygotm.util.density.unesco_density">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">unesco_density</span><span class="p">(</span><span class="n">S</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">T</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">use_pressure</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute GOTM-Lake&#39;s UNESCO density polynomial.</span>
+
+<span class="sd">    This is a direct translation of ``gotm-lake/src/util/eqstate.F90``&#39;s</span>
+<span class="sd">    ``unesco`` routine.  Pressure ``p`` is in bar, matching that Fortran path.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">T2</span> <span class="o">=</span> <span class="n">T</span> <span class="o">*</span> <span class="n">T</span>
+    <span class="n">T3</span> <span class="o">=</span> <span class="n">T</span> <span class="o">*</span> <span class="n">T2</span>
+    <span class="n">T4</span> <span class="o">=</span> <span class="n">T2</span> <span class="o">*</span> <span class="n">T2</span>
+    <span class="n">T5</span> <span class="o">=</span> <span class="n">T</span> <span class="o">*</span> <span class="n">T4</span>
+    <span class="n">S2</span> <span class="o">=</span> <span class="n">S</span> <span class="o">*</span> <span class="n">S</span>
+    <span class="n">S3</span> <span class="o">=</span> <span class="n">S</span> <span class="o">*</span> <span class="n">S2</span>
+    <span class="n">S15</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">S3</span><span class="p">)</span> <span class="k">if</span> <span class="n">S3</span> <span class="o">&gt;=</span> <span class="mf">0.0</span> <span class="k">else</span> <span class="n">math</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="mf">999.842594</span> <span class="o">+</span> <span class="mf">6.793952e-02</span> <span class="o">*</span> <span class="n">T</span> <span class="o">-</span> <span class="mf">9.09529e-03</span> <span class="o">*</span> <span class="n">T2</span> <span class="o">+</span> <span class="mf">1.001685e-04</span> <span class="o">*</span> <span class="n">T3</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="mf">1.120083e-06</span> <span class="o">*</span> <span class="n">T4</span> <span class="o">+</span> <span class="mf">6.536332e-09</span> <span class="o">*</span> <span class="n">T5</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">S</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.824493</span> <span class="o">-</span> <span class="mf">4.0899e-03</span> <span class="o">*</span> <span class="n">T</span> <span class="o">+</span> <span class="mf">7.6438e-05</span> <span class="o">*</span> <span class="n">T2</span> <span class="o">-</span> <span class="mf">8.2467e-07</span> <span class="o">*</span> <span class="n">T3</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">S</span> <span class="o">*</span> <span class="mf">5.3875e-09</span> <span class="o">*</span> <span class="n">T4</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">S15</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="mf">5.72466e-03</span> <span class="o">+</span> <span class="mf">1.0227e-04</span> <span class="o">*</span> <span class="n">T</span> <span class="o">-</span> <span class="mf">1.6546e-06</span> <span class="o">*</span> <span class="n">T2</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">4.8314e-04</span> <span class="o">*</span> <span class="n">S2</span>
+
+    <span class="k">if</span> <span class="n">use_pressure</span> <span class="ow">and</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">p</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="mf">19652.21</span>
+            <span class="o">+</span> <span class="mf">148.4206</span> <span class="o">*</span> <span class="n">T</span>
+            <span class="o">-</span> <span class="mf">2.327105</span> <span class="o">*</span> <span class="n">T2</span>
+            <span class="o">+</span> <span class="mf">1.360477e-2</span> <span class="o">*</span> <span class="n">T3</span>
+            <span class="o">-</span> <span class="mf">5.155288e-5</span> <span class="o">*</span> <span class="n">T4</span>
+            <span class="o">+</span> <span class="mf">3.239908</span> <span class="o">*</span> <span class="n">p</span>
+            <span class="o">+</span> <span class="mf">1.43713e-3</span> <span class="o">*</span> <span class="n">T</span> <span class="o">*</span> <span class="n">p</span>
+            <span class="o">+</span> <span class="mf">1.16092e-4</span> <span class="o">*</span> <span class="n">T2</span> <span class="o">*</span> <span class="n">p</span>
+            <span class="o">-</span> <span class="mf">5.77905e-7</span> <span class="o">*</span> <span class="n">T3</span> <span class="o">*</span> <span class="n">p</span>
+            <span class="o">+</span> <span class="mf">8.50935e-5</span> <span class="o">*</span> <span class="n">p2</span>
+            <span class="o">-</span> <span class="mf">6.12293e-6</span> <span class="o">*</span> <span class="n">T</span> <span class="o">*</span> <span class="n">p2</span>
+            <span class="o">+</span> <span class="mf">5.2787e-8</span> <span class="o">*</span> <span class="n">T2</span> <span class="o">*</span> <span class="n">p2</span>
+            <span class="o">+</span> <span class="mf">54.6746</span> <span class="o">*</span> <span class="n">S</span>
+            <span class="o">-</span> <span class="mf">0.603459</span> <span class="o">*</span> <span class="n">T</span> <span class="o">*</span> <span class="n">S</span>
+            <span class="o">+</span> <span class="mf">1.09987e-2</span> <span class="o">*</span> <span class="n">T2</span> <span class="o">*</span> <span class="n">S</span>
+            <span class="o">-</span> <span class="mf">6.1670e-5</span> <span class="o">*</span> <span class="n">T3</span> <span class="o">*</span> <span class="n">S</span>
+            <span class="o">+</span> <span class="mf">7.944e-2</span> <span class="o">*</span> <span class="n">S15</span>
+            <span class="o">+</span> <span class="mf">1.6483e-2</span> <span class="o">*</span> <span class="n">T</span> <span class="o">*</span> <span class="n">S15</span>
+            <span class="o">-</span> <span class="mf">5.3009e-4</span> <span class="o">*</span> <span class="n">T2</span> <span class="o">*</span> <span class="n">S15</span>
+            <span class="o">+</span> <span class="mf">2.2838e-3</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="n">S</span>
+            <span class="o">-</span> <span class="mf">1.0981e-5</span> <span class="o">*</span> <span class="n">T</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="n">S</span>
+            <span class="o">-</span> <span class="mf">1.6078e-6</span> <span class="o">*</span> <span class="n">T2</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="n">S</span>
+            <span class="o">+</span> <span class="mf">1.91075e-4</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="n">S15</span>
+            <span class="o">-</span> <span class="mf">9.9348e-7</span> <span class="o">*</span> <span class="n">p2</span> <span class="o">*</span> <span class="n">S</span>
+            <span class="o">+</span> <span class="mf">2.0816e-8</span> <span class="o">*</span> <span class="n">T</span> <span class="o">*</span> <span class="n">p2</span> <span class="o">*</span> <span class="n">S</span>
+            <span class="o">+</span> <span class="mf">9.1697e-10</span> <span class="o">*</span> <span class="n">T2</span> <span class="o">*</span> <span class="n">p2</span> <span class="o">*</span> <span class="n">S</span>
+        <span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">p</span> <span class="o">/</span> <span class="n">k</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="jackett_density">
+<a class="viewcode-back" href="../../../api/util.html#pygotm.util.density.jackett_density">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">jackett_density</span><span class="p">(</span><span class="n">S</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">T</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">use_pressure</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute GOTM-Lake&#39;s Jackett/Feistel density polynomial.</span>
+
+<span class="sd">    This translates ``rho_feistel`` from ``gotm-lake/src/util/eqstate.F90``.</span>
+<span class="sd">    Pressure ``p`` is in dbar, matching that routine.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">th2</span> <span class="o">=</span> <span class="n">T</span> <span class="o">*</span> <span class="n">T</span>
+    <span class="n">sqrts</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="k">if</span> <span class="n">S</span> <span class="o">&gt;=</span> <span class="mf">0.0</span> <span class="k">else</span> <span class="n">math</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="n">anum</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="mf">9.9984085444849347e02</span>
+        <span class="o">+</span> <span class="n">T</span>
+        <span class="o">*</span> <span class="p">(</span>
+            <span class="mf">7.3471625860981584e00</span>
+            <span class="o">+</span> <span class="n">T</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="mf">5.3211231792841769e-02</span> <span class="o">+</span> <span class="n">T</span> <span class="o">*</span> <span class="mf">3.6492439109814549e-04</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="o">+</span> <span class="n">S</span>
+        <span class="o">*</span> <span class="p">(</span>
+            <span class="mf">2.5880571023991390e00</span>
+            <span class="o">-</span> <span class="n">T</span> <span class="o">*</span> <span class="mf">6.7168282786692355e-03</span>
+            <span class="o">+</span> <span class="n">S</span> <span class="o">*</span> <span class="mf">1.9203202055760151e-03</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">aden</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="mf">1.0000000000000000e00</span>
+        <span class="o">+</span> <span class="n">T</span>
+        <span class="o">*</span> <span class="p">(</span>
+            <span class="mf">7.2815210113327091e-03</span>
+            <span class="o">+</span> <span class="n">T</span>
+            <span class="o">*</span> <span class="p">(</span>
+                <span class="o">-</span><span class="mf">4.4787265461983921e-05</span>
+                <span class="o">+</span> <span class="n">T</span> <span class="o">*</span> <span class="p">(</span><span class="mf">3.3851002965802430e-07</span> <span class="o">+</span> <span class="n">T</span> <span class="o">*</span> <span class="mf">1.3651202389758572e-10</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="o">+</span> <span class="n">S</span>
+        <span class="o">*</span> <span class="p">(</span>
+            <span class="mf">1.7632126669040377e-03</span>
+            <span class="o">-</span> <span class="n">T</span> <span class="o">*</span> <span class="p">(</span><span class="mf">8.8066583251206474e-06</span> <span class="o">+</span> <span class="n">th2</span> <span class="o">*</span> <span class="mf">1.8832689434804897e-10</span><span class="p">)</span>
+            <span class="o">+</span> <span class="n">sqrts</span> <span class="o">*</span> <span class="p">(</span><span class="mf">5.7463776745432097e-06</span> <span class="o">+</span> <span class="n">th2</span> <span class="o">*</span> <span class="mf">1.4716275472242334e-09</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">use_pressure</span> <span class="ow">and</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="n">pth</span> <span class="o">=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">T</span>
+        <span class="n">anum</span> <span class="o">=</span> <span class="n">anum</span> <span class="o">+</span> <span class="n">p</span> <span class="o">*</span> <span class="p">(</span>
+            <span class="mf">1.1798263740430364e-02</span>
+            <span class="o">+</span> <span class="n">th2</span> <span class="o">*</span> <span class="mf">9.8920219266399117e-08</span>
+            <span class="o">+</span> <span class="n">S</span> <span class="o">*</span> <span class="mf">4.6996642771754730e-06</span>
+            <span class="o">-</span> <span class="n">p</span> <span class="o">*</span> <span class="p">(</span><span class="mf">2.5862187075154352e-08</span> <span class="o">+</span> <span class="n">th2</span> <span class="o">*</span> <span class="mf">3.2921414007960662e-12</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">aden</span> <span class="o">=</span> <span class="n">aden</span> <span class="o">+</span> <span class="n">p</span> <span class="o">*</span> <span class="p">(</span>
+            <span class="mf">6.7103246285651894e-06</span>
+            <span class="o">-</span> <span class="n">pth</span> <span class="o">*</span> <span class="p">(</span><span class="n">th2</span> <span class="o">*</span> <span class="mf">2.4461698007024582e-17</span> <span class="o">+</span> <span class="n">p</span> <span class="o">*</span> <span class="mf">9.1534417604289062e-18</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">anum</span> <span class="o">/</span> <span class="n">aden</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_is_legacy_lake_method</span><span class="p">(</span><span class="n">method</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">{</span>
+        <span class="n">METHOD_UNESCO_FULL</span><span class="p">,</span>
+        <span class="n">METHOD_UNESCO_POTENTIAL</span><span class="p">,</span>
+        <span class="n">METHOD_JACKETT_FULL</span><span class="p">,</span>
+        <span class="n">METHOD_JACKETT_POTENTIAL</span><span class="p">,</span>
+    <span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_legacy_uses_pressure</span><span class="p">(</span><span class="n">method</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">{</span><span class="n">METHOD_UNESCO_FULL</span><span class="p">,</span> <span class="n">METHOD_JACKETT_FULL</span><span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_legacy_density</span><span class="p">(</span><span class="n">method</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">S</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">T</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">p_bar</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="n">use_pressure</span> <span class="o">=</span> <span class="n">_legacy_uses_pressure</span><span class="p">(</span><span class="n">method</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">{</span><span class="n">METHOD_UNESCO_FULL</span><span class="p">,</span> <span class="n">METHOD_UNESCO_POTENTIAL</span><span class="p">}:</span>
+        <span class="k">return</span> <span class="n">unesco_density</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">p_bar</span><span class="p">,</span> <span class="n">use_pressure</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jackett_density</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">p_bar</span> <span class="o">*</span> <span class="mf">10.0</span><span class="p">,</span> <span class="n">use_pressure</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_legacy_alpha</span><span class="p">(</span><span class="n">method</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">S</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">T</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">p_bar</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">rho0</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="mf">0.01</span>
+    <span class="n">rho_a</span> <span class="o">=</span> <span class="n">_legacy_density</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">T</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">delta</span><span class="p">,</span> <span class="n">p_bar</span><span class="p">)</span>
+    <span class="n">rho_b</span> <span class="o">=</span> <span class="n">_legacy_density</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">T</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">delta</span><span class="p">,</span> <span class="n">p_bar</span><span class="p">)</span>
+    <span class="k">return</span> <span class="o">-</span><span class="p">(</span><span class="n">rho_a</span> <span class="o">-</span> <span class="n">rho_b</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">rho0</span> <span class="o">*</span> <span class="n">delta</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_legacy_beta</span><span class="p">(</span><span class="n">method</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">S</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">T</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">p_bar</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">rho0</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="mf">0.01</span>
+    <span class="n">rho_a</span> <span class="o">=</span> <span class="n">_legacy_density</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">S</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">delta</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">p_bar</span><span class="p">)</span>
+    <span class="n">rho_b</span> <span class="o">=</span> <span class="n">_legacy_density</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">S</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">delta</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">p_bar</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">rho_a</span> <span class="o">-</span> <span class="n">rho_b</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">rho0</span> <span class="o">*</span> <span class="n">delta</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="DensityState">
@@ -427,6 +627,8 @@
         <span class="n">state</span><span class="o">.</span><span class="n">cp</span> <span class="o">=</span> <span class="n">CP0</span>
     <span class="k">elif</span> <span class="n">state</span><span class="o">.</span><span class="n">density_method</span> <span class="o">==</span> <span class="n">METHOD_LINEAR_USER</span><span class="p">:</span>
         <span class="n">state</span><span class="o">.</span><span class="n">_rhob</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">rho0</span>
+    <span class="k">elif</span> <span class="n">_is_legacy_lake_method</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">density_method</span><span class="p">):</span>
+        <span class="n">state</span><span class="o">.</span><span class="n">cp</span> <span class="o">=</span> <span class="n">CP0</span>
 
     <span class="n">state</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">state</span><span class="o">.</span><span class="n">alpha0</span><span class="p">)</span>
     <span class="n">state</span><span class="o">.</span><span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">state</span><span class="o">.</span><span class="n">beta0</span><span class="p">)</span>
@@ -503,6 +705,60 @@
         <span class="p">)</span>
         <span class="n">state</span><span class="o">.</span><span class="n">alpha</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">_gsw</span><span class="o">.</span><span class="n">alpha</span><span class="p">(</span><span class="n">si</span><span class="p">,</span> <span class="n">ti</span><span class="p">,</span> <span class="n">pi</span><span class="p">)</span>
         <span class="n">state</span><span class="o">.</span><span class="n">beta</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">_gsw</span><span class="o">.</span><span class="n">beta</span><span class="p">(</span><span class="n">si</span><span class="p">,</span> <span class="n">ti</span><span class="p">,</span> <span class="n">pi</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">_is_legacy_lake_method</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">density_method</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nlev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">p_bar</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="o">/</span> <span class="mf">10.0</span>
+            <span class="n">state</span><span class="o">.</span><span class="n">rho</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">_legacy_density</span><span class="p">(</span>
+                <span class="n">state</span><span class="o">.</span><span class="n">density_method</span><span class="p">,</span>
+                <span class="nb">float</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">k</span><span class="p">]),</span>
+                <span class="nb">float</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">k</span><span class="p">]),</span>
+                <span class="n">p_bar</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">state</span><span class="o">.</span><span class="n">rho_p</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">rho</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nlev</span><span class="p">):</span>
+            <span class="n">p_bar</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pi</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="o">/</span> <span class="mf">10.0</span>
+            <span class="n">state</span><span class="o">.</span><span class="n">alpha</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">_legacy_alpha</span><span class="p">(</span>
+                <span class="n">state</span><span class="o">.</span><span class="n">density_method</span><span class="p">,</span>
+                <span class="nb">float</span><span class="p">(</span><span class="n">si</span><span class="p">[</span><span class="n">k</span><span class="p">]),</span>
+                <span class="nb">float</span><span class="p">(</span><span class="n">ti</span><span class="p">[</span><span class="n">k</span><span class="p">]),</span>
+                <span class="n">p_bar</span><span class="p">,</span>
+                <span class="n">state</span><span class="o">.</span><span class="n">rho0</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">state</span><span class="o">.</span><span class="n">beta</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">_legacy_beta</span><span class="p">(</span>
+                <span class="n">state</span><span class="o">.</span><span class="n">density_method</span><span class="p">,</span>
+                <span class="nb">float</span><span class="p">(</span><span class="n">si</span><span class="p">[</span><span class="n">k</span><span class="p">]),</span>
+                <span class="nb">float</span><span class="p">(</span><span class="n">ti</span><span class="p">[</span><span class="n">k</span><span class="p">]),</span>
+                <span class="n">p_bar</span><span class="p">,</span>
+                <span class="n">state</span><span class="o">.</span><span class="n">rho0</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="n">state</span><span class="o">.</span><span class="n">alpha</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">_legacy_alpha</span><span class="p">(</span>
+            <span class="n">state</span><span class="o">.</span><span class="n">density_method</span><span class="p">,</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">pi</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">,</span>
+            <span class="n">state</span><span class="o">.</span><span class="n">rho0</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">state</span><span class="o">.</span><span class="n">beta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">_legacy_beta</span><span class="p">(</span>
+            <span class="n">state</span><span class="o">.</span><span class="n">density_method</span><span class="p">,</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">pi</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">,</span>
+            <span class="n">state</span><span class="o">.</span><span class="n">rho0</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">state</span><span class="o">.</span><span class="n">alpha</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span> <span class="o">=</span> <span class="n">_legacy_alpha</span><span class="p">(</span>
+            <span class="n">state</span><span class="o">.</span><span class="n">density_method</span><span class="p">,</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">nlev</span><span class="p">]),</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">nlev</span><span class="p">]),</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">pi</span><span class="p">[</span><span class="n">nlev</span><span class="p">])</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">,</span>
+            <span class="n">state</span><span class="o">.</span><span class="n">rho0</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">state</span><span class="o">.</span><span class="n">beta</span><span class="p">[</span><span class="n">nlev</span><span class="p">]</span> <span class="o">=</span> <span class="n">_legacy_beta</span><span class="p">(</span>
+            <span class="n">state</span><span class="o">.</span><span class="n">density_method</span><span class="p">,</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">nlev</span><span class="p">]),</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">nlev</span><span class="p">]),</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">pi</span><span class="p">[</span><span class="n">nlev</span><span class="p">])</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">,</span>
+            <span class="n">state</span><span class="o">.</span><span class="n">rho0</span><span class="p">,</span>
+        <span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># Linear EOS: ρ = ρ_b · (1 − α₀(T − T₀) + β₀(S − S₀))</span>
         <span class="c1"># Lars: here, we should implement some sort of pressure dependency</span>
@@ -542,6 +798,8 @@
         <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">_gsw</span><span class="o">.</span><span class="n">rho</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">_gsw</span><span class="o">.</span><span class="n">sigma0</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">T</span><span class="p">))</span> <span class="o">+</span> <span class="mf">1000.0</span>
+    <span class="k">if</span> <span class="n">_is_legacy_lake_method</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">density_method</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_legacy_density</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">density_method</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">p</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">float</span><span class="p">(</span>
         <span class="n">state</span><span class="o">.</span><span class="n">_rhob</span>
         <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">state</span><span class="o">.</span><span class="n">alpha0</span> <span class="o">*</span> <span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">state</span><span class="o">.</span><span class="n">T0</span><span class="p">)</span> <span class="o">+</span> <span class="n">state</span><span class="o">.</span><span class="n">beta0</span> <span class="o">*</span> <span class="p">(</span><span class="n">S</span> <span class="o">-</span> <span class="n">state</span><span class="o">.</span><span class="n">S0</span><span class="p">))</span>
@@ -571,6 +829,8 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">state</span><span class="o">.</span><span class="n">density_method</span> <span class="o">==</span> <span class="n">METHOD_TEOS10</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">_gsw</span><span class="o">.</span><span class="n">alpha</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">_is_legacy_lake_method</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">density_method</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_legacy_alpha</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">density_method</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">state</span><span class="o">.</span><span class="n">rho0</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">state</span><span class="o">.</span><span class="n">alpha0</span></div>
 
 
@@ -597,6 +857,8 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">state</span><span class="o">.</span><span class="n">density_method</span> <span class="o">==</span> <span class="n">METHOD_TEOS10</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">_gsw</span><span class="o">.</span><span class="n">beta</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">_is_legacy_lake_method</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">density_method</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_legacy_beta</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">density_method</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">state</span><span class="o">.</span><span class="n">rho0</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">state</span><span class="o">.</span><span class="n">beta0</span></div>
 
 
@@ -651,8 +913,8 @@
     </aside>
   </div>
 </div><script src="../../../_static/documentation_options.js?v=01f34227"></script>
-    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
